@@ -157,7 +157,7 @@ ______________________________________________________________________
 |5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started |
 |5/22/2021| UpdateCatProfile | 3 | _ | _ | Not Started |
 |5/22/2021| DeleteCatProfile | 3 | _ | _ | Not Started |
-|5/23/2021| Debugging | 6 | _ | _ | Not Started |
+|5/23/2021| Debugging | 4 | _ | _ | Not Started |
 
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
