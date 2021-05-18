@@ -163,6 +163,7 @@ ______________________________________________________________________
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
 |:---:| :---: | :---:               | :---:                |:---:              |:---:
+|| Stretch Goals | _ | _ | _ | Not Started |
 
 # Stretch Goals
 -	Directions to cat from current location
