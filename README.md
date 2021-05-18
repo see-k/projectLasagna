@@ -136,7 +136,7 @@ ______________________________________________________________________
 |5/19/2021| JdbcTemplate Interface & Repo: A & C | 2 | _ | _ | Not Started | Derek
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
-|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
+|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
 |:---:| :---: | :---:               | :---:                |:---:              |:---:
 |5/20/2021| Result, ResultType, Validations | 2 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/20/2021| U & L Service | 4 | _ | _ | Not Started | Chike
