@@ -117,8 +117,9 @@ ______________________________________________________________________
 ______________________________________________________________________
 ## Time Tracker
 ### First Sprint: 05-17-2021 to 05-19-2021
-|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
-|:---:| :---: | :---:               | :---:                |:---:              |:---:
+|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
+|:---:| :---: | :---:               | :---:                |:---:              |:---: | :---:
+|5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
