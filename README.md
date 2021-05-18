@@ -122,8 +122,8 @@ ______________________________________________________________________
 |5/18/2021| Database directories & comments | 0:30 | 3:30 PM | 3:50 PM | Completed | Chike, Quinn
 |5/18/2021| Java directories & comments | 0:30 | 4:00 PM | _ | Not Started | Chike, Quinn
 |5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
-|5/18/2021| DDL: Sightings & Cats | 4 | _ | _ | Not Started | Quinn
-|5/18/2021| DDL: Alias & Reports | 4 | _ | _ | Not Started | Derek
+|5/18/2021| DDL: Sightings & Reports | 4 | _ | _ | Not Started | Quinn
+|5/18/2021| DDL: Alias & Cats | 4 | _ | _ | Not Started | Derek
 |5/19/2021| DML: Test Data | 3 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/19/2021| User & Location Models | 2 | _ | _ | Not Started | Chike
 |5/19/2021| Sightings & Reports Models | 2 | _ | _ | Not Started | Quinn
@@ -136,8 +136,8 @@ ______________________________________________________________________
 |5/19/2021| JdbcTemplate Interface & Repo: A & C | 2 | _ | _ | Not Started | Derek
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
-|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
-|:---:| :---: | :---:               | :---:                |:---:              |:---:
+|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
+|:---:| :---: | :---:               | :---:                |:---:              |:---: |:---: 
 |5/20/2021| Result, ResultType, Validations | 2 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/20/2021| U & L Service | 4 | _ | _ | Not Started | Chike
 |5/20/2021| S & R Service | 4 | _ | _ | Not Started | Quinn
