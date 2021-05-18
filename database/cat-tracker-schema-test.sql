@@ -12,12 +12,16 @@ use cat_tracker_test;
 
 -- Location: assigned to Chike Okonta
 
+-- Cats: assigned to Derrick Fidleman
+
+-- Alias: assigned to Derrick Fidleman
+
 -- Sightings: assigned to Quinn Chu
 create table sighting (
 	sighting_id int primary key not null auto_increment,
     img_path varchar(100),
     sighting_description varchar(300),
-    disabled boolean default 0,
+    disabled boolean not null default 0,
     constraint fk_sighting_user_id
 		foreign key (user_id)
         references `user`(user_id),
@@ -43,8 +47,5 @@ create table report (
         references sighting(sighting_id)
 );
 
--- Cats: assigned to Derrick Fidleman
-
--- Alias: assigned to Derrick Fidleman
 
 -- create tables and relationships
