@@ -36,6 +36,9 @@ Profiles for Cats: admin managed.
   -	Breed (owner only)
   -	most frequently spotted location (2-3 block radius)
   -	avg time of day spotted (1–2-hour window)
+  -	Display locations (map markers)
+-	report profile/sighting to be taken down by admin.
+-	Image SRC for individual sightings, SVG for images
 
 Profiles for User: 
   -	Username (shown publicly)
@@ -126,12 +129,8 @@ ______________________________________________________________________
 |:---:| :---: | :---:               | :---:                |:---:              |:---:
 
 # Stretch Goals
--	Display locations (map markers)
 -	Directions to cat from current location
--	Image SRC for individual sightings, SVG for images
--	Docker for task management
 -	share sightings on social media (embed link)
 -	like and comment on sightings in app
--	report profile/sighting to be taken down by admin.
 -	user account page to view all your own recorded sightings.
 
