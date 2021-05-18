@@ -117,16 +117,53 @@ ______________________________________________________________________
 ______________________________________________________________________
 ## Time Tracker
 ### First Sprint: 05-17-2021 to 05-19-2021
-|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
-|:---:| :---: | :---:               | :---:                |:---:              |:---:
+|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
+|:---:| :---: | :---:               | :---:                |:---:              |:---: | :---:
+|5/18/2021| Database directories & comments | 0:30 | 3:30 PM | 3:50 PM | Completed | Chike, Quinn
+|5/18/2021| Java directories & comments | 0:30 | 4:00 PM | _ | Not Started | Chike, Quinn
+|5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
+|5/18/2021| DDL: Sightings & Cats | 4 | _ | _ | Not Started | Quinn
+|5/18/2021| DDL: Alias & Reports | 4 | _ | _ | Not Started | Derek
+|5/19/2021| DML: Test Data | 3 | _ | _ | Not Started | Chike, Quinn, Derek
+|5/19/2021| User & Location Models | 2 | _ | _ | Not Started | Chike
+|5/19/2021| Sightings & Reports Models | 2 | _ | _ | Not Started | Quinn
+|5/19/2021| Alias & Cats Models | 2 | _ | _ | Not Started | Derek
+|5/19/2021| User & Location Mappers | 2 | _ | _ | Not Started | Chike
+|5/19/2021| Sightings & Reports Mappers | 2 | _ | _ | Not Started | Quinn
+|5/19/2021| Alias & Cats Mappers | 2 | _ | _ | Not Started | Derek
+|5/19/2021| JdbcTemplate Interface & Repo: U & L | 2 | _ | _ | Not Started | Chike
+|5/19/2021| JdbcTemplate Interface & Repo: S & R | 2 | _ | _ | Not Started | Quinn
+|5/19/2021| JdbcTemplate Interface & Repo: A & C | 2 | _ | _ | Not Started | Derek
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
 |:---:| :---: | :---:               | :---:                |:---:              |:---:
+|5/20/2021| Result, ResultType, Validations | 2 | _ | _ | Not Started | Chike, Quinn, Derek
+|5/20/2021| U & L Service | 4 | _ | _ | Not Started | Chike
+|5/20/2021| S & R Service | 4 | _ | _ | Not Started | Quinn
+|5/20/2021| A & C Service | 4 | _ | _ | Not Started | Derek
+|5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | _ | _ | Chike, Quinn, Derek
+|5/21/2021| U & L Controller | 4 | _ | _ | Not Started | Chike
+|5/21/2021| S & R Controller | 4 | _ | _ | Not Started | Quinn
+|5/21/2021| A & C Controller | 4 | _ | _ | Not Started | Derek
+|5/21/2021| React Setup | 1.5 | _ | _ | Not Started | Chike, Quinn, Derek
+|5/21/2021| Component Setup | 1.5 | _ | _ | Not Started | Chike, Quinn, Derek
+|5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Chike
+|5/21/2021| Static Pages (About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
+|5/21/2021| Navigation Bar | 2 | _ | _ | Not Started | Derek
+|5/22/2021| ViewSightings | 2 | _ | _ | Not Started |
+|5/22/2021| AddSighting | 3 | _ | _ | Not Started |
+|5/22/2021| DeleteSighting | 3 | _ | _ | Not Started |
+|5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started |
+|5/22/2021| UpdateCatProfile | 3 | _ | _ | Not Started |
+|5/22/2021| DeleteCatProfile | 3 | _ | _ | Not Started |
+|5/23/2021| Debugging | 4 | _ | _ | Not Started |
+
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
 |:---:| :---: | :---:               | :---:                |:---:              |:---:
+|| Stretch Goals | _ | _ | _ | Not Started |
 
 # Stretch Goals
 -	Directions to cat from current location
