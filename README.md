@@ -137,7 +137,7 @@ ______________________________________________________________________
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
-|:---:| :---: | :---:               | :---:                |:---:              |:---:
+|:---:| :---: | :---:               | :---:                |:---:              |:---: |:---: 
 |5/20/2021| Result, ResultType, Validations | 2 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/20/2021| U & L Service | 4 | _ | _ | Not Started | Chike
 |5/20/2021| S & R Service | 4 | _ | _ | Not Started | Quinn
