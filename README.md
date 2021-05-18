@@ -120,6 +120,8 @@ ______________________________________________________________________
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
 |:---:| :---: | :---:               | :---:                |:---:              |:---: | :---:
 |5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
+|5/18/2021| DDL: Sightings & Cats | 4 | _ | _ | Not Started | Quinn
+|5/18/2021| DDL: Alias & Reports | 4 | _ | _ | Not Started | Derek
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
