@@ -23,9 +23,9 @@ ___________________________________________________
 ### High Level Requirements
 The application user is an accommodation administrator. They pair guests to hosts to make reservations.
 
-•	Main App features
-  o	browse profiles by neighborhood/club.
-  o	view sightings per cat profile (map markers of sightings for that cat only)
+-	Main App features
+  -	browse profiles by neighborhood/club.
+  -	view sightings per cat profile (map markers of sightings for that cat only)
   o	view all sightings in neighborhood (click on location map markers)
 •	Profiles for Cats: admin managed.
   o	alias/name
