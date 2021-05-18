@@ -124,3 +124,14 @@ ______________________________________________________________________
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
 |:---:| :---: | :---:               | :---:                |:---:              |:---:
+
+# Stretch Goals
+-	Display locations (map markers)
+-	Directions to cat from current location
+-	Image SRC for individual sightings, SVG for images
+-	Docker for task management
+-	share sightings on social media (embed link)
+-	like and comment on sightings in app
+-	report profile/sighting to be taken down by admin.
+-	user account page to view all your own recorded sightings.
+
