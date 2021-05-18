@@ -120,15 +120,25 @@ ______________________________________________________________________
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
 |:---:| :---: | :---:               | :---:                |:---:              |:---: | :---:
 |5/18/2021| Database directories & comments | 0:30 | _ | _ | Not Started | Chike, Quinn
-|5/19/2021| Java directories & comments | 0:30 | _ | _ | Not Started | Chike, Quinn
+|5/18/2021| Java directories & comments | 0:30 | _ | _ | Not Started | Chike, Quinn
 |5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
 |5/18/2021| DDL: Sightings & Cats | 4 | _ | _ | Not Started | Quinn
 |5/18/2021| DDL: Alias & Reports | 4 | _ | _ | Not Started | Derek
 |5/19/2021| DML: Test Data | 3 | _ | _ | Not Started | Chike, Quinn, Derek
+|5/19/2021| User & Location Models | 2 | _ | _ | Not Started | Chike
+|5/19/2021| Sightings & Reports Models | 2 | _ | _ | Not Started | Quinn
+|5/19/2021| Alias & Cats Models | 2 | _ | _ | Not Started | Derek
+|5/19/2021| User & Location Mappers | 2 | _ | _ | Not Started | Chike
+|5/19/2021| Sightings & Reports Mappers | 2 | _ | _ | Not Started | Quinn
+|5/19/2021| Alias & Cats Mappers | 2 | _ | _ | Not Started | Derek
+|5/19/2021| JdbcTemplate Interface & Repo: U & L | 2 | _ | _ | Not Started | Chike
+|5/19/2021| JdbcTemplate Interface & Repo: S & R | 2 | _ | _ | Not Started | Quinn
+|5/19/2021| JdbcTemplate Interface & Repo: A & C | 2 | _ | _ | Not Started | Derek
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
 |:---:| :---: | :---:               | :---:                |:---:              |:---:
+|5/20/2021|  |  | _ | _ | Not Started | 
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
