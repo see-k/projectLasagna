@@ -76,12 +76,16 @@ To lauch User Interface
  ```diff
  + Click Link to view Flow chart in full page
  ```
+ LOGIN PAGE
  ![other_login](https://user-images.githubusercontent.com/40407778/118699032-ae4b8000-b7d6-11eb-808c-c727ef5d197f.png)
  
+ PROFILE PAGE
  ![cat_profiles_w_edit](https://user-images.githubusercontent.com/40407778/118699054-b4d9f780-b7d6-11eb-9314-d1d3eb1a9479.png)
  
+ ADD FORM
  ![add_sighting_form](https://user-images.githubusercontent.com/40407778/118699068-b9061500-b7d6-11eb-8aff-2d4da40fe0d2.png)
  
+ VIEW SIGHTINGS
  ![view-sightings](https://user-images.githubusercontent.com/40407778/118699081-bc999c00-b7d6-11eb-8ded-e302eb3d0dc8.png)
 
 
