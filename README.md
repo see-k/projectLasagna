@@ -151,7 +151,13 @@ ______________________________________________________________________
 |5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Chike
 |5/21/2021| Static Pages (About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
 |5/21/2021| Navigation Bar | 2 | _ | _ | Not Started | Derek
-
+|5/22/2021| ViewSightings | 2 | _ | _ | Not Started |
+|5/22/2021| AddSighting | 3 | _ | _ | Not Started |
+|5/22/2021| DeleteSighting | 3 | _ | _ | Not Started |
+|5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started |
+|5/22/2021| UpdateCatProfile | 3 | _ | _ | Not Started |
+|5/22/2021| DeleteCatProfile | 3 | _ | _ | Not Started |
+|5/23/2021| Debugging | 6 | _ | _ | Not Started |
 
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
