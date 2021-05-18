@@ -19,7 +19,7 @@ create table sighting (
 	sighting_id int primary key not null auto_increment,
     img_path varchar(100),
     sighting_description varchar(300),
-    disabled boolean not null default 0,
+    disabled bit not null default 0,
     constraint fk_sighting_user_id
 		foreign key (user_id)
         references `user`(user_id),
