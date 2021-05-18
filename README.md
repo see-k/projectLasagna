@@ -120,9 +120,9 @@ ______________________________________________________________________
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
 |:---:| :---: | :---:               | :---:                |:---:              |:---: | :---:
 |5/18/2021| Database directories & comments | 0:30 | 3:30 PM | 3:50 PM | Completed | Chike, Quinn
-|5/18/2021| Java directories & comments | 0:30 | 3:30 PM | 4:00 PM | Not Started | Chike, Quinn
+|5/18/2021| Java directories & comments | 0:30 | 3:30 PM | 4:00 PM | Completed | Chike, Quinn
 |5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
-|5/18/2021| DDL: Sightings & Reports | 4 | _ | _ | Not Started | Quinn
+|5/18/2021| DDL: Sightings & Reports | 4 | 4:00pm | 5:00pm | Completed | Quinn
 |5/18/2021| DDL: Alias & Cats | 4 | _ | _ | Not Started | Derek
 |5/19/2021| DML: Test Data | 3 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/19/2021| User & Location Models | 2 | _ | _ | Not Started | Chike
@@ -161,8 +161,8 @@ ______________________________________________________________________
 
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
-|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
-|:---:| :---: | :---:               | :---:                |:---:              |:---:
+|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
+|:---:| :---: | :---:               | :---:                |:---:              |:---: |:---:
 || Stretch Goals | _ | _ | _ | Not Started |
 
 # Stretch Goals
