@@ -119,8 +119,8 @@ ______________________________________________________________________
 ### First Sprint: 05-17-2021 to 05-19-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
 |:---:| :---: | :---:               | :---:                |:---:              |:---: | :---:
-|5/18/2021| Database directories & comments | 0:30 | _ | _ | Not Started | Chike, Quinn
-|5/18/2021| Java directories & comments | 0:30 | _ | _ | Not Started | Chike, Quinn
+|5/18/2021| Database directories & comments | 0:30 | 3:30 PM | _ | In progress | Chike, Quinn
+|5/18/2021| Java directories & comments | 0:30 | 4:00 PM | _ | Not Started | Chike, Quinn
 |5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
 |5/18/2021| DDL: Sightings & Cats | 4 | _ | _ | Not Started | Quinn
 |5/18/2021| DDL: Alias & Reports | 4 | _ | _ | Not Started | Derek
