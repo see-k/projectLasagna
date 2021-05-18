@@ -23,29 +23,32 @@ ___________________________________________________
 ### High Level Requirements
 The application user is an accommodation administrator. They pair guests to hosts to make reservations.
 
--	Main App features
+Main App features
   -	browse profiles by neighborhood/club.
   -	view sightings per cat profile (map markers of sightings for that cat only)
-  o	view all sightings in neighborhood (click on location map markers)
-•	Profiles for Cats: admin managed.
-  o	alias/name
-  o	picture (if applicable)
-  o	owner (if applicable)
-  o	description: visual description, friendliness/approachability
-  o	Breed (owner only)
-  o	most frequently spotted location (2-3 block radius)
-  o	avg time of day spotted (1–2-hour window)
-•	Profiles for User: 
-  o	Username (shown publicly)
-  o	First/last name (shown publicly – optional to user)
-  o	List of cats owned by user (if any)
-  o	List of sightings 
-•	Sightings: user submission
-  o	pictures/videos
-  o	date and time
-  o	Location
-  o	Visual/physical description
-  o	Description of sighting/interaction (seemed scared, friendly/asked for pets, collar/no collar, hungry, etc.)
+  -	view all sightings in neighborhood (click on location map markers)
+
+Profiles for Cats: admin managed.
+  -	alias/name
+  -	picture (if applicable)
+  -	owner (if applicable)
+  -	description: visual description, friendliness/approachability
+  -	Breed (owner only)
+  -	most frequently spotted location (2-3 block radius)
+  -	avg time of day spotted (1–2-hour window)
+
+Profiles for User: 
+  -	Username (shown publicly)
+  -	First/last name (shown publicly – optional to user)
+  -	List of cats owned by user (if any)
+  -	List of sightings 
+	
+Sightings: user submission
+  -	pictures/videos
+  -	date and time
+  -	Location
+  -	Visual/physical description
+  -	Description of sighting/interaction (seemed scared, friendly/asked for pets, collar/no collar, hungry, etc.)
 
 
 ___________________________________________________
