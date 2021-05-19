@@ -121,9 +121,9 @@ ______________________________________________________________________
 |:---:| :---: | :---:               | :---:                |:---:              |:---: | :---:
 |5/18/2021| Database directories & comments | 0:30 | 3:30 PM | 3:50 PM | Completed | Chike, Quinn
 |5/18/2021| Java directories & comments | 0:30 | 3:30 PM | 4:00 PM | Not Started | Chike, Quinn
-|5/18/2021| DDL: User & Location| 4| _ | _ | Not Started | Chike
-|5/18/2021| DDL: Sightings & Reports | 4 | _ | _ | Not Started | Quinn
-|5/18/2021| DDL: Alias & Cats | 4 | 4:30pm | 5:00pm | Not Started | Derek
+|5/18/2021| DDL: User & Location| 4| 7:00 PM | 8:10 PM | Completed | Chike
+|5/18/2021| DDL: Sightings & Reports | 4 | 4:30pm | 5:00pm | Complete | Quinn
+|5/18/2021| DDL: Alias & Cats | 4 | 4:30pm | 5:00pm | Completed | Derek
 |5/19/2021| DML: Test Data | 3 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/19/2021| User & Location Models | 2 | _ | _ | Not Started | Chike
 |5/19/2021| Sightings & Reports Models | 2 | _ | _ | Not Started | Quinn
@@ -142,7 +142,7 @@ ______________________________________________________________________
 |5/20/2021| U & L Service | 4 | _ | _ | Not Started | Chike
 |5/20/2021| S & R Service | 4 | _ | _ | Not Started | Quinn
 |5/20/2021| A & C Service | 4 | _ | _ | Not Started | Derek
-|5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | _ | _ | Chike, Quinn, Derek
+|5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | _ | _ | Not Started |Chike, Quinn, Derek
 |5/21/2021| U & L Controller | 4 | _ | _ | Not Started | Chike
 |5/21/2021| S & R Controller | 4 | _ | _ | Not Started | Quinn
 |5/21/2021| A & C Controller | 4 | _ | _ | Not Started | Derek
