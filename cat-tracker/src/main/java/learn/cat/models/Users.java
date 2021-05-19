@@ -2,7 +2,7 @@ package learn.cat.models;
 
 import java.util.List;
 
-public class User {
+public class Users {
     private int userId;
     private String username;
     private String firstName;
