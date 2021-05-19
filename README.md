@@ -124,7 +124,7 @@ ______________________________________________________________________
 |5/18/2021| DDL: User & Location| 4| 7:00 PM | 8:10 PM | Completed | Chike
 |5/18/2021| DDL: Sightings & Reports | 4 | 4:30pm | 5:00pm | Complete | Quinn
 |5/18/2021| DDL: Alias & Cats | 4 | 4:30pm | 5:00pm | Completed | Derek
-|5/19/2021| DML: Test Data | 3 | _ | _ | Not Started | Chike, Quinn, Derek
+|5/19/2021| DML: Test Data | 3 | 9:00 AM | 12:00 PM | Not Started | Chike, Quinn, Derek
 |5/19/2021| User & Location Models | 2 | _ | _ | Not Started | Chike
 |5/19/2021| Sightings & Reports Models | 2 | _ | _ | Not Started | Quinn
 |5/19/2021| Alias & Cats Models | 2 | _ | _ | Not Started | Derek
