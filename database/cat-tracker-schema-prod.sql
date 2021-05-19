@@ -7,9 +7,19 @@ create database cat_tracker;
 use cat_tracker;
 
 -- User: assigned to Chike Okonta
+CREATE TABLE users (
+	users_id int PRIMARY KEY AUTO_INCREMENT,
+    users_name VARCHAR(25) NOT NULL,
+    users_email VARCHAR(50),
+    diabled BOOLEAN NOT NULL DEFAULT(0)
+);
 
 -- Location: assigned to Chike Okonta
-
+CREATE TABLE locations (
+	location_id int PRIMARY KEY AUTO_INCREMENT,
+    latitude DECIMAL(8,6),
+    longitude DECIMAL(8,6)
+);
 -- Alias: assigned to Derrick Fidelman
 CREATE TABLE alias (
 	alias_id int PRIMARY KEY AUTO_INCREMENT,
@@ -27,10 +37,10 @@ CREATE TABLE cat (
     img_path varchar(100) NULL,
     cat_description varchar(300) NULL,
     disabled bit NOT NULL,
-    user_id int NOT NULL,
-    CONSTRAINT fk_cat_user_id
-		FOREIGN KEY (user_id)
-        REFERENCES `user`(user_id)
+    users_id int NOT NULL,
+    CONSTRAINT fk_cat_users_id
+		FOREIGN KEY (users_id)
+        REFERENCES users(users_id)
 );
 
 -- Sighting: assigned to Quinn Chu
