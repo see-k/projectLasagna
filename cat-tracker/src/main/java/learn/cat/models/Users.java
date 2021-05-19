@@ -1,4 +1,4 @@
 package learn.cat.models;
 
-public class User {
+public class Users {
 }

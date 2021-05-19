@@ -9,7 +9,7 @@ public class Cat {
     private String name;
     private String desc;
     private String picture;
-    private User user;
+    private Users users;
     private boolean isDisabled;
     private List<Alias> aliases = new ArrayList<>();
 
@@ -45,12 +45,12 @@ public class Cat {
         this.picture = picture;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUser() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Users users) {
+        this.users = users;
     }
 
     public boolean isDisabled() {
