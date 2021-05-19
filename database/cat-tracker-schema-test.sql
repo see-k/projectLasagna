@@ -6,14 +6,14 @@ drop database if exists cat_tracker_test;
 create database cat_tracker_test;
 use cat_tracker_test;
 
-
 -- User: assigned to Chike Okonta
 CREATE TABLE users (
 	users_id int PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(25) NOT NULL,
     first_name VARCHAR(25),
     last_name VARCHAR(25),
-    diabled BIT NOT NULL DEFAULT 0
+    users_email VARCHAR(50),
+    disabled BIT NOT NULL DEFAULT 0
 );
 
 -- Location: assigned to Chike Okonta
@@ -52,7 +52,8 @@ create table sighting (
     img_path varchar(100),
     visual_description varchar(300),
     sighting_description varchar(300),
-    sighting_time datetime not null,
+    sighting_date date not null,
+    sighting_time time not null,
     disabled bit not null default 0,
     users_id int NOT NULL,
     location_id int NOT NULL,
@@ -85,6 +86,7 @@ create table report (
         references sighting(sighting_id)
 );
 
+
 -- Set known good state: assigned to Chike Okonta, Quinn Chu, Derrick Fidleman
 delimiter //
 create procedure set_known_good_state()
@@ -103,23 +105,32 @@ begin
     delete from report;
     alter table report auto_increment = 1;
     
-    insert into users(users_id, users_name, first_name, last_name, users_email, disabled) values
-		();
+    insert into users(users_id, username, first_name, last_name, users_email, disabled) values
+		(1, 'COkonta', 'Chike', 'Okonta', 'COkonta@dev-10.com', 0),
+        (2, 'QChu', 'Quinn', 'Chu', 'QChu@dev-10.com', 0),
+        (3, 'DFidelman', 'Derrick', 'Fidelman', 'DFidelman@dev-10.com', 0);
         
 	insert into location(location_id, latitude, longitude) values
-		();
+		(1, 44.943687, -93.296228),
+        (2, 44.947434, -93.292580),
+        (3, 44.944966, -93.290499);
         
 	insert into cat(cat_id, cat_name, img_path, cat_description, disabled, users_id) values
-		();
+		(1, 'Noodle', './database/images/noodle.jpg', '', 0, 2),
+        (2, '', './database/images/garfield.jpg', '', 0, 1),
+        (3, 'Gary', './database/images/gary.jpg', '', 0, 3);
         
 	insert into alias(alias_id, alias_name, cat_id) values
-		();
+		(1, 'Garfield', 2),
+        (2, 'The Snail', 3);
         
-	insert into sighting(sighting_id, img_path, sighting_description, disabled, users_id, location_id, cat_id) values 
-		();
+	insert into sighting(sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id) values 
+		(1, './database/images/gary_sighting_01-01-2001.jpg','','','2001-01-01','18:50:12', 0, 3, 2, 3);
         
 	insert into report(report_id, report_description, cat_id, users_id, sighting_id) values
-		();
+		(1, 'it is not a cat. its a snail', 3, null, null),
+        (2, 'inappropriate username', null, 1, null),
+        (3, 'this is a dog!!!', null, null, 1);
     
 end //
 delimiter ;
