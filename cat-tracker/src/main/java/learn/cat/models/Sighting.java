@@ -1,17 +1,15 @@
 package learn.cat.models;
 
-import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Sighting {
 
     private int sightingId;
-    private Date sightingDate;
-    private Time sightingTime;
+    private LocalDate sightingDate;
+    private LocalTime sightingTime;
     private String catDescription;
     private String sightingDescription;
     private Location location;
@@ -31,19 +29,19 @@ public class Sighting {
         this.sightingId = sightingId;
     }
 
-    public Date getSightingDate() {
+    public LocalDate getSightingDate() {
         return sightingDate;
     }
 
-    public void setSightingDate(Date sightingDate) {
+    public void setSightingDate(LocalDate sightingDate) {
         this.sightingDate = sightingDate;
     }
 
-    public Time getSightingTime() {
+    public LocalTime getSightingTime() {
         return sightingTime;
     }
 
-    public void setSightingTime(Time sightingTime) {
+    public void setSightingTime(LocalTime sightingTime) {
         this.sightingTime = sightingTime;
     }
 
