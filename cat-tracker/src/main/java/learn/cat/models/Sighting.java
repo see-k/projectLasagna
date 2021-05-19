@@ -14,9 +14,9 @@ public class Sighting {
     private Time sightingTime;
     private String catDescription;
     private String sightingDescription;
-    private int locationId;
-    private int usersId;
-    private int catId;
+    private Location location;
+    private Users users;
+    private Cat cat;
     private boolean isDisabled;
     private List<String> pictures;
 
@@ -63,28 +63,28 @@ public class Sighting {
         this.sightingDescription = sightingDescription;
     }
 
-    public int getLocationId() {
-        return locationId;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocationId(int locationId) {
-        this.locationId = locationId;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
-    public int getUsersId() {
-        return usersId;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsersId(int usersId) {
-        this.usersId = usersId;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
-    public int getCatId() {
-        return catId;
+    public Cat getCat() {
+        return cat;
     }
 
-    public void setCatId(int catId) {
-        this.catId = catId;
+    public void setCat(Cat cat) {
+        this.cat = cat;
     }
 
     public boolean isDisabled() {

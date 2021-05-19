@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SightingMapper implements RowMapper<Sighting>{
+public class SightingMapper implements RowMapper<Sighting> {
     @Override
     public Sighting mapRow(ResultSet resultSet, int i) throws SQLException {
         Sighting sighting = new Sighting();
@@ -18,9 +18,16 @@ public class SightingMapper implements RowMapper<Sighting>{
         sighting.setCatDescription(resultSet.getString("visual_description"));
         sighting.setSightingDescription(resultSet.getString("sighting_description"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));
-        sighting.setCatId(resultSet.getInt("cat_id"));
-        sighting.setUsersId(resultSet.getInt("users_id"));
-        sighting.setLocationId(resultSet.getInt("location_id"));
+
+        LocationMapper locationMapper = new LocationMapper();
+        sighting.setLocation(locationMapper.mapRow(resultSet, i));
+
+        CatMapper catMapper = new CatMapper();
+        sighting.setCat(catMapper.mapRow(resultSet, i));
+
+        UsersMapper usersMapper = new UsersMapper();
+        sighting.setUsers(usersMapper.mapRow(resultSet, i));
+
         List<String> pictures = new ArrayList<>();
         String path = resultSet.getString("img_path");
         pictures.add(path);

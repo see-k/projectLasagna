@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="443ffbcf-1a22-4687-90b9-c1af79fcc985" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/UserJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/UsersJdbcTemplateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/UsersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/ReportMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/ReportMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/SightingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/SightingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/UsersMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/domain/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/domain/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/models/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/models/Report.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/models/Sighting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/models/Sighting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/models/Users.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
