@@ -6,17 +6,6 @@ drop database if exists cat_tracker_test;
 create database cat_tracker_test;
 use cat_tracker_test;
 
--- Set known good state: assigned to Chike Okonta, Quinn Chu, Derrick Fidleman
-
--- User: assigned to Chike Okonta
-
--- Location: assigned to Chike Okonta
-
--- Cats: assigned to Derrick Fidleman
-
--- Alias: assigned to Derrick Fidleman
-
-
 
 
 -- create tables and relationships

@@ -6,13 +6,7 @@ drop database if exists cat_tracker;
 create database cat_tracker;
 use cat_tracker;
 
--- User: assigned to Chike Okonta
 
--- Location: assigned to Chike Okonta
-
--- Cats: assigned to Derrick Fidleman
-
--- Alias: assigned to Derrick Fidleman
 
 
 
