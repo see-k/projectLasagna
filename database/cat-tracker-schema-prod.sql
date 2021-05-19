@@ -45,8 +45,41 @@ CREATE TABLE alias (
 );
 
 -- Sightings: assigned to Quinn Chu
-
+create table sighting (
+	sighting_id int primary key not null auto_increment,
+    img_path varchar(100),
+    sighting_description varchar(300),
+    disabled bit not null default 0,
+    users_id int NOT NULL,
+    location_id int NOT NULL,
+    cat_id int,
+    constraint fk_sighting_users_id
+		foreign key (users_id)
+        references users(users_id),
+	constraint fk_sighting_location_id
+		foreign key (location_id)
+        references location(location_id),
+	constraint fk_sighting_cat_id
+		foreign key (cat_id)
+        references cat(cat_id)
+);
 -- Reports: assigned to Quinn Chu
+create table report (
+	report_id int PRIMARY KEY AUTO_INCREMENT,
+    report_description varchar(300),
+    cat_id int,
+    users_id int,
+    sighting_id int,
+    constraint fk_report_cat_id
+		foreign key (cat_id)
+        references cat(cat_id),
+	constraint fk_report_users_id
+		foreign key (users_id)
+        references users(users_id),
+    constraint fk_report_sighting_id
+		foreign key (sighting_id)
+        references sighting(sighting_id)
+);
 
 -- create tables and relationships
 
