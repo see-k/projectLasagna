@@ -122,7 +122,7 @@ ______________________________________________________________________
 |5/18/2021| Database directories & comments | 0:30 | 3:30 PM | 3:50 PM | Completed | Chike, Quinn
 |5/18/2021| Java directories & comments | 0:30 | 3:30 PM | 4:00 PM | Not Started | Chike, Quinn
 |5/18/2021| DDL: User & Location| 4| 7:00 PM | 8:10 PM | Completed | Chike
-|5/18/2021| DDL: Sightings & Reports | 4 | _ | _ | Not Started | Quinn
+|5/18/2021| DDL: Sightings & Reports | 4 | 4:30pm | 5:00pm | Complete | Quinn
 |5/18/2021| DDL: Alias & Cats | 4 | 4:30pm | 5:00pm | Completed | Derek
 |5/19/2021| DML: Test Data | 3 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/19/2021| User & Location Models | 2 | _ | _ | Not Started | Chike
