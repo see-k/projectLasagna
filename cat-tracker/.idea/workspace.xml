@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="443ffbcf-1a22-4687-90b9-c1af79fcc985" name="Default Changelist" comment="" />
+    <list default="true" id="443ffbcf-1a22-4687-90b9-c1af79fcc985" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/UserJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/UsersJdbcTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/domain/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/domain/UsersService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
