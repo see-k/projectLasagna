@@ -12,12 +12,31 @@ use cat_tracker_test;
 
 -- Location: assigned to Chike Okonta
 
--- Sightings: assigned to Quinn Chu
+-- Alias: assigned to Derrick Fidelman
+CREATE TABLE alias (
+	alias_id int PRIMARY KEY AUTO_INCREMENT,
+    alias_name varchar(50) NOT NULL,
+    cat_id int NOT NULL,
+    CONSTRAINT fk_alias_cat_id
+		FOREIGN KEY (cat_id)
+        REFERENCES cat(cat_id)
+);
 
--- Cats: assigned to Quinn Chu
+-- Cat: assigned to Derrick Fidelman
+CREATE TABLE cat (
+	cat_id int PRIMARY KEY AUTO_INCREMENT,
+    cat_name varchar(50) NOT NULL,
+    img_path varchar(100) NULL,
+    cat_description varchar(300) NULL,
+    disabled bit NOT NULL,
+    user_id int NOT NULL,
+    CONSTRAINT fk_cat_user_id
+		FOREIGN KEY (user_id)
+        REFERENCES `user`(user_id)
+);
 
--- Alias: assigned to Derrick Fidleman
+-- Sighting: assigned to Quinn Chu
 
--- Reports: assigned to Derrick Fidleman
+-- Report: assigned to Quinn Chu
 
 -- create tables and relationships
