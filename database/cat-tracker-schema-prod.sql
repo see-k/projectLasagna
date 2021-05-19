@@ -10,9 +10,11 @@ use cat_tracker;
 -- User: assigned to Chike Okonta
 CREATE TABLE users (
 	users_id int PRIMARY KEY AUTO_INCREMENT,
-    users_name VARCHAR(25) NOT NULL,
+    username VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25),
+    last_name VARCHAR(25),
     users_email VARCHAR(50),
-    diabled BOOLEAN NOT NULL DEFAULT(0)
+    disabled BIT NOT NULL DEFAULT 0
 );
 
 -- Location: assigned to Chike Okonta
@@ -49,6 +51,7 @@ CREATE TABLE alias (
 create table sighting (
 	sighting_id int primary key not null auto_increment,
     img_path varchar(100),
+    visual_description varchar(300),
     sighting_description varchar(300),
     disabled bit not null default 0,
     users_id int NOT NULL,
