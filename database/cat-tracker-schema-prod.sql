@@ -20,9 +20,9 @@ create table sighting (
     img_path varchar(100),
     sighting_description varchar(300),
     disabled bit not null default 0,
-    constraint fk_sighting_user_id
-		foreign key (user_id)
-        references `user`(user_id),
+    constraint fk_sighting_users_id
+		foreign key (users_id)
+        references users(users_id),
 	constraint fk_sighting_location_id
 		foreign key (location_id)
         references location(location_id),
@@ -37,9 +37,9 @@ create table report (
     constraint fk_report_cat_id
 		foreign key (cat_id)
         references cat(cat_id),
-	constraint fk_report_user_id
-		foreign key (user_id)
-        references `user`(user_id),
+	constraint fk_report_users_id
+		foreign key (users_id)
+        references users(users_id),
     constraint fk_report_sighting_id
 		foreign key (sighting_id)
         references sighting(sighting_id)
