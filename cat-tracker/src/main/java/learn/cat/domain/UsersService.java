@@ -1,4 +1,4 @@
 package learn.cat.domain;
 
-public class UserService {
+public class UsersService {
 }
