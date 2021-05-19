@@ -15,19 +15,10 @@ CREATE TABLE users (
 );
 
 -- Location: assigned to Chike Okonta
-CREATE TABLE locations (
+CREATE TABLE location (
 	location_id int PRIMARY KEY AUTO_INCREMENT,
     latitude DECIMAL(8,6),
     longitude DECIMAL(8,6)
-);
--- Alias: assigned to Derrick Fidelman
-CREATE TABLE alias (
-	alias_id int PRIMARY KEY AUTO_INCREMENT,
-    alias_name varchar(50) NOT NULL,
-    cat_id int NOT NULL,
-    CONSTRAINT fk_alias_cat_id
-		FOREIGN KEY (cat_id)
-        REFERENCES cat(cat_id)
 );
 
 -- Cat: assigned to Derrick Fidelman
@@ -43,9 +34,19 @@ CREATE TABLE cat (
         REFERENCES users(users_id)
 );
 
--- Sighting: assigned to Quinn Chu
+-- Alias: assigned to Derrick Fidelman
+CREATE TABLE alias (
+	alias_id int PRIMARY KEY AUTO_INCREMENT,
+    alias_name varchar(50) NOT NULL,
+    cat_id int NOT NULL,
+    CONSTRAINT fk_alias_cat_id
+		FOREIGN KEY (cat_id)
+        REFERENCES cat(cat_id)
+);
 
--- Report: assigned to Quinn Chu
+-- Sightings: assigned to Quinn Chu
+
+-- Reports: assigned to Quinn Chu
 
 -- create tables and relationships
 
