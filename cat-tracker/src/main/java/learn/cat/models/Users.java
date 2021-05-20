@@ -1,4 +1,5 @@
 package learn.cat.models;
+import java.util.List;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class Users {
     private String lastName;
     private String email;
     private Boolean disabled;
-    private List<Cat> cats;
+    private List<Cat> cats = new ArrayList<>();
 
     public int getUserId() {
         return userId;
@@ -60,8 +61,7 @@ public class Users {
     }
 
     public List<Cat> getCats() {
-        return cats;
-    }
+        return new ArrayList<>(cats);
 
     public void setCats(List<Cat> cats) {
         this.cats = cats;
