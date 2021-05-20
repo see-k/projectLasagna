@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="443ffbcf-1a22-4687-90b9-c1af79fcc985" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/SightingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/SightingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/models/Sighting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/models/Sighting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/AliasMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/AliasMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/CatMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/CatMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/domain/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/domain/ResultType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/domain/ResultType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/models/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/models/Cat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
