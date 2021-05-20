@@ -63,6 +63,7 @@ public class Users {
 
     public List<Cat> getCats() {
         return new ArrayList<>(cats);
+
     }
 
     public void setCats(List<Cat> cats) {
