@@ -93,15 +93,4 @@ public class ReportJdbcTemplateRepository implements ReportRepository {
         return jdbcTemplate.update(
                 "delete from report where report_id = ?;", reportId) > 0;
     }
-
-    /*KeyHolder keyHolder = new GeneratedKeyHolder();
-        int rowsAffected = jdbcTemplate.update(connection -> {
-            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
-            return ps;
-        }, keyHolder);
-
-        if (rowsAffected <= 0) {
-            return null;
-        }*/
 }
