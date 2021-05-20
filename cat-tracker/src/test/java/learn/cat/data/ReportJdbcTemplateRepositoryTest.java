@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SightingJdbcTemplateRepositoryTest {
+class ReportJdbcTemplateRepositoryTest {
 
     @Autowired
-    SightingJdbcTemplateRepository repository;
+    ReportJdbcTemplateRepository repository;
 
     @Autowired
     KnownGoodState knownGoodState;
@@ -20,7 +20,7 @@ class SightingJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void shouldFindAll() {
+    void findAll() {
     }
 
     @Test
@@ -28,11 +28,11 @@ class SightingJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void findByUser() {
+    void findByUserId() {
     }
 
     @Test
-    void findByCat() {
+    void findByCatId() {
     }
 
     @Test
