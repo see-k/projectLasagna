@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="443ffbcf-1a22-4687-90b9-c1af79fcc985" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/AliasMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/AliasMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/CatMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/data/mappers/CatMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/domain/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/domain/ResultType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/domain/ResultType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/cat/models/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/cat/models/Cat.java" afterDir="false" />
+>>>>>>> 29df0c7479a693bb1b79bbc530b14aa1764f6383
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,17 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="learn.cat.data" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
