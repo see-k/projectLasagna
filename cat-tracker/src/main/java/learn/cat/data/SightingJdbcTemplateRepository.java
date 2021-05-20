@@ -25,31 +25,38 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
 
     @Override
     public Sighting findById(int sightingId) {
+        final String sql =
         return null;
     }
 
     @Override
     public List<Sighting> findByUser(Users users) {
+        final String sql =
         return null;
     }
 
     @Override
     public List<Sighting> findByCat(Cat cat) {
+        final String sql =
         return null;
     }
 
     @Override
     public Sighting add(Sighting sighting) {
+        final String sql =
         return null;
     }
 
     @Override
     public boolean update(Sighting sighting) {
+        final String sql = "update sighting set "
+                + ""
         return false;
     }
 
     @Override
-    public boolean deleteById(Sighting sighting) {
-        return false;
+    public boolean deleteById(int sightingId) {
+        return jdbcTemplate.update(
+                "delete from sighting where sighting_id = ?;", sightingId) > 0;
     }
 }

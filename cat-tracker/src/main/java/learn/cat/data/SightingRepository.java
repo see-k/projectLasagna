@@ -13,6 +13,6 @@ public interface SightingRepository {
     List<Sighting> findByCat(Cat cat);
     Sighting add(Sighting sighting);
     boolean update(Sighting sighting);
-    boolean deleteById(Sighting sighting);
+    boolean deleteById(int sightingId);
 
 }
