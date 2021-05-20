@@ -19,6 +19,7 @@ public class SightingMapper implements RowMapper<Sighting> {
         sighting.setCatDescription(resultSet.getString("visual_description"));
         sighting.setSightingDescription(resultSet.getString("sighting_description"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));
+        sighting.setPicture(resultSet.getString("img_path"));
 
         LocationMapper locationMapper = new LocationMapper();
         sighting.setLocation(locationMapper.mapRow(resultSet, i));
@@ -28,11 +29,6 @@ public class SightingMapper implements RowMapper<Sighting> {
 
         UsersMapper usersMapper = new UsersMapper();
         sighting.setUsers(usersMapper.mapRow(resultSet, i));
-
-        List<String> pictures = new ArrayList<>();
-        String path = resultSet.getString("img_path");
-        pictures.add(path);
-        sighting.setPictures(pictures);
 
         return sighting;
     }
