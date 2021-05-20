@@ -66,8 +66,11 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, sighting.getPicture());
             ps.setString(2, sighting.getCatDescription());
-            //need to fix pictures first
+            ps.setString(3, sighting.getSightingDescription());
+            ps.setDate(4, sighting.getSightingDate());
+            ps.setTime(5, sighting.getSightingTime());
             return ps;
         }, keyHolder);
 

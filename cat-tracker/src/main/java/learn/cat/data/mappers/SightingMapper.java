@@ -14,8 +14,8 @@ public class SightingMapper implements RowMapper<Sighting> {
     public Sighting mapRow(ResultSet resultSet, int i) throws SQLException {
         Sighting sighting = new Sighting();
         sighting.setSightingId(resultSet.getInt("sighting_id"));
-        sighting.setSightingDate(resultSet.getDate("sighting_date").toLocalDate());
-        sighting.setSightingTime(resultSet.getTime("sighting_time").toLocalTime());
+        sighting.setSightingDate(resultSet.getDate("sighting_date"));
+        sighting.setSightingTime(resultSet.getTime("sighting_time"));
         sighting.setCatDescription(resultSet.getString("visual_description"));
         sighting.setSightingDescription(resultSet.getString("sighting_description"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));

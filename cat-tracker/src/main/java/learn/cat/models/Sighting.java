@@ -1,22 +1,24 @@
 package learn.cat.models;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 public class Sighting {
 
     private int sightingId;
-    private LocalDate sightingDate;
-    private LocalTime sightingTime;
+    private String picture;
+    private Date sightingDate;
+    private Time sightingTime;
     private String catDescription;
     private String sightingDescription;
     private Location location;
     private Users users;
     private Cat cat;
     private boolean isDisabled;
-    private List<String> pictures;
 
     public Sighting() {
     }
@@ -29,19 +31,27 @@ public class Sighting {
         this.sightingId = sightingId;
     }
 
-    public LocalDate getSightingDate() {
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public Date getSightingDate() {
         return sightingDate;
     }
 
-    public void setSightingDate(LocalDate sightingDate) {
+    public void setSightingDate(Date sightingDate) {
         this.sightingDate = sightingDate;
     }
 
-    public LocalTime getSightingTime() {
+    public Time getSightingTime() {
         return sightingTime;
     }
 
-    public void setSightingTime(LocalTime sightingTime) {
+    public void setSightingTime(Time sightingTime) {
         this.sightingTime = sightingTime;
     }
 
@@ -91,14 +101,6 @@ public class Sighting {
 
     public void setDisabled(boolean disabled) {
         isDisabled = disabled;
-    }
-
-    public List<String> getPictures() {
-        return new ArrayList<>(pictures);
-    }
-
-    public void setPictures(List<String> pictures) {
-        this.pictures = pictures;
     }
 
 }
