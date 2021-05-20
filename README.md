@@ -132,7 +132,7 @@ ______________________________________________________________________
 |5/19/2021| Sightings & Reports Mappers | 2 | 1:40pm | 2:20pm | Completed | Quinn
 |5/19/2021| Alias & Cats Mappers | 2 | 6:50pm | 7:30pm | Completed | Derek
 |5/19/2021| JdbcTemplate Interface & Repo: U & L | 2 | _ | _ | Not Started | Chike
-|5/19/2021| JdbcTemplate Interface & Repo: S & R | 2 | 5:00pm | _ | In Progress | Quinn
+|5/19/2021| JdbcTemplate Interface & Repo: S & R | 2 | 7:00pm | 9:00pm | Completed | Quinn
 |5/19/2021| JdbcTemplate Interface & Repo: A & C | 2 | _ | _ | Not Started | Derek
 
 ### Second Sprint: 05-20-2021 to 05-23-2021
