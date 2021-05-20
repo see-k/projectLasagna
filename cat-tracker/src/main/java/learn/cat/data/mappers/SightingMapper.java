@@ -14,11 +14,12 @@ public class SightingMapper implements RowMapper<Sighting> {
     public Sighting mapRow(ResultSet resultSet, int i) throws SQLException {
         Sighting sighting = new Sighting();
         sighting.setSightingId(resultSet.getInt("sighting_id"));
-        sighting.setSightingDate(resultSet.getDate("sighting_date").toLocalDate());
-        sighting.setSightingTime(resultSet.getTime("sighting_time").toLocalTime());
+        sighting.setSightingDate(resultSet.getDate("sighting_date"));
+        sighting.setSightingTime(resultSet.getTime("sighting_time"));
         sighting.setCatDescription(resultSet.getString("visual_description"));
         sighting.setSightingDescription(resultSet.getString("sighting_description"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));
+        sighting.setPicture(resultSet.getString("img_path"));
 
         LocationMapper locationMapper = new LocationMapper();
         sighting.setLocation(locationMapper.mapRow(resultSet, i));
@@ -28,11 +29,6 @@ public class SightingMapper implements RowMapper<Sighting> {
 
         UsersMapper usersMapper = new UsersMapper();
         sighting.setUsers(usersMapper.mapRow(resultSet, i));
-
-        List<String> pictures = new ArrayList<>();
-        String path = resultSet.getString("img_path");
-        pictures.add(path);
-        sighting.setPictures(pictures);
 
         return sighting;
     }

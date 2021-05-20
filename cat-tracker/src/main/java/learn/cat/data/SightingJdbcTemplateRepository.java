@@ -66,8 +66,15 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, sighting.getPicture());
             ps.setString(2, sighting.getCatDescription());
-            //need to fix pictures first
+            ps.setString(3, sighting.getSightingDescription());
+            ps.setDate(4, sighting.getSightingDate());
+            ps.setTime(5, sighting.getSightingTime());
+            ps.setBoolean(6, sighting.isDisabled());
+            ps.setInt(7, sighting.getUsers().getUserId());
+            ps.setInt(8, sighting.getLocation().getLocationId());
+            ps.setInt(9, sighting.getCat().getCatId());
             return ps;
         }, keyHolder);
 
@@ -93,8 +100,17 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
                 + "cat_id = ? "
                 + "where sighting_id = ?;";
 
-        return false;
-        //return jdbcTemplate.update(/*update with picture stuff :')))*/);
+        return jdbcTemplate.update(sql,
+                sighting.getPicture(),
+                sighting.getCatDescription(),
+                sighting.getSightingDate(),
+                sighting.getSightingTime(),
+                sighting.isDisabled(),
+                sighting.getUsers().getUserId(),
+                sighting.getLocation().getLocationId(),
+                sighting.getCat().getCatId(),
+                sighting.getCat().getCatId(),
+                sighting.getSightingId()) > 0;
     }
 
     @Override
