@@ -65,6 +65,8 @@ public class Users {
         return new ArrayList<>(cats);
     }
 
+    }
+
     public void setCats(List<Cat> cats) {
         this.cats = cats;
     }
