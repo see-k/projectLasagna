@@ -27,6 +27,7 @@ CREATE TABLE location (
 CREATE TABLE cat (
 	cat_id int PRIMARY KEY AUTO_INCREMENT,
     cat_name varchar(50) NOT NULL,
+    img_path varchar(100) NULL,
     cat_description varchar(300) NULL,
     disabled bit NOT NULL,
     users_id int NOT NULL,
@@ -48,6 +49,7 @@ CREATE TABLE alias (
 -- Sightings: assigned to Quinn Chu
 create table sighting (
 	sighting_id int primary key not null auto_increment,
+    img_path varchar(100),
     visual_description varchar(300),
     sighting_description varchar(300),
     sighting_date date not null,
@@ -66,22 +68,9 @@ create table sighting (
 		foreign key (cat_id)
         references cat(cat_id)
 );
-
-create table picture (
-	picture_id int primary key not null auto_increment,
-    img_path varchar(100),
-    sighting_id int,
-    cat_id int,
-    constraint fk_picture_sighting_id 
-		foreign key (sighting_id)
-        references sighting(sighting_id),
-	constraint fk_picture_cat_id
-		foreign key (cat_id)
-        references cat(cat_id)
-);
 -- Reports: assigned to Quinn Chu
 create table report (
-	report_id int PRIMARY KEY not null AUTO_INCREMENT,
+	report_id int PRIMARY KEY AUTO_INCREMENT,
     report_description varchar(300),
     cat_id int,
     users_id int,
