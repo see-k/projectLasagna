@@ -1,4 +1,5 @@
 package learn.cat.controllers;
 
-public class UserController {
+public class UsersController {
+
 }

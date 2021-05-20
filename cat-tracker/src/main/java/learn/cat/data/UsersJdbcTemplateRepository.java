@@ -1,4 +1,5 @@
 package learn.cat.data;
 
-public class UserJdbcTemplateRepository {
+public class UsersJdbcTemplateRepository {
+
 }

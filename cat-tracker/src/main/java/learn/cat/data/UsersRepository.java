@@ -1,4 +1,5 @@
 package learn.cat.data;
 
-public interface UserRepository {
+public interface UsersRepository {
+
 }
