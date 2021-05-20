@@ -1,5 +1,4 @@
 package learn.cat.models;
-
 import java.util.List;
 
 public class Users {
