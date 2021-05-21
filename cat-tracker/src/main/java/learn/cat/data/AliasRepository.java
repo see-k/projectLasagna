@@ -6,8 +6,6 @@ import learn.cat.models.Cat;
 import java.util.List;
 
 public interface AliasRepository {
-    List<Alias> findAllByCat(Cat cat);
-
     Alias findById(int aliasId);
 
     Alias add(Alias alias);

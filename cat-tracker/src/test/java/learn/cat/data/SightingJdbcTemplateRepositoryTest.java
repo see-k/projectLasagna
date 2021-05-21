@@ -51,7 +51,7 @@ class SightingJdbcTemplateRepositoryTest {
         /*
         assertNotNull(sightings);
         assertEquals(1, sightings.size());*/
-    }
+//    }
 
     @Test
     void shouldFindByCat() {
@@ -67,6 +67,7 @@ class SightingJdbcTemplateRepositoryTest {
 
     @Test
     void shouldUpdate() {
+        repository.add(makeSighting());
         Sighting sighting = makeSighting();
         sighting.setSightingDescription("UPDATED");
         assertTrue(repository.update(sighting));
@@ -79,18 +80,6 @@ class SightingJdbcTemplateRepositoryTest {
     }
 
     private Sighting makeSighting() {
-        Cat cat = new Cat();
-        cat.setCatId(1);
-        cat.setName("cat");
-
-        Location location = new Location();
-        location.setLocationId(1);
-        location.setLatitude(BigDecimal.valueOf(4.823791827));
-
-        Users users = new Users();
-        users.setUsersId(1);
-        users.setUsername("jnfkjasnd");
-
         Sighting sighting = new Sighting();
         sighting.setPicture("test img_path");
         sighting.setCatDescription("test visual_description");
@@ -98,10 +87,9 @@ class SightingJdbcTemplateRepositoryTest {
         sighting.setSightingDate(new Date(2021, 5, 20));
         sighting.setSightingTime(new Time(12, 12, 12));
         sighting.setDisabled(false);
-       /* sighting.setUsers(users);
-        sighting.setLocation(location);
-        sighting.setCat(cat);*/
-
+        sighting.setCatId(1);
+        sighting.setUsersId(1);
+        sighting.setLocationId(1);
         return sighting;
-    }*/
+    }
 }
