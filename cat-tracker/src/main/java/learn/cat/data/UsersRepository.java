@@ -6,6 +6,7 @@ import org.springframework.transaction.event.TransactionalEventListener;
 import java.util.List;
 
 public interface UsersRepository {
+
     List<Users> findAll();
 
     Users findById(int usersId);
