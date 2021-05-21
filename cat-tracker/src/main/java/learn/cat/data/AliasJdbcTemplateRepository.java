@@ -6,11 +6,13 @@ import learn.cat.models.Cat;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class AliasJdbcTemplateRepository implements AliasRepository {
     private final JdbcTemplate jdbcTemplate;
 
@@ -19,13 +21,8 @@ public class AliasJdbcTemplateRepository implements AliasRepository {
     }
 
     @Override
-    public List<Alias> findAllByCat(Cat cat) {
-        return null;
-    }
-
-    @Override
     public Alias findById(int aliasId) {
-        final String sql = "SELECT alias_id, alias_name "
+        final String sql = "SELECT alias_id, alias_name, cat_id "
                 + "FROM alias "
                 + "WHERE alias_id = ?;";
 
@@ -57,7 +54,7 @@ public class AliasJdbcTemplateRepository implements AliasRepository {
     @Override
     public boolean update(Alias alias) {
         final String sql = "UPDATE alias SET "
-                + "alias_name = ?, "
+                + "alias_name = ? "
                 + "WHERE alias_id = ?;";
 
         return jdbcTemplate.update(sql,
