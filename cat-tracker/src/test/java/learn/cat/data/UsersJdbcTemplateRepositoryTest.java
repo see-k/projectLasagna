@@ -59,7 +59,7 @@ class UsersJdbcTemplateRepositoryTest {
     //TODO Failed test
     @Test
     void deleteById() {
-        assertTrue(repository.deleteById(NEXT_ID-1));
+        assertTrue(repository.deleteById(NEXT_ID-2));
         assertFalse(repository.deleteById(NEXT_ID+10));
     }
 
