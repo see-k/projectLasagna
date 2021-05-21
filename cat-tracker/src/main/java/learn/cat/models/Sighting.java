@@ -11,14 +11,14 @@ public class Sighting {
 
     private int sightingId;
     private String picture;
-    private Date sightingDate;
-    private Time sightingTime;
     private String catDescription;
     private String sightingDescription;
-    private Location location;
-    private Users users;
-    private Cat cat;
+    private Date sightingDate;
+    private Time sightingTime;
     private boolean isDisabled;
+    private Users users;
+    private Location location;
+    private Cat cat;
 
     public Sighting() {
     }

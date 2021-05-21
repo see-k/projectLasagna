@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.List;
 
 public class Users {
-    private int userId;
+    private int usersId;
     private String username;
     private String firstName;
     private String lastName;
@@ -13,12 +13,25 @@ public class Users {
     private Boolean disabled;
     private List<Cat> cats = new ArrayList<>();
 
-    public int getUserId() {
-        return userId;
+    public Users() {
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public Users(int usersId, String username, String firstName, String lastName, String email, Boolean disabled, List<Cat> cats) {
+        this.usersId = usersId;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.disabled = disabled;
+        this.cats = cats;
+    }
+
+    public int getUsersId() {
+        return usersId;
+    }
+
+    public void setUsersId(int usersId) {
+        this.usersId = usersId;
     }
 
     public String getUsername() {
@@ -63,8 +76,6 @@ public class Users {
 
     public List<Cat> getCats() {
         return new ArrayList<>(cats);
-
-    }
 
     }
 

@@ -7,6 +7,7 @@ import learn.cat.models.Users;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Repository
 public class SightingJdbcTemplateRepository implements SightingRepository {
 
     private JdbcTemplate jdbcTemplate;
@@ -44,9 +46,9 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
     public List<Sighting> findByUser(Users users) {
         final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
                 + "from sighting "
-                + "where user_id = ?;";
+                + "where users_id = ?;";
 
-        return new ArrayList<>(jdbcTemplate.query(sql, new SightingMapper(), users.getUserId()));
+        return new ArrayList<>(jdbcTemplate.query(sql, new SightingMapper(), users.getUsersId()));
     }
 
     @Override
@@ -72,7 +74,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
             ps.setDate(4, sighting.getSightingDate());
             ps.setTime(5, sighting.getSightingTime());
             ps.setBoolean(6, sighting.isDisabled());
-            ps.setInt(7, sighting.getUsers().getUserId());
+            ps.setInt(7, sighting.getUsers().getUsersId());
             ps.setInt(8, sighting.getLocation().getLocationId());
             ps.setInt(9, sighting.getCat().getCatId());
             return ps;
@@ -106,7 +108,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
                 sighting.getSightingDate(),
                 sighting.getSightingTime(),
                 sighting.isDisabled(),
-                sighting.getUsers().getUserId(),
+                sighting.getUsers().getUsersId(),
                 sighting.getLocation().getLocationId(),
                 sighting.getCat().getCatId(),
                 sighting.getCat().getCatId(),
@@ -115,6 +117,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
 
     @Override
     public boolean deleteById(int sightingId) {
+        jdbcTemplate.update("delete from report where sighting_id = ?;", sightingId);
         return jdbcTemplate.update(
                 "delete from sighting where sighting_id = ?;", sightingId) > 0;
     }
