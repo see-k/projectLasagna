@@ -106,6 +106,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
         return jdbcTemplate.update(sql,
                 sighting.getPicture(),
                 sighting.getCatDescription(),
+                sighting.getSightingDescription(),
                 sighting.getSightingDate(),
                 sighting.getSightingTime(),
                 sighting.isDisabled(),
@@ -123,3 +124,4 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
                 "delete from sighting where sighting_id = ?;", sightingId) > 0;
     }
 }
+

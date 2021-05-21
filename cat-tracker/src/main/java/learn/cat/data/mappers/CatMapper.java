@@ -15,9 +15,7 @@ public class CatMapper implements RowMapper<Cat> {
         cat.setDesc(resultSet.getString("cat_description"));
         cat.setPicture(resultSet.getString("img_path"));
         cat.setDisabled(resultSet.getBoolean("disabled"));
-
-        UsersMapper usersMapper = new UsersMapper();
-        cat.setUsers(usersMapper.mapRow(resultSet, i));
+        cat.setCatId(resultSet.getInt("users_id"));
         return cat;
     }
 }

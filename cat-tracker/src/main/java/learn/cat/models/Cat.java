@@ -9,19 +9,19 @@ public class Cat {
     private String name;
     private String desc;
     private String picture;
-    private Users users;
+    private int usersId;
     private boolean isDisabled;
-    private List<Alias> aliases = new ArrayList<>();
+    private List<Alias> aliases;
 
     public Cat() {
     }
 
-    public Cat(int catId, String name, String desc, String picture, Users users, boolean isDisabled, List<Alias> aliases) {
+    public Cat(int catId, String name, String desc, String picture, int usersId, boolean isDisabled, List<Alias> aliases) {
         this.catId = catId;
         this.name = name;
         this.desc = desc;
         this.picture = picture;
-        this.users = users;
+        this.usersId = usersId;
         this.isDisabled = isDisabled;
         this.aliases = aliases;
     }
@@ -58,12 +58,12 @@ public class Cat {
         this.picture = picture;
     }
 
-    public Users getUsers() {
-        return users;
+    public int getUsersId() {
+        return usersId;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUsersId(int usersId) {
+        this.usersId = usersId;
     }
 
     public boolean isDisabled() {
