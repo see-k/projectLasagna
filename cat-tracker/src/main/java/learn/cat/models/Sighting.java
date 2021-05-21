@@ -11,14 +11,14 @@ public class Sighting {
 
     private int sightingId;
     private String picture;
-    private Date sightingDate;
-    private Time sightingTime;
     private String catDescription;
     private String sightingDescription;
-    private Location location;
-    private Users users;
-    private Cat cat;
+    private Date sightingDate;
+    private Time sightingTime;
     private boolean isDisabled;
+    private int usersId;
+    private int locationId;
+    private int catId;
 
     public Sighting() {
     }
@@ -71,30 +71,6 @@ public class Sighting {
         this.sightingDescription = sightingDescription;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
-
-    public Cat getCat() {
-        return cat;
-    }
-
-    public void setCat(Cat cat) {
-        this.cat = cat;
-    }
-
     public boolean isDisabled() {
         return isDisabled;
     }
@@ -103,4 +79,27 @@ public class Sighting {
         isDisabled = disabled;
     }
 
+    public int getUsersId() {
+        return usersId;
+    }
+
+    public void setUsersId(int usersId) {
+        this.usersId = usersId;
+    }
+
+    public int getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public int getCatId() {
+        return catId;
+    }
+
+    public void setCatId(int catId) {
+        this.catId = catId;
+    }
 }
