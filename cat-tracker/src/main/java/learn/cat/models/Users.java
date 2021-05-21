@@ -2,8 +2,6 @@ package learn.cat.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.List;
-
 public class Users {
     private int usersId;
     private String username;
@@ -63,8 +61,6 @@ public class Users {
 
     public List<Cat> getCats() {
         return new ArrayList<>(cats);
-
-    }
 
     public void setCats(List<Cat> cats) {
         this.cats = cats;
