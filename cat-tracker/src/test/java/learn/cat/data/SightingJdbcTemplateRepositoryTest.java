@@ -98,9 +98,9 @@ class SightingJdbcTemplateRepositoryTest {
         sighting.setSightingDate(new Date(2021, 5, 20));
         sighting.setSightingTime(new Time(12, 12, 12));
         sighting.setDisabled(false);
-        sighting.setUsers(users);
+       /* sighting.setUsers(users);
         sighting.setLocation(location);
-        sighting.setCat(cat);
+        sighting.setCat(cat);*/
 
         return sighting;
     }*/
