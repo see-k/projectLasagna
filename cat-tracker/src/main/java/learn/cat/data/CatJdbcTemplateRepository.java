@@ -6,12 +6,14 @@ import learn.cat.models.Cat;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class CatJdbcTemplateRepository implements CatRepository {
     private final JdbcTemplate jdbcTemplate;
 
@@ -21,14 +23,14 @@ public class CatJdbcTemplateRepository implements CatRepository {
 
     @Override
     public List<Cat> findAll() {
-        final String sql = "SELECT cat_id, cat_name, cat_description, img_path, disabled "
+        final String sql = "SELECT cat_id, cat_name, cat_description, img_path, disabled, users_id "
                 + "FROM cat LIMIT 1000;";
         return jdbcTemplate.query(sql, new CatMapper());
     }
 
     @Override
     public Cat findById(int catId) {
-        final String sql = "SELECT cat_id, cat_name, cat_description, img_path, disabled "
+        final String sql = "SELECT cat_id, cat_name, cat_description, img_path, disabled, users_id "
                 + "FROM cat "
                 + "WHERE cat_id = ?;";
 

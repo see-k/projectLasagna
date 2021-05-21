@@ -51,7 +51,7 @@ class SightingJdbcTemplateRepositoryTest {
         /*
         assertNotNull(sightings);
         assertEquals(1, sightings.size());*/
-    }
+//    }
 
     @Test
     void shouldFindByCat() {
@@ -103,5 +103,5 @@ class SightingJdbcTemplateRepositoryTest {
         sighting.setCat(cat);*/
 
         return sighting;
-    }*/
+    }
 }
