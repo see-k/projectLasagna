@@ -131,7 +131,7 @@ ______________________________________________________________________
 |5/19/2021| User & Location Mappers | 2 | 10:00 AM | 11:00 AM | Completed | Chike
 |5/19/2021| Sightings & Reports Mappers | 2 | 1:40pm | 2:20pm | Completed | Quinn
 |5/19/2021| Alias & Cats Mappers | 2 | 6:50pm | 7:30pm | Completed | Derek
-|5/19/2021| JdbcTemplate Interface & Repo: U & L | 2 | 7:00 PM | _ | In progress | Chike
+|5/19/2021| JdbcTemplate Interface & Repo: U & L | 2 | 1:00 AM | _ | In progress | Chike
 |5/19/2021| JdbcTemplate Interface & Repo: S & R | 2 | 7:00pm | 9:00pm | Completed | Quinn
 |5/19/2021| JdbcTemplate Interface & Repo: A & C | 2 | 4:30 | 5:45pm | Completed | Derek
 
@@ -139,7 +139,7 @@ ______________________________________________________________________
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
 |:---:| :---: | :---:               | :---:                |:---:              |:---: |:---: 
 |5/20/2021| Result, ResultType, Validations | 2 | _ | _ | Not Started | Chike, Quinn, Derek
-|5/20/2021| U & L Service | 4 | _ | _ | Not Started | Chike
+|5/20/2021| U & L Service | 4 | 1:00 AM | _ | In Progress | Chike
 |5/20/2021| S & R Service | 4 | _ | _ | Not Started | Quinn
 |5/20/2021| A & C Service | 4 | _ | _ | Not Started | Derek
 |5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | _ | _ | Not Started |Chike, Quinn, Derek
