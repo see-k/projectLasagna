@@ -68,7 +68,7 @@ class SightingJdbcTemplateRepositoryTest {
     @Test
     void shouldUpdate() {
         repository.add(makeSighting());
-        Sighting sighting = repository.findById(1);
+        Sighting sighting = makeSighting();
         sighting.setSightingDescription("UPDATED");
         assertTrue(repository.update(sighting));
     }
