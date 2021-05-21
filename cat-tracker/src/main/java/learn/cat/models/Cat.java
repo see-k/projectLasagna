@@ -11,7 +11,7 @@ public class Cat {
     private String picture;
     private Users users;
     private boolean isDisabled;
-    private List<Alias> aliases = new ArrayList<>();
+    private List<Alias> aliases;
 
     public Cat() {
     }
