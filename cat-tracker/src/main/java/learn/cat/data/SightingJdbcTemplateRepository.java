@@ -75,9 +75,9 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
             ps.setDate(4, sighting.getSightingDate());
             ps.setTime(5, sighting.getSightingTime());
             ps.setBoolean(6, sighting.isDisabled());
-            ps.setInt(7, sighting.getUsers().getUsersId());
-            ps.setInt(8, sighting.getLocation().getLocationId());
-            ps.setInt(9, sighting.getCat().getCatId());
+            ps.setInt(7, sighting.getUsersId());
+            ps.setInt(8, sighting.getLocationId());
+            ps.setInt(9, sighting.getCatId());
             return ps;
         }, keyHolder);
 
@@ -109,10 +109,9 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
                 sighting.getSightingDate(),
                 sighting.getSightingTime(),
                 sighting.isDisabled(),
-                sighting.getUsers().getUsersId(),
-                sighting.getLocation().getLocationId(),
-                sighting.getCat().getCatId(),
-                sighting.getCat().getCatId(),
+                sighting.getUsersId(),
+                sighting.getLocationId(),
+                sighting.getCatId(),
                 sighting.getSightingId()) > 0;
     }
 
