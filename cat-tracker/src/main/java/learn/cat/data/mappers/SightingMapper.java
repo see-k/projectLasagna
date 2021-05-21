@@ -20,6 +20,7 @@ public class SightingMapper implements RowMapper<Sighting> {
         sighting.setSightingDate(resultSet.getDate("sighting_date"));
         sighting.setSightingTime(resultSet.getTime("sighting_time"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));
+        sighting.setUser
 
         UsersMapper usersMapper = new UsersMapper();
         sighting.setUsers(usersMapper.mapRow(resultSet, i));

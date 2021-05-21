@@ -13,19 +13,6 @@ public class Users {
     private Boolean disabled;
     private List<Cat> cats = new ArrayList<>();
 
-    public Users() {
-    }
-
-    public Users(int usersId, String username, String firstName, String lastName, String email, Boolean disabled, List<Cat> cats) {
-        this.usersId = usersId;
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.disabled = disabled;
-        this.cats = cats;
-    }
-
     public int getUsersId() {
         return usersId;
     }
