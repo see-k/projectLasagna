@@ -125,13 +125,13 @@ ______________________________________________________________________
 |5/18/2021| DDL: Sightings & Reports | 4 | 4:30pm | 5:00pm | Complete | Quinn
 |5/18/2021| DDL: Alias & Cats | 4 | 4:30pm | 5:00pm | Completed | Derek
 |5/19/2021| DML: Test Data | 3 | 9:00 AM | 12:00 PM | Completed  | Chike, Quinn, Derek
-|5/19/2021| User & Location Models | 2 | 1:30 PM | _ | In progress | Chike
+|5/19/2021| User & Location Models | 2 | 1:30 PM | 2:00 PM | Completed | Chike
 |5/19/2021| Sightings & Reports Models | 2 | 1:40pm | 2:20pm | Completed | Quinn
 |5/19/2021| Alias & Cats Models | 2 | 1:40pm | 2:30pm | Completed | Derek
-|5/19/2021| User & Location Mappers | 2 | _ | _ | Not Started | Chike
+|5/19/2021| User & Location Mappers | 2 | 10:00 AM | 11:00 AM | Completed | Chike
 |5/19/2021| Sightings & Reports Mappers | 2 | 1:40pm | 2:20pm | Completed | Quinn
 |5/19/2021| Alias & Cats Mappers | 2 | 6:50pm | 7:30pm | Completed | Derek
-|5/19/2021| JdbcTemplate Interface & Repo: U & L | 2 | _ | _ | Not Started | Chike
+|5/19/2021| JdbcTemplate Interface & Repo: U & L | 2 | 7:00 PM | _ | In progress | Chike
 |5/19/2021| JdbcTemplate Interface & Repo: S & R | 2 | 7:00pm | 9:00pm | Completed | Quinn
 |5/19/2021| JdbcTemplate Interface & Repo: A & C | 2 | 4:30 | 5:45pm | Completed | Derek
 
