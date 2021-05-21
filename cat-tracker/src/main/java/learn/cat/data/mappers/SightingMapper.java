@@ -20,17 +20,9 @@ public class SightingMapper implements RowMapper<Sighting> {
         sighting.setSightingDate(resultSet.getDate("sighting_date"));
         sighting.setSightingTime(resultSet.getTime("sighting_time"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));
-        sighting.setUser
-
-        UsersMapper usersMapper = new UsersMapper();
-        sighting.setUsers(usersMapper.mapRow(resultSet, i));
-
-        LocationMapper locationMapper = new LocationMapper();
-        sighting.setLocation(locationMapper.mapRow(resultSet, i));
-
-        CatMapper catMapper = new CatMapper();
-        sighting.setCat(catMapper.mapRow(resultSet, i));
-
+        sighting.setUsersId(resultSet.getInt("users_id"));
+        sighting.setLocationId(resultSet.getInt("location_id"));
+        sighting.setCatId(resultSet.getInt("cat_id"));
         return sighting;
     }
 }
