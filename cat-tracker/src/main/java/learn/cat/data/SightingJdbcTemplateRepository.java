@@ -122,8 +122,4 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
                 return jdbcTemplate.update(
                 "delete from sighting where sighting_id = ?;", sightingId) > 0;
     }
-
-    private void addUsers(Sighting sighting) {
-
-    }
 }
