@@ -2,10 +2,8 @@ package learn.cat.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.List;
-
 public class Users {
-    private int userId;
+    private int usersId;
     private String username;
     private String firstName;
     private String lastName;
@@ -13,12 +11,12 @@ public class Users {
     private Boolean disabled;
     private List<Cat> cats = new ArrayList<>();
 
-    public int getUserId() {
-        return userId;
+    public int getUsersId() {
+        return usersId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsersId(int userId) {
+        this.usersId = usersId;
     }
 
     public String getUsername() {
@@ -63,8 +61,6 @@ public class Users {
 
     public List<Cat> getCats() {
         return new ArrayList<>(cats);
-    }
-
     }
 
     public void setCats(List<Cat> cats) {
