@@ -106,6 +106,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
         return jdbcTemplate.update(sql,
                 sighting.getPicture(),
                 sighting.getCatDescription(),
+                sighting.getSightingDescription(),
                 sighting.getSightingDate(),
                 sighting.getSightingTime(),
                 sighting.isDisabled(),
