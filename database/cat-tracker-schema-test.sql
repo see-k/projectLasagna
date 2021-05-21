@@ -92,18 +92,20 @@ delimiter //
 create procedure set_known_good_state()
 begin
 
-    delete from users;
-    alter table users auto_increment = 1;
-    delete from location;
-    alter table location auto_increment = 1;
-    delete from cat;
-    alter table cat auto_increment = 1;
-    delete from alias;
-    alter table alias auto_increment = 1;
-    delete from sighting;
-    alter table sighting auto_increment = 1;
+	set sql_safe_updates = 0;
     delete from report;
     alter table report auto_increment = 1;
+    delete from sighting;
+    alter table sighting auto_increment = 1;
+    delete from location;
+    alter table location auto_increment = 1;
+    delete from alias;
+    alter table alias auto_increment = 1;
+    delete from cat;
+    alter table cat auto_increment = 1;
+    delete from users;
+    alter table users auto_increment = 1;
+    set sql_safe_updates = 1;
     
     insert into users(users_id, username, first_name, last_name, users_email, disabled) values
 		(1, 'COkonta', 'Chike', 'Okonta', 'COkonta@dev-10.com', 0),
