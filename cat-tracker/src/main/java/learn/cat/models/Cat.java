@@ -13,6 +13,19 @@ public class Cat {
     private boolean isDisabled;
     private List<Alias> aliases = new ArrayList<>();
 
+    public Cat() {
+    }
+
+    public Cat(int catId, String name, String desc, String picture, Users users, boolean isDisabled, List<Alias> aliases) {
+        this.catId = catId;
+        this.name = name;
+        this.desc = desc;
+        this.picture = picture;
+        this.users = users;
+        this.isDisabled = isDisabled;
+        this.aliases = aliases;
+    }
+
     public int getCatId() {
         return catId;
     }

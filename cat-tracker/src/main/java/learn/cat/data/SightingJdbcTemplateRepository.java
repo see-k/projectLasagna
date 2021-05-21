@@ -7,6 +7,8 @@ import learn.cat.models.Users;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -14,9 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Repository
 public class SightingJdbcTemplateRepository implements SightingRepository {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public SightingJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -44,7 +47,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
     public List<Sighting> findByUser(Users users) {
         final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
                 + "from sighting "
-                + "where user_id = ?;";
+                + "where users_id = ?;";
 
         return new ArrayList<>(jdbcTemplate.query(sql, new SightingMapper(), users.getUsersId()));
     }
@@ -114,8 +117,14 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
     }
 
     @Override
+    @Transactional
     public boolean deleteById(int sightingId) {
-        return jdbcTemplate.update(
+        jdbcTemplate.update("delete from report where sighting_id = ?;", sightingId);
+                return jdbcTemplate.update(
                 "delete from sighting where sighting_id = ?;", sightingId) > 0;
+    }
+
+    private void addUsers(Sighting sighting) {
+
     }
 }
