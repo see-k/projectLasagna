@@ -64,7 +64,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
     @Override
     public Sighting add(Sighting sighting) {
         final String sql = "insert into sighting (img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id) "
-            + "values (?,?,?,?,?,?,?,?,?);";
+                + "values (?,?,?,?,?,?,?,?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
@@ -120,7 +120,8 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
     @Transactional
     public boolean deleteById(int sightingId) {
         jdbcTemplate.update("delete from report where sighting_id = ?;", sightingId);
-                return jdbcTemplate.update(
+        return jdbcTemplate.update(
                 "delete from sighting where sighting_id = ?;", sightingId) > 0;
     }
 }
+

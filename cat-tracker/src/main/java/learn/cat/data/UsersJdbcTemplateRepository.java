@@ -92,17 +92,15 @@ public class UsersJdbcTemplateRepository implements UsersRepository {
         Cat cat = jdbcTemplate.query(sql, new CatMapper(), usersId).stream()
                 .findFirst().orElse(null);
 
-        /*	delete from alias where cat_id = 2;
-    delete from cat where users_id = 1;
-    delete from report where users_id = 1;
-    delete from users where users_id = 1;
-        * */
+        if (cat != null) {
+            jdbcTemplate.update("delete from alias where cat_id = ?;", cat.getCatId());
+            jdbcTemplate.update("delete from cat where users_id = ?;", usersId);
+            jdbcTemplate.update("delete from report where users_id = ?;", usersId);
+            return jdbcTemplate.update(
+                    "delete from users where users_id = ?", usersId
+            ) > 0;
+        }
 
-        jdbcTemplate.update("delete from alias where cat_id = ?;", cat.getCatId());
-        jdbcTemplate.update("delete from cat where users_id = ?;", usersId);
-        jdbcTemplate.update("delete from report where users_id = ?;", usersId);
-        return jdbcTemplate.update(
-                "delete from users where users_id = ?", usersId
-        ) > 0;
+        return false;
     }
 }
