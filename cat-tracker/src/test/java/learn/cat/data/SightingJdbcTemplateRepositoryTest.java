@@ -48,7 +48,7 @@ class SightingJdbcTemplateRepositoryTest {
 
     @Test
     void shouldFindByUser() {
-        Users user = new Users(3, "DFidelman", "Derrick", "Fidleman", "DFidelman@dev-10.com", false, new ArrayList<>());
+        Users user = new Users(3, "DFidelman", "Derrick", "Fidelman", "DFidelman@dev-10.com", false, new ArrayList<>());
         List<Sighting> sightings = repository.findByUser(user);
         assertNotNull(sightings);
         assertEquals(1, sightings.size());
@@ -62,10 +62,8 @@ class SightingJdbcTemplateRepositoryTest {
     @Test
     void shouldAdd() {
         Sighting sighting = makeSighting();
-
         Sighting actual = repository.add(sighting);
         assertNotNull(actual);
-
     }
 
     @Test
@@ -78,7 +76,7 @@ class SightingJdbcTemplateRepositoryTest {
     @Test
     void shouldDeleteById() {
         assertTrue(repository.deleteById(1));
-        assertEquals(repository.findAll().size(), 0);
+        assertFalse(repository.deleteById(1));
     }
 
     private Sighting makeSighting() {

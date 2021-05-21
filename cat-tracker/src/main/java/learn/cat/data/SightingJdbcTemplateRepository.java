@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
 @Repository
 public class SightingJdbcTemplateRepository implements SightingRepository {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public SightingJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -116,9 +117,14 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
     }
 
     @Override
+    @Transactional
     public boolean deleteById(int sightingId) {
         jdbcTemplate.update("delete from report where sighting_id = ?;", sightingId);
-        return jdbcTemplate.update(
+                return jdbcTemplate.update(
                 "delete from sighting where sighting_id = ?;", sightingId) > 0;
+    }
+
+    private void addUsers(Sighting sighting) {
+
     }
 }
