@@ -44,21 +44,21 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
     }
 
     @Override
-    public List<Sighting> findByUser(Users users) {
+    public List<Sighting> findByUsersId(int userId) {
         final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
                 + "from sighting "
                 + "where users_id = ?;";
 
-        return new ArrayList<>(jdbcTemplate.query(sql, new SightingMapper(), users.getUsersId()));
+        return new ArrayList<>(jdbcTemplate.query(sql, new SightingMapper(), userId));
     }
 
     @Override
-    public List<Sighting> findByCat(Cat cat) {
+    public List<Sighting> findByCatId(int catId) {
         final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
                 + "from sighting "
                 + "where cat_id = ?;";
 
-        return new ArrayList<>(jdbcTemplate.query(sql, new SightingMapper(), cat.getCatId()));
+        return new ArrayList<>(jdbcTemplate.query(sql, new SightingMapper(), catId));
     }
 
     @Override
