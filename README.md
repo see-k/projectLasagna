@@ -141,7 +141,7 @@ ______________________________________________________________________
 |5/20/2021| Result, ResultType, Validations | 2 | _ | _ | Completed | Chike, Quinn, Derek
 |5/20/2021| U & L Service | 4 | 1:00 AM | 4:00 AM | Completed | Chike
 |5/20/2021| S & R Service | 4 | 5:00pm | _ | In Progress | Quinn
-|5/20/2021| A & C Service | 4 | _ | _ | Not Started | Derek
+|5/20/2021| A & C Service | 4 | 9:00pm | 11:45pm | Completed | Derek
 |5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | _ | _ | Not Started |Chike, Quinn, Derek
 |5/21/2021| U & L Controller | 4 | _ | _ | Not Started | Chike
 |5/21/2021| S & R Controller | 4 | _ | _ | Not Started | Quinn
