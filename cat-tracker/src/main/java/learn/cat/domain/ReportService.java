@@ -22,7 +22,7 @@ public class ReportService {
 
     public Report findById(int reportId) { return repository.findById(reportId); }
 
-    public List<Report> findByUserId(int userId) { return repository.findByUserId(userId); }
+    public List<Report> findByUsersId(int usersId) { return repository.findByUsersId(usersId); }
 
     public List<Report> findByCatId(int catId) { return repository.findByCatId(catId); }
 
