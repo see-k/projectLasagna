@@ -21,9 +21,40 @@ public class LocationService {
         return repository.findById(locationId);
     }
 
-    //TODO add
+    public Result<Location> add(Location location){
+        Result<Location> result = validate(location);
+        if(!result.isSuccess()){
+            return result;
+        }
 
-    //TODO update
+        if(location.getLocationId()!=0){
+            result.addMessage("LocationId cannot be set for add operation", ResultType.INVALID);
+            return result;
+        }
+
+        location = repository.add(location);
+        result.setPayload(location);
+        return result;
+    }
+
+    public Result<Location> update(Location location){
+        Result<Location> result = validate(location);
+        if(!result.isSuccess()){
+            return result;
+        }
+
+        if(location.getLocationId() <= 0){
+            result.addMessage("LocationId must be set for update operation", ResultType.INVALID);
+            return result;
+        }
+
+        if(!repository.update(location)){
+            String msg = String.format("LocationId: %s, not found", location.getLocationId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
 
     public boolean deleteById(int locationId) {
         return repository.deleteById(locationId);
