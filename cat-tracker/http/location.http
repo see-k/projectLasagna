@@ -8,7 +8,7 @@ POST {{url}} HTTP/1/1
 Content-Type: application/json
 
 {
-    "latitude": 34.4567,
+    "latitude": null,
     "longitude": -99.54321
 }
 
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 {
     "locationId": 6,
-    "latitude": 44.6666,
+    "latitude": 34.4567,
     "longitude": -99.9992
 }
 

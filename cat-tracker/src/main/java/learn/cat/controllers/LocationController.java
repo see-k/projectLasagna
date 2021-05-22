@@ -5,8 +5,10 @@ import learn.cat.domain.Result;
 import learn.cat.models.Location;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,7 +28,11 @@ public class LocationController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> add(@RequestBody Location location) {
+    public ResponseEntity<Object> add(@RequestBody @Valid Location location, BindingResult bindingResult) {
+       if(bindingResult.hasErrors()){
+        return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
+       }
+
         Result<Location> result = service.add(location);
         if (result.isSuccess()) {
             return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
