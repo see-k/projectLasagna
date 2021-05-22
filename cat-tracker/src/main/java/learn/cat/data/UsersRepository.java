@@ -1,6 +1,7 @@
 package learn.cat.data;
 
 import learn.cat.models.Users;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.util.List;
@@ -15,5 +16,6 @@ public interface UsersRepository {
 
     boolean update(Users users);
 
+    @Transactional
     boolean deleteById(int usersId);
 }
