@@ -16,14 +16,18 @@ public class Sighting {
 
     @Size(max = 300, message = "Sighting description cannot exceed 300 characters.")
     private String sightingDescription;
+
+    @PastOrPresent(message = "Date cannot be in the future.")
     private Date sightingDate;
+
+    @PastOrPresent(message = "Date cannot be in the future.")
     private Time sightingTime;
     private boolean isDisabled;
 
-    @NotBlank(message = "sighting must be associated with user")
+    @Positive(message = "sighting must be associated with user")
     private int usersId;
 
-    @NotBlank(message = "sighting must have location")
+    @Positive(message = "sighting must have location")
     private int locationId;
 
     private int catId;
