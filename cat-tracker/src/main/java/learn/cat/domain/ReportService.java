@@ -27,14 +27,21 @@ public class ReportService {
     public List<Report> findByCatId(int catId) { return repository.findByCatId(catId); }
 
     //TODO add
+    public Result<Report> add(Report report) {
+        return null;
+    }
 
     //TODO update
+    public Result<Report> update(Report report) {
+        return null;
+    }
 
     public boolean deleteById(int reportId) { return repository.deleteById(reportId); }
 
     private Result<Report> validate(Report report) {
         Result<Report> result = new Result<>();
 
+        //technically not needed but just in case
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Report>> violations = validator.validate(report);

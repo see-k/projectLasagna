@@ -39,6 +39,7 @@ public class SightingService {
     private Result<Sighting> validate(Sighting sighting) {
         Result<Sighting> result = new Result<>();
 
+        //technically not needed but just in case
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Sighting>> violations = validator.validate(sighting);

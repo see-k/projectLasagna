@@ -40,7 +40,7 @@ public class ReportController {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
         }
 
-        Result<Sighting> result = service.add(report);
+        Result<Report> result = service.add(report);
         if (result.isSuccess()) {
             return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
         }
@@ -53,7 +53,7 @@ public class ReportController {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
         }
 
-        Result<Sighting> result = service.update(report);
+        Result<Report> result = service.update(report);
         if (result.isSuccess()) {
             return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
         }
