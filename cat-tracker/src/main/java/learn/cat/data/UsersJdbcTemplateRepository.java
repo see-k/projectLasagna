@@ -82,7 +82,6 @@ public class UsersJdbcTemplateRepository implements UsersRepository {
                 users.getUsersId()) > 0;
     }
 
-    //TODO failed test
     @Override
     public boolean deleteById(int usersId) {
 

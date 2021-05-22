@@ -1,0 +1,38 @@
+@url = http://localhost:8080/api/users
+
+### find All
+GET {{url}} HTTP/1.1
+
+
+### find by id
+GET {{url}}/4 HTTP/1.1
+
+### Add
+POST {{url}} HTTP/1/1
+Content-Type: application/json
+
+{
+    "username": "batman",
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "email": "batman@justiceLeague.com",
+    "disabled": false,
+    "cats": []
+}
+
+### Update
+PUT {{url}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "usersId": 4,
+    "username": "batman",
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "email": "batman@justiceLeague.com",
+    "disabled": false,
+    "cats": []
+}
+
+### Delete
+DELETE {{url}}/1 HTTP/1.1

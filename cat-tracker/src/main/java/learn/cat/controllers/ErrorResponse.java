@@ -23,6 +23,7 @@ public class ErrorResponse {
         this.message = message;
     }
 
+
     public static <T> ResponseEntity<Object> build(Result<T> result) {
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
         if (result.getType() == null || result.getType() == ResultType.INVALID) {
