@@ -41,11 +41,11 @@ public class ReportJdbcTemplateRepository implements ReportRepository {
     }
 
     @Override
-    public List<Report> findByUserId(int userId) {
+    public List<Report> findByUsersId(int usersId) {
         final String sql = "select report_id, report_description, cat_id, users_id, sighting_id "
                 + "from report "
                 + "where users_id = ?;";
-        return new ArrayList<>(jdbcTemplate.query(sql, new ReportMapper(), userId));
+        return new ArrayList<>(jdbcTemplate.query(sql, new ReportMapper(), usersId));
     }
 
     @Override

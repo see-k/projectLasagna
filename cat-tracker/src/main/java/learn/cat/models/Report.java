@@ -1,9 +1,14 @@
 package learn.cat.models;
 
+import javax.validation.constraints.Size;
+
 public class Report {
 
     private int reportId;
+
+    @Size(max = 300, message = "Report description cannot exceed 300 characters.")
     private String reportDescription;
+
     private int catId;
     private int usersId;
     private int sightingId;

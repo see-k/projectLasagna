@@ -47,15 +47,15 @@ class SightingJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void shouldFindByUser() {
-        /*
+    void shouldFindByUserId() {
+        List<Sighting> sightings = repository.findByUsersId(3);
         assertNotNull(sightings);
-        assertEquals(1, sightings.size());*/
-//    }
+    }
 
     @Test
-    void shouldFindByCat() {
-
+    void shouldFindByCatId() {
+        List<Sighting> sightings = repository.findByCatId(3);
+        assertNotNull(sightings);
     }
 
     @Test
@@ -69,14 +69,16 @@ class SightingJdbcTemplateRepositoryTest {
     void shouldUpdate() {
         repository.add(makeSighting());
         Sighting sighting = makeSighting();
+        sighting.setSightingId(2);
         sighting.setSightingDescription("UPDATED");
         assertTrue(repository.update(sighting));
     }
 
     @Test
     void shouldDeleteById() {
-        assertTrue(repository.deleteById(1));
-        assertFalse(repository.deleteById(1));
+        repository.add(makeSighting());
+        assertTrue(repository.deleteById(2));
+        assertFalse(repository.deleteById(5));
     }
 
     private Sighting makeSighting() {

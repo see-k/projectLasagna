@@ -1,6 +1,7 @@
 package learn.cat.models;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
+import javax.validation.constraints.*;
 
 public class Location {
     private int locationId;
