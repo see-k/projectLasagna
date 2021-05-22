@@ -14,7 +14,6 @@ public class Users {
     private String lastName;
     private String email;
     @NotNull(message = "disabled cannot be null")
-    @NotBlank(message = "Disabled cannot be blank")
     private Boolean disabled;
     private List<Cat> cats = new ArrayList<>();
 
