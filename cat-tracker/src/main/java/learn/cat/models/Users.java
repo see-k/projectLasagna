@@ -1,13 +1,19 @@
 package learn.cat.models;
+import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Users {
     private int usersId;
+    @NotBlank(message = "Username is required!")
+    @Size(max= 50, message = "Username cannot be greater than 50")
     private String username;
     private String firstName;
     private String lastName;
     private String email;
+    @NotNull(message = "disabled cannot be null")
     private Boolean disabled;
     private List<Cat> cats = new ArrayList<>();
 

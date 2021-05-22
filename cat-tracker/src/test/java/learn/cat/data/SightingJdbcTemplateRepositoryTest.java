@@ -47,15 +47,15 @@ class SightingJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void shouldFindByUser() {
-        /*
+    void shouldFindByUserId() {
+        List<Sighting> sightings = repository.findByUsersId(3);
         assertNotNull(sightings);
-        assertEquals(1, sightings.size());*/
-//    }
+    }
 
     @Test
-    void shouldFindByCat() {
-
+    void shouldFindByCatId() {
+        List<Sighting> sightings = repository.findByCatId(3);
+        assertNotNull(sightings);
     }
 
     @Test
@@ -67,30 +67,21 @@ class SightingJdbcTemplateRepositoryTest {
 
     @Test
     void shouldUpdate() {
+        repository.add(makeSighting());
         Sighting sighting = makeSighting();
+        sighting.setSightingId(2);
         sighting.setSightingDescription("UPDATED");
         assertTrue(repository.update(sighting));
     }
 
     @Test
     void shouldDeleteById() {
-        assertTrue(repository.deleteById(1));
-        assertFalse(repository.deleteById(1));
+        repository.add(makeSighting());
+        assertTrue(repository.deleteById(2));
+        assertFalse(repository.deleteById(5));
     }
 
     private Sighting makeSighting() {
-        Cat cat = new Cat();
-        cat.setCatId(1);
-        cat.setName("cat");
-
-        Location location = new Location();
-        location.setLocationId(1);
-        location.setLatitude(BigDecimal.valueOf(4.823791827));
-
-        Users users = new Users();
-        users.setUsersId(1);
-        users.setUsername("jnfkjasnd");
-
         Sighting sighting = new Sighting();
         sighting.setPicture("test img_path");
         sighting.setCatDescription("test visual_description");
@@ -98,10 +89,9 @@ class SightingJdbcTemplateRepositoryTest {
         sighting.setSightingDate(new Date(2021, 5, 20));
         sighting.setSightingTime(new Time(12, 12, 12));
         sighting.setDisabled(false);
-       /* sighting.setUsers(users);
-        sighting.setLocation(location);
-        sighting.setCat(cat);*/
-
+        sighting.setCatId(1);
+        sighting.setUsersId(1);
+        sighting.setLocationId(1);
         return sighting;
     }
 }

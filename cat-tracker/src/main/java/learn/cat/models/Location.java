@@ -1,10 +1,13 @@
 package learn.cat.models;
-
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
+import javax.validation.constraints.*;
 
 public class Location {
     private int locationId;
+    @NotNull(message = "Longitude coordinate cannot be null!")
     private BigDecimal longitude;
+    @NotNull(message = "Latitude coordinate cannot be null!")
     private BigDecimal latitude;
 
     public int getLocationId() {
