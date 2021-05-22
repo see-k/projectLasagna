@@ -2,18 +2,30 @@ package learn.cat.models;
 
 import java.sql.Time;
 import java.sql.Date;
+import javax.validation.constraints.*;
 
 public class Sighting {
 
     private int sightingId;
+
+    @Size(max = 100, message = "Image path cannot exceed 100 characters.")
     private String picture;
+
+    @Size(max = 300, message = "Cat visual description cannot exceed 300 characters.")
     private String catDescription;
+
+    @Size(max = 300, message = "Sighting description cannot exceed 300 characters.")
     private String sightingDescription;
     private Date sightingDate;
     private Time sightingTime;
     private boolean isDisabled;
+
+    @NotBlank(message = "sighting must be associated with user")
     private int usersId;
+
+    @NotBlank(message = "sighting must have location")
     private int locationId;
+
     private int catId;
 
     public Sighting() {
