@@ -2,11 +2,13 @@ package learn.cat.controllers;
 
 import learn.cat.data.ReportRepository;
 import learn.cat.domain.ReportService;
+import learn.cat.domain.Result;
 import learn.cat.models.Report;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import learn.cat.models.Sighting;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -29,7 +31,42 @@ public class ReportController {
     @GetMapping("/{usersId}")
     public List<Report> findByUsersId(int usersId) { return service.findByUsersId(usersId); }
 
+    @GetMapping("/{catId}")
     public List<Report> findByCatId(int catId) { return service.findByCatId(catId); }
+
+    @PostMapping
+    public ResponseEntity<Object> add(@RequestBody @Valid Report report, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
+        }
+
+        Result<Sighting> result = service.add(report);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
+        }
+        return ErrorResponse.build(result);
+    }
+
+    @PutMapping("/{sightingId}")
+    public ResponseEntity<Object> update(@RequestBody @Valid Report report, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
+        }
+
+        Result<Sighting> result = service.update(report);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
+        }
+        return ErrorResponse.build(result);
+    }
+
+    @DeleteMapping("/{reportId}")
+    public ResponseEntity<Void> deleteById(@PathVariable int reportId) {
+        if (service.deleteById(reportId)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
 }
 
