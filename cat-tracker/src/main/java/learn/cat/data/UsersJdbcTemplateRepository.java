@@ -1,16 +1,20 @@
 package learn.cat.data;
 
 import learn.cat.data.mappers.CatMapper;
+import learn.cat.data.mappers.SightingMapper;
 import learn.cat.data.mappers.UsersMapper;
 import learn.cat.models.Cat;
+import learn.cat.models.Sighting;
 import learn.cat.models.Users;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -83,16 +87,31 @@ public class UsersJdbcTemplateRepository implements UsersRepository {
     }
 
     @Override
+    @Transactional
     public boolean deleteById(int usersId) {
 
-        final String sql = "select cat_id, cat_name, img_path, cat_description, disabled, users_id " +
+        String sql = "select cat_id, cat_name, img_path, cat_description, disabled, users_id " +
                 "from cat " +
                 "where users_id = ?;";
         Cat cat = jdbcTemplate.query(sql, new CatMapper(), usersId).stream()
                 .findFirst().orElse(null);
 
+        sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
+                + "from sighting "
+                + "where users_id = ?;";
+
+        Sighting sighting = jdbcTemplate.query(sql, new SightingMapper(), usersId).stream()
+                .findFirst().orElse(null);
+
         if (cat != null) {
             jdbcTemplate.update("delete from alias where cat_id = ?;", cat.getCatId());
+
+            if(sighting != null) {
+                jdbcTemplate.update("delete from report where sighting_id = ?;", sighting.getSightingId());
+                jdbcTemplate.update("delete from sighting where users_id = ?;", usersId);
+            }
+
+            jdbcTemplate.update("delete from report where cat_id = ?;", cat.getCatId());
             jdbcTemplate.update("delete from cat where users_id = ?;", usersId);
             jdbcTemplate.update("delete from report where users_id = ?;", usersId);
             return jdbcTemplate.update(
