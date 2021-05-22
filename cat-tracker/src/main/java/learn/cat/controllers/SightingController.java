@@ -39,7 +39,25 @@ public class SightingController {
         }
         return ErrorResponse.build(result);
     }
-    //(@RequestBody @Valid Sighting sighting BindingResult bindingResult)
-    //if (bindingResult.hasErrors()) {
-    // return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST()); }
+
+    @PutMapping("/{sightingId}")
+    public ResponseEntity<Object> update(@RequestBody @Valid Sighting sighting, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
+        }
+
+        Result<Sighting> result = service.update(sighting);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
+        }
+        return ErrorResponse.build(result);
+    }
+
+    @DeleteMapping("/{sightingId}")
+    public ResponseEntity<Void> deleteById(@PathVariable int sightingId) {
+        if (service.deleteById(sightingId)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
