@@ -2,6 +2,7 @@ package learn.cat.domain;
 
 import learn.cat.data.ReportRepository;
 import learn.cat.models.Report;
+import learn.cat.models.Sighting;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
@@ -26,20 +27,36 @@ public class ReportService {
 
     public List<Report> findByCatId(int catId) { return repository.findByCatId(catId); }
 
-    //TODO add
     public Result<Report> add(Report report) {
-        return null;
+        Result<Report> result = new Result<>();
+        result = validate(report);
+        //more validations
+        report = repository.add(report);
+        result.setPayload(report);
+        return result;
     }
 
-    //TODO update
     public Result<Report> update(Report report) {
-        return null;
+        Result<Report> result = new Result<>();
+        result = validate(report);
+        //more validations
+        if (!repository.update(report)) {
+            result.addMessage(String.format("sightingId: %s was not found", report.getReportId()), ResultType.INVALID);
+        }
+
+        return result;
     }
 
     public boolean deleteById(int reportId) { return repository.deleteById(reportId); }
 
     private Result<Report> validate(Report report) {
         Result<Report> result = new Result<>();
+
+        if (report == null) {
+            result.addMessage("Report cannot be null.", ResultType.INVALID);
+            return result;
+        }
+        //TODO validate parent exists
 
         //technically not needed but just in case
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();

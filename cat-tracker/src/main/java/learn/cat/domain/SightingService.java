@@ -27,17 +27,36 @@ public class SightingService {
     public List<Sighting> findByCatId(int catId) { return repository.findByCatId(catId); }
 
     public Result<Sighting> add(Sighting sighting) {//TODO
-         return null;
+        Result<Sighting> result = new Result<>();
+        result = validate(sighting);
+        //more validations
+        sighting = repository.add(sighting);
+        result.setPayload(sighting);
+        return result;
     }
 
     public Result<Sighting> update(Sighting sighting) {//TODO
-        return null;
+        Result<Sighting> result = new Result<>();
+        result = validate(sighting);
+         //more validations
+        if (!repository.update(sighting)) {
+            result.addMessage(String.format("sightingId: %s was not found", sighting.getSightingId()), ResultType.INVALID);
+        }
+
+        return result;
     }
 
     public boolean deleteById(int sightingId) { return repository.deleteById(sightingId); }
 
     private Result<Sighting> validate(Sighting sighting) {
         Result<Sighting> result = new Result<>();
+
+        if (sighting == null) {
+            result.addMessage("Sighting cannot be null.", ResultType.INVALID);
+            return result;
+        }
+
+        //TODO validate parents and children?
 
         //technically not needed but just in case
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
