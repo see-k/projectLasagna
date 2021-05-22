@@ -2,7 +2,6 @@ package learn.cat.domain;
 
 import learn.cat.data.ReportRepository;
 import learn.cat.models.Report;
-import learn.cat.models.Sighting;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
@@ -38,6 +37,11 @@ public class ReportService {
             return result;
         }
 
+        if(report.getCatId() == 0 && report.getUsersId() == 0 && report.getSightingId() == 0) {
+            result.addMessage("Report cannot be added when not associated with user, cat, or sighting.", ResultType.INVALID);
+            return result;
+        }
+
         report = repository.add(report);
         result.setPayload(report);
         return result;
@@ -55,7 +59,7 @@ public class ReportService {
         }
 
         if (!repository.update(report)) {
-            result.addMessage(String.format("sightingId: %s was not found", report.getReportId()), ResultType.INVALID);
+            result.addMessage(String.format("reportId: %s was not found", report.getReportId()), ResultType.INVALID);
         }
 
         return result;
