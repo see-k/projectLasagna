@@ -1,11 +1,11 @@
 import './App.css';
 
-function App() {
+function Sighting() {
   return (
     <div className="App">
-      <h1>App</h1>
+      <h1>Sighting</h1>
     </div>
   );
 }
 
-export default App;
+export default Sighting;
