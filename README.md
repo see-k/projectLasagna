@@ -145,7 +145,7 @@ ______________________________________________________________________
 |5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | 5:00pm | 5:15pm | Completed | Quinn
 |5/21/2021| U & L Controller | 4 | 9:07 | _ | In progress | Chike
 |5/21/2021| S & R Controller | 4 | 7:30pm | 9:00pm | Completed | Quinn
-|5/21/2021| A & C Controller | 4 | 11:00am | _ | In Progress | Derek
+|5/21/2021| A & C Controller | 4 | 11:00am | 1:00 | In Progress | Derek
 |5/21/2021| React Setup | 1.5 | 5:00pm | 5:15pm | Completed | Quinn
 |5/21/2021| Component Setup | 1.5 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Derek
