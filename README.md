@@ -148,17 +148,17 @@ ______________________________________________________________________
 |5/21/2021| A & C Controller | 4 | _ | _ | Not Started | Derek
 |5/21/2021| React Setup | 1.5 | 5:00pm | 5:15pm | Completed | Quinn
 |5/21/2021| Component Setup | 1.5 | _ | _ | Not Started | Chike, Quinn, Derek
-|5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Chike
+|5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Derek
 |5/21/2021| Static Pages (About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
 |5/21/2021| Navigation Bar | 2 | _ | _ | Not Started | Derek
-|5/22/2021| ViewSightings | 4 | _ | _ | Not Started |
-|5/22/2021| AddSighting | 2 | _ | _ | Not Started |
-|5/22/2021| DeleteSighting | 2 | _ | _ | Not Started |
-|5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started |
-|5/22/2021| UpdateCatProfile | 2 | _ | _ | Not Started |
-|5/22/2021| DeleteCatProfile | 2 | _ | _ | Not Started |
+|5/22/2021| ViewSightings | 4 | _ | _ | Not Started | Quinn
+|5/22/2021| AddSighting | 2 | _ | _ | Not Started | Quinn
+|5/22/2021| DeleteSighting | 2 | _ | _ | Not Started | Quinn
+|5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started | Quinn
+|5/22/2021| UpdateCatProfile | 2 | _ | _ | Not Started | Quinn
+|5/22/2021| DeleteCatProfile | 2 | _ | _ | Not Started | Quinn
 |5/23/2021| Azure: Research and Setup | 4 | 2:00 PM | 6:30 PM | Completed | Chike
-|5/23/2021| Debugging | 4 | _ | _ | Not Started |
+|5/23/2021| Debugging | 4 | _ | _ | Not Started | Quinn
 |5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | _ | Not Started | Chike
 |5/23/2021| Populate data and generate individual url| 1 | _ | _ | Not Started |Chike
 |5/23/2021| Handshake: Cloud( Microsoft Azure) with Docker (MySql) | 0.5 | _ | _ | Not Started | Chike
