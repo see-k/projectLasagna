@@ -142,23 +142,28 @@ ______________________________________________________________________
 |5/20/2021| U & L Service | 4 | 1:00 AM | 4:00 AM | Completed | Chike
 |5/20/2021| S & R Service | 4 | 5:00pm | 8:00pm | Completed | Quinn
 |5/20/2021| A & C Service | 4 | 9:00pm | 11:45pm | Completed | Derek
-|5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | _ | _ | Not Started |Chike, Quinn, Derek
+|5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | 5:00pm | 5:15pm | Completed | Quinn
 |5/21/2021| U & L Controller | 4 | 9:07 | _ | In progress | Chike
 |5/21/2021| S & R Controller | 4 | 7:30pm | 9:00pm | Completed | Quinn
-|5/21/2021| A & C Controller | 4 | _ | _ | Not Started | Derek
-|5/21/2021| React Setup | 1.5 | _ | _ | Not Started | Chike, Quinn, Derek
+|5/21/2021| A & C Controller | 4 | 11:00am | 1:00 | In Progress | Derek
+|5/21/2021| React Setup | 1.5 | 5:00pm | 5:15pm | Completed | Quinn
 |5/21/2021| Component Setup | 1.5 | _ | _ | Not Started | Chike, Quinn, Derek
-|5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Chike
+|5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Derek
 |5/21/2021| Static Pages (About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
 |5/21/2021| Navigation Bar | 2 | _ | _ | Not Started | Derek
-|5/22/2021| ViewSightings | 4 | _ | _ | Not Started |
-|5/22/2021| AddSighting | 2 | _ | _ | Not Started |
-|5/22/2021| DeleteSighting | 2 | _ | _ | Not Started |
-|5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started |
-|5/22/2021| UpdateCatProfile | 2 | _ | _ | Not Started |
-|5/22/2021| DeleteCatProfile | 2 | _ | _ | Not Started |
-|5/23/2021| Debugging | 4 | _ | _ | Not Started |
-
+|5/22/2021| ViewSightings | 4 | _ | _ | Not Started | Quinn
+|5/22/2021| AddSighting | 2 | _ | _ | Not Started | Quinn
+|5/22/2021| DeleteSighting | 2 | _ | _ | Not Started | Quinn
+|5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started | Quinn
+|5/22/2021| UpdateCatProfile | 2 | _ | _ | Not Started | Quinn
+|5/22/2021| DeleteCatProfile | 2 | _ | _ | Not Started | Quinn
+|5/23/2021| Azure: Research and Setup | 4 | 2:00 PM | 6:30 PM | Completed | Chike
+|5/23/2021| Debugging | 4 | _ | _ | Not Started | Quinn
+|5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | _ | Not Started | Chike
+|5/23/2021| Populate data and generate individual url| 1 | _ | _ | Not Started |Chike
+|5/23/2021| Handshake: Cloud( Microsoft Azure) with Docker (MySql) | 0.5 | _ | _ | Not Started | Chike
+|5/23/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
+|5/23/2021| Test Cloud Data with HTTP (VSCODE) | 0.5 | _ | _ | Not Started | Chike
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS

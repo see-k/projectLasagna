@@ -1,0 +1,26 @@
+@url = http://localhost:8080/api/alias
+
+### find By Id
+GET {{url}}/1 HTTP/1.1
+
+### Add
+POST {{url}} HTTP/1/1
+Content-Type: application/json
+
+{
+    "aliasName": "Squarepants",
+    "catId": 3
+}
+
+### Update
+PUT {{url}}/6 HTTP/1.1
+Content-Type: application/json
+
+{
+    "aliasId": 4,
+    "aliasName": "TestAlias",
+    "catId": 3
+}
+
+### Delete
+DELETE {{url}}/4 HTTP/1.1

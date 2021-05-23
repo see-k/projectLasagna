@@ -38,7 +38,7 @@ class ReportJdbcTemplateRepositoryTest {
     }
 
     @Test
-    void shouldFindByUsersd() {
+    void shouldFindByUsersId() {
         List<Report> reports = repository.findByUsersId(1);
         assertNotNull(reports);
     }

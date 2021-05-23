@@ -27,18 +27,32 @@ public class SightingService {
     public List<Sighting> findByCatId(int catId) { return repository.findByCatId(catId); }
 
     public Result<Sighting> add(Sighting sighting) {//TODO
-        Result<Sighting> result = new Result<>();
-        result = validate(sighting);
-        //more validations
+        Result<Sighting> result = validate(sighting);
+        if(!result.isSuccess()) {
+            return result;
+        }
+
+        if(sighting.getSightingId() != 0) {
+            result.addMessage("SightingId cannot be set for add operation.", ResultType.INVALID);
+            return result;
+        }
+
         sighting = repository.add(sighting);
         result.setPayload(sighting);
         return result;
     }
 
     public Result<Sighting> update(Sighting sighting) {//TODO
-        Result<Sighting> result = new Result<>();
-        result = validate(sighting);
-         //more validations
+        Result<Sighting> result = validate(sighting);
+        if(!result.isSuccess()) {
+            return result;
+        }
+
+        if(sighting.getSightingId() <= 0) {
+            result.addMessage("SightingId must be set for update operation.", ResultType.INVALID);
+            return result;
+        }
+
         if (!repository.update(sighting)) {
             result.addMessage(String.format("sightingId: %s was not found", sighting.getSightingId()), ResultType.INVALID);
         }
@@ -58,14 +72,13 @@ public class SightingService {
 
         //TODO validate parents and children?
 
-        //technically not needed but just in case
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+      /*  ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Sighting>> violations = validator.validate(sighting);
 
         for (ConstraintViolation<Sighting> violation : violations) {
             result.addMessage(violation.getMessage(), ResultType.INVALID);
-        }
+        }*/
 
         return result;
     }

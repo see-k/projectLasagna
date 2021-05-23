@@ -2,7 +2,6 @@ package learn.cat.domain;
 
 import learn.cat.data.ReportRepository;
 import learn.cat.models.Report;
-import learn.cat.models.Sighting;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
@@ -28,20 +27,39 @@ public class ReportService {
     public List<Report> findByCatId(int catId) { return repository.findByCatId(catId); }
 
     public Result<Report> add(Report report) {
-        Result<Report> result = new Result<>();
-        result = validate(report);
-        //more validations
+        Result<Report> result = validate(report);
+        if(!result.isSuccess()) {
+            return result;
+        }
+
+        if(report.getReportId() != 0) {
+            result.addMessage("ReportId cannot be set for add operation.", ResultType.INVALID);
+            return result;
+        }
+
+        if(report.getCatId() == 0 && report.getUsersId() == 0 && report.getSightingId() == 0) {
+            result.addMessage("Report cannot be added when not associated with user, cat, or sighting.", ResultType.INVALID);
+            return result;
+        }
+
         report = repository.add(report);
         result.setPayload(report);
         return result;
     }
 
     public Result<Report> update(Report report) {
-        Result<Report> result = new Result<>();
-        result = validate(report);
-        //more validations
+        Result<Report> result = validate(report);
+        if(!result.isSuccess()) {
+            return result;
+        }
+
+        if(report.getReportId() <= 0) {
+            result.addMessage("ReportId must be set for update operation.", ResultType.INVALID);
+            return result;
+        }
+
         if (!repository.update(report)) {
-            result.addMessage(String.format("sightingId: %s was not found", report.getReportId()), ResultType.INVALID);
+            result.addMessage(String.format("reportId: %s was not found", report.getReportId()), ResultType.INVALID);
         }
 
         return result;
