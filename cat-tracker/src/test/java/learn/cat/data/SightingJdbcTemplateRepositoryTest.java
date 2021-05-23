@@ -32,66 +32,67 @@ class SightingJdbcTemplateRepositoryTest {
     void setup() {
         knownGoodState.set();
     }
-//
-//    @Test
-//    void shouldFindAll() {
-//        List<Sighting> sightings = repository.findAll();
-//        assertNotNull(sightings);
-//        assertTrue(sightings.size() >= 1 && sightings.size() <= 4);
-//    }
-//
-//    @Test
-//    void shouldFindById() {
-//        Sighting sighting = repository.findById(1);
-//        assertNotNull(sighting);
-//    }
-//
-//    @Test
-//    void shouldFindByUserId() {
-//        List<Sighting> sightings = repository.findByUsersId(3);
-//        assertNotNull(sightings);
-//    }
-//
-//    @Test
-//    void shouldFindByCatId() {
-//        List<Sighting> sightings = repository.findByCatId(3);
-//        assertNotNull(sightings);
-//    }
-//
-//    @Test
-//    void shouldAdd() {
-//        Sighting sighting = makeSighting();
-//        Sighting actual = repository.add(sighting);
-//        assertNotNull(actual);
-//    }
-//
-//    @Test
-//    void shouldUpdate() {
-//        repository.add(makeSighting());
-//        Sighting sighting = makeSighting();
-//        sighting.setSightingId(2);
-//        sighting.setSightingDescription("UPDATED");
-//        assertTrue(repository.update(sighting));
-//    }
-//
-//    @Test
-//    void shouldDeleteById() {
-//        repository.add(makeSighting());
-//        assertTrue(repository.deleteById(2));
-//        assertFalse(repository.deleteById(5));
-//    }
-//
-//    private Sighting makeSighting() {
-//        Sighting sighting = new Sighting();
-//        sighting.setPicture("test img_path");
-//        sighting.setCatDescription("test visual_description");
-//        sighting.setSightingDescription("sighting_description");
-//        sighting.setSightingDate(new Date(2021, 5, 20));
-//        sighting.setSightingTime(new Time(12, 12, 12));
-//        sighting.setDisabled(false);
-//        sighting.setCatId(1);
-//        sighting.setUsersId(1);
-//        sighting.setLocationId(1);
-//        return sighting;
-//    }
+
+
+    @Test
+    void shouldFindAll() {
+        List<Sighting> sightings = repository.findAll();
+        assertNotNull(sightings);
+        assertTrue(sightings.size() >= 1 && sightings.size() <= 4);
+    }
+
+    @Test
+    void shouldFindById() {
+        Sighting sighting = repository.findById(1);
+        assertNotNull(sighting);
+    }
+
+    @Test
+    void shouldFindByUserId() {
+        List<Sighting> sightings = repository.findByUsersId(3);
+        assertNotNull(sightings);
+    }
+
+    @Test
+    void shouldFindByCatId() {
+        List<Sighting> sightings = repository.findByCatId(3);
+        assertNotNull(sightings);
+    }
+
+    @Test
+    void shouldAdd() {
+        Sighting sighting = makeSighting();
+        Sighting actual = repository.add(sighting);
+        assertNotNull(actual);
+    }
+
+    @Test
+    void shouldUpdate() {
+        repository.add(makeSighting());
+        Sighting sighting = makeSighting();
+        sighting.setSightingId(2);
+        sighting.setSightingDescription("UPDATED");
+        assertTrue(repository.update(sighting));
+    }
+
+    @Test
+    void shouldDeleteById() {
+        repository.add(makeSighting());
+        assertTrue(repository.deleteById(2));
+        assertFalse(repository.deleteById(5));
+    }
+
+    private Sighting makeSighting() {
+        Sighting sighting = new Sighting();
+        sighting.setPicture("test img_path");
+        sighting.setCatDescription("test visual_description");
+        sighting.setSightingDescription("sighting_description");
+        sighting.setSightingDate(new Date(2021, 5, 20));
+        sighting.setSightingTime(new Time(12, 12, 12));
+        sighting.setDisabled(false);
+        sighting.setCatId(1);
+        sighting.setUsersId(1);
+        sighting.setLocationId(1);
+        return sighting;
+    }
 }
