@@ -157,8 +157,13 @@ ______________________________________________________________________
 |5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started |
 |5/22/2021| UpdateCatProfile | 2 | _ | _ | Not Started |
 |5/22/2021| DeleteCatProfile | 2 | _ | _ | Not Started |
+|5/23/2021| Azure: Research and Setup | 4 | 2:00 PM | 4:00 PM | Completed | Chike
 |5/23/2021| Debugging | 4 | _ | _ | Not Started |
-
+|5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | _ | Not Started | Chike
+|5/23/2021| Populate data and generate individual url| 1 | _ | _ | Not Started |Chike
+|5/23/2021| Handshake: Cloud( Microsoft Azure) with Docker (MySql) | 0.5 | _ | _ | Not Started | Chike
+|5/23/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
+|5/23/2021| Test Cloud Data with HTTP (VSCODE) | 0.5 | _ | _ | Not Started | Chike
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
