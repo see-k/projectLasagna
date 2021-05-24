@@ -16,27 +16,27 @@ Content-Type: application/json
     "sightingDescription": "this is a sighting",
     "sightingDate": "2021-05-20",
     "sightingTime": "18:50:12",
-    "disabled": false,
-    "usersId": 5,
-    "locationId": 3,
-    "catId": 0
+    "usersId": 1,
+    "locationId": 1,
+    "catId": 1,
+    "disabled": false
 }
 
 ### Update
-PUT {{url}}/2 HTTP/1.1
+PUT {{url}}/1 HTTP/1.1
 Content-Type: application/json
 
 {
-    "sightingId": 2,
+    "sightingId": 1,
     "picture": "/test/sighting/img",
     "catDescription": "this is a cat update",
     "sightingDescription": "this is a sighting update",
     "sightingDate": "2021-05-20",
     "sightingTime": "18:50:12",
-    "isDisabled": false,
     "usersId": 3,
     "locationId": 3,
-    "catId": 3
+    "catId": 1,
+    "disabled": false
 }
 
 ### Delete

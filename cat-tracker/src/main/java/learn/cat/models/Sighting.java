@@ -8,26 +8,26 @@ public class Sighting {
 
     private int sightingId;
 
-    @Size(max = 100, message = "Image path cannot exceed 100 characters.")
+    //@Size(max = 100, message = "Image path cannot exceed 100 characters.")
     private String picture;
 
-    @Size(max = 300, message = "Cat visual description cannot exceed 300 characters.")
+    //@Size(max = 300, message = "Cat visual description cannot exceed 300 characters.")
     private String catDescription;
 
-    @Size(max = 300, message = "Sighting description cannot exceed 300 characters.")
+    //@Size(max = 300, message = "Sighting description cannot exceed 300 characters.")
     private String sightingDescription;
 
-    @PastOrPresent(message = "Date cannot be in the future.")
+    //@PastOrPresent(message = "Date cannot be in the future.")
     private Date sightingDate;
 
-    @PastOrPresent(message = "Date cannot be in the future.")
+    //@PastOrPresent(message = "Date cannot be in the future.")
     private Time sightingTime;
     private boolean isDisabled;
 
-    @Positive(message = "sighting must be associated with user")
+    //@Positive(message = "sighting must be associated with user")
     private int usersId;
 
-    @Positive(message = "sighting must have location")
+    //@Positive(message = "sighting must have location")
     private int locationId;
 
     private int catId;

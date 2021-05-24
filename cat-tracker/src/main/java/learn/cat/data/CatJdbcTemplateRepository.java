@@ -93,7 +93,7 @@ public class CatJdbcTemplateRepository implements CatRepository {
         return jdbcTemplate.update("DELETE FROM cat where cat_id = ?;", catId) > 0;
     }
 
-    private void addAliases(Cat cat) {
+   private void addAliases(Cat cat) {
         final String sql = "SELECT alias_id, alias_name, cat_id "
                 + "FROM alias "
                 + "WHERE cat_id = ?;";

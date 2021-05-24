@@ -22,12 +22,12 @@ public class Cat {
     @NotNull(message = "User Id is required.")
     private int usersId;
     private boolean isDisabled;
-    private List<Alias> aliases;
+    private List<Alias> aliases = new ArrayList<>();
 
     public Cat() {
     }
 
-    public Cat(int catId, String name, String desc, String picture, int usersId, boolean isDisabled, List<Alias> aliases) {
+    public Cat(int catId, String name, String desc, String picture, int usersId, boolean isDisabled) {
         this.catId = catId;
         this.name = name;
         this.desc = desc;
@@ -85,7 +85,7 @@ public class Cat {
         isDisabled = disabled;
     }
 
-    public List<Alias> getAliases() {
+   public List<Alias> getAliases() {
         return new ArrayList<>(aliases);
     }
 

@@ -26,7 +26,7 @@ public class SightingService {
 
     public List<Sighting> findByCatId(int catId) { return repository.findByCatId(catId); }
 
-    public Result<Sighting> add(Sighting sighting) {//TODO
+    public Result<Sighting> add(Sighting sighting) {
         Result<Sighting> result = validate(sighting);
         if(!result.isSuccess()) {
             return result;
@@ -42,7 +42,7 @@ public class SightingService {
         return result;
     }
 
-    public Result<Sighting> update(Sighting sighting) {//TODO
+    public Result<Sighting> update(Sighting sighting) {
         Result<Sighting> result = validate(sighting);
         if(!result.isSuccess()) {
             return result;
@@ -70,11 +70,7 @@ public class SightingService {
             return result;
         }
 
-        //TODO validate parents and children?
-
-
-
-     /*  ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        /*ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Sighting>> violations = validator.validate(sighting);
 
