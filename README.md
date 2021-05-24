@@ -165,7 +165,7 @@ ______________________________________________________________________
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
-|:---:| :---: | :---:               | :---:                |:---:              |:---: |
+|:---:| :---: | :---:               | :---:                |:---:              |:---: | :---: 
 |5/24/2021| Add Azure configuration to react app (packages and extension)  | 3 | _ | _ | Not Started | Chike
 |5/24/2021| Include azure-blop react component  | 3 | _ | _ | Not Started | Chike
 |5/24/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
