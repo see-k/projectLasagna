@@ -159,16 +159,18 @@ ______________________________________________________________________
 |5/22/2021| DeleteCatProfile | 2 | _ | _ | Not Started | Quinn
 |5/23/2021| Azure: Research and Setup | 4 | 2:00 PM | 6:30 PM | Completed | Chike
 |5/23/2021| Debugging | 4 | _ | _ | Not Started | Quinn
-|5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | _ | Not Started | Chike
-|5/23/2021| Populate data and generate individual url| 1 | _ | _ | Not Started |Chike
-|5/23/2021| Handshake: Cloud( Microsoft Azure) with Docker (MySql) | 0.5 | _ | _ | Not Started | Chike
-|5/23/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
+|5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | 3:00 PM | Completed | Chike
+|5/23/2021| Populate data and generate individual url| 1 | 7:00 PM | 8:00 PM | Completed |Chike
 |5/23/2021| Test Cloud Data with HTTP (VSCODE) | 0.5 | _ | _ | Not Started | Chike
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
-|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS
-|:---:| :---: | :---:               | :---:                |:---:              |:---:
-|| Stretch Goals | _ | _ | _ | Not Started |
+|DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
+|:---:| :---: | :---:               | :---:                |:---:              |:---: |
+|5/24/2021| Add Azure configuration to react app (packages and extension)  | 3 | _ | _ | Not Started | Chike
+|5/24/2021| Include azure-blop react component  | 3 | _ | _ | Not Started | Chike
+|5/24/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
+|5/24/2021| Test and Debugging  | 1 | _ | _ | Not Started | Chike
+|| Stretch Goals | _ | _ | _ | Not Started |_
 
 # Stretch Goals
 -	Directions to cat from current location
