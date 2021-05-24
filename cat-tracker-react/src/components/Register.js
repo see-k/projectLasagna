@@ -1,11 +1,11 @@
 import './../App.css';
 
-function Home() {
+function Register() {
   return (
     <div className="App">
-      <h1>Home</h1>
+      <h1>Register</h1>
     </div>
   );
 }
 
-export default Home;
+export default Register;
