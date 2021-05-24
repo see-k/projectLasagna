@@ -16,10 +16,10 @@ Content-Type: application/json
     "sightingDescription": "this is a sighting",
     "sightingDate": "2021-05-20",
     "sightingTime": "18:50:12",
-    "isDisabled": false,
-    "usersId": 3,
+    "disabled": false,
+    "usersId": 5,
     "locationId": 3,
-    "catId": 3
+    "catId": 0
 }
 
 ### Update
