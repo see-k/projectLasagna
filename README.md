@@ -151,7 +151,6 @@ ______________________________________________________________________
 |5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Derek
 |5/21/2021| Static Pages (About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
 |5/21/2021| Navigation Bar | 2 | _ | _ | Completed | Quinn
-
 |5/23/2021| Azure: Research and Setup | 4 | 2:00 PM | 6:30 PM | Completed | Chike
 |5/23/2021| Debugging | 4 | _ | _ | Not Started | Quinn
 |5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | 3:00 PM | Completed | Chike
