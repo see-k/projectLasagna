@@ -20,7 +20,7 @@ CREATE TABLE users (
 CREATE TABLE location (
 	location_id int PRIMARY KEY AUTO_INCREMENT,
     latitude DECIMAL(8,6),
-    longitude DECIMAL(8,6)
+    longitude DECIMAL(9,6)
 );
 
 -- Cat: assigned to Derrick Fidelman
@@ -29,8 +29,8 @@ CREATE TABLE cat (
     cat_name varchar(50) NOT NULL,
     img_path varchar(100) NULL,
     cat_description varchar(300) NULL,
-    disabled bit NOT NULL,
-    users_id int NOT NULL,
+    disabled bit NOT NULL default 0,
+    users_id int NULL,
     CONSTRAINT fk_cat_users_id
 		FOREIGN KEY (users_id)
         REFERENCES users(users_id)
@@ -70,7 +70,7 @@ create table sighting (
 );
 -- Reports: assigned to Quinn Chu
 create table report (
-	report_id int PRIMARY KEY AUTO_INCREMENT,
+	report_id int primary key not null auto_increment,
     report_description varchar(300),
     cat_id int,
     users_id int,
@@ -91,19 +91,21 @@ create table report (
 delimiter //
 create procedure set_known_good_state()
 begin
-	
-    delete from users;
-    alter table users auto_increment = 1;
-    delete from location;
-    alter table location auto_increment = 1;
-    delete from cat;
-    alter table cat auto_increment = 1;
-    delete from alias;
-    alter table alias auto_increment = 1;
-    delete from sighting;
-    alter table sighting auto_increment = 1;
+
+	set sql_safe_updates = 0;
     delete from report;
     alter table report auto_increment = 1;
+    delete from sighting;
+    alter table sighting auto_increment = 1;
+    delete from location;
+    alter table location auto_increment = 1;
+    delete from alias;
+    alter table alias auto_increment = 1;
+    delete from cat;
+    alter table cat auto_increment = 1;
+    delete from users;
+    alter table users auto_increment = 1;
+    set sql_safe_updates = 1;
     
     insert into users(users_id, username, first_name, last_name, users_email, disabled) values
 		(1, 'COkonta', 'Chike', 'Okonta', 'COkonta@dev-10.com', 0),

@@ -21,7 +21,7 @@ CREATE TABLE users (
 CREATE TABLE location (
 	location_id int PRIMARY KEY AUTO_INCREMENT,
     latitude DECIMAL(8,6),
-    longitude DECIMAL(8,6)
+    longitude DECIMAL(9,6)
 );
 
 -- Cat: assigned to Derrick Fidelman
@@ -30,8 +30,8 @@ CREATE TABLE cat (
     cat_name varchar(50) NOT NULL,
     img_path varchar(100) NULL,
     cat_description varchar(300) NULL,
-    disabled bit NOT NULL,
-    users_id int NOT NULL,
+    disabled bit NOT NULL default 0,
+    users_id int NULL,
     CONSTRAINT fk_cat_users_id
 		FOREIGN KEY (users_id)
         REFERENCES users(users_id)
@@ -71,7 +71,7 @@ create table sighting (
 );
 -- Reports: assigned to Quinn Chu
 create table report (
-	report_id int PRIMARY KEY AUTO_INCREMENT,
+	report_id int primary key not null auto_increment,
     report_description varchar(300),
     cat_id int,
     users_id int,

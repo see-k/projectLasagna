@@ -1,0 +1,43 @@
+@url = http://localhost:8080/api/sighting
+
+### find all
+GET {{url}} HTTP/1.1
+
+### find By Id
+GET {{url}}/1 HTTP/1.1
+
+### Add
+POST {{url}} HTTP/1/1
+Content-Type: application/json
+
+{
+    "picture": "/test/sighting/img",
+    "catDescription": "this is a cat",
+    "sightingDescription": "this is a sighting",
+    "sightingDate": "2021-05-20",
+    "sightingTime": "18:50:12",
+    "disabled": false,
+    "usersId": 5,
+    "locationId": 3,
+    "catId": 0
+}
+
+### Update
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "sightingId": 2,
+    "picture": "/test/sighting/img",
+    "catDescription": "this is a cat update",
+    "sightingDescription": "this is a sighting update",
+    "sightingDate": "2021-05-20",
+    "sightingTime": "18:50:12",
+    "isDisabled": false,
+    "usersId": 3,
+    "locationId": 3,
+    "catId": 3
+}
+
+### Delete
+DELETE {{url}}/2 HTTP/1.1

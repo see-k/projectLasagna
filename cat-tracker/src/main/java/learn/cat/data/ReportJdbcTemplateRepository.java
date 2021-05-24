@@ -6,12 +6,14 @@ import learn.cat.models.Report;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class ReportJdbcTemplateRepository implements ReportRepository {
 
     private JdbcTemplate jdbcTemplate;
@@ -39,11 +41,11 @@ public class ReportJdbcTemplateRepository implements ReportRepository {
     }
 
     @Override
-    public List<Report> findByUserId(int userId) {
+    public List<Report> findByUsersId(int usersId) {
         final String sql = "select report_id, report_description, cat_id, users_id, sighting_id "
                 + "from report "
-                + "where user_id = ?;";
-        return new ArrayList<>(jdbcTemplate.query(sql, new ReportMapper(), userId));
+                + "where users_id = ?;";
+        return new ArrayList<>(jdbcTemplate.query(sql, new ReportMapper(), usersId));
     }
 
     @Override
@@ -65,7 +67,7 @@ public class ReportJdbcTemplateRepository implements ReportRepository {
             ps.setString(1, report.getReportDescription());
             ps.setInt(2, report.getCatId());
             ps.setInt(3, report.getUsersId());
-            ps.setInt(4, report.getReportId());
+            ps.setInt(4, report.getSightingId());
             return ps;
         }, keyHolder);
 
