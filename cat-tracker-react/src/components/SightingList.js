@@ -20,6 +20,7 @@ function SightingList() {
         .catch(console.log);
     }, []);
 
+
     const addFetch = (sighting) => {
         const init = {
           method: "POST",

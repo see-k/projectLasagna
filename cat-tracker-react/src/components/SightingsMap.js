@@ -42,7 +42,11 @@ function SightingsMap() {
     const [markers, setMarkers] = useState([]);
 
     const addSighting = (event) => {
-        setMarkers
+        setMarkers(current => [...current, {
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng(),
+            time: new Date(),
+        }])
     }
     
     const {isLoaded, loadError} = useLoadScript({
@@ -67,7 +71,12 @@ function SightingsMap() {
             center={center}
             options={options}
             onClick={addSighting}>
-
+                {markers.map(marker => 
+                    <Marker 
+                        key={marker.time.toISOString} 
+                        position={{lat: marker.lat, lng: marker.lng}}    
+                    />
+                )}
             </GoogleMap>
         </div>
     );
