@@ -45,6 +45,7 @@ class SightingJdbcTemplateRepositoryTest {
     void shouldFindById() {
         Sighting sighting = repository.findById(1);
         assertNotNull(sighting);
+        assertEquals(3, sighting.getCatId());
     }
 
     @Test

@@ -72,7 +72,9 @@ public class SightingService {
 
         //TODO validate parents and children?
 
-      /*  ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+
+
+     /*  ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Sighting>> violations = validator.validate(sighting);
 
