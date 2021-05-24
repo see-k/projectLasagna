@@ -1,0 +1,35 @@
+@url = http://localhost:8080/api/cat
+
+### find all
+GET {{url}} HTTP/1.1
+
+### find By Id
+GET {{url}}/1 HTTP/1.1
+
+### Add
+POST {{url}} HTTP/1/1
+Content-Type: application/json
+
+{
+    "name": "Spongebob",
+    "desc": "Lives in a pineapple under the sea",
+    "picture": "/test/img/path",
+    "isDisabled": false,
+    "usersId": 3
+}
+
+### Update
+PUT {{url}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "catId": 4,
+    "name": "Spongebob",
+    "desc": "Lives in a pineapple under the sea",
+    "picture": "/test/img/path",
+    "isDisabled": false,
+    "usersId": 2
+}
+
+### Delete
+DELETE {{url}}/4 HTTP/1.1

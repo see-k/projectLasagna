@@ -1,0 +1,33 @@
+@url = http://localhost:8080/api/report
+
+### find all
+GET {{url}} HTTP/1.1
+
+### find By Id
+GET {{url}}/1 HTTP/1.1
+
+### Add
+POST {{url}} HTTP/1/1
+Content-Type: application/json
+
+{
+    "reportDescription": "Test report description",
+    "catId": 3,
+    "usersId": null,
+    "sighting": null
+}
+
+### Update
+PUT {{url}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "reportId": 4
+    "reportDescription": "Test report description update",
+    "catId": 3,
+    "usersId": null,
+    "sighting": null
+}
+
+### Delete
+DELETE {{url}}/4 HTTP/1.1

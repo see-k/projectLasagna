@@ -33,6 +33,7 @@ class SightingJdbcTemplateRepositoryTest {
         knownGoodState.set();
     }
 
+
     @Test
     void shouldFindAll() {
         List<Sighting> sightings = repository.findAll();
