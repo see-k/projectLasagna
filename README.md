@@ -150,13 +150,8 @@ ______________________________________________________________________
 |5/21/2021| Component Setup | 1.5 | _ | _ | Not Started | Chike, Quinn, Derek
 |5/21/2021| Roles & Authentication | 1 | _ | _ | Not Started | Derek
 |5/21/2021| Static Pages (About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
-|5/21/2021| Navigation Bar | 2 | _ | _ | Not Started | Derek
-|5/22/2021| ViewSightings | 4 | _ | _ | Not Started | Quinn
-|5/22/2021| AddSighting | 2 | _ | _ | Not Started | Quinn
-|5/22/2021| DeleteSighting | 2 | _ | _ | Not Started | Quinn
-|5/22/2021| ViewCatProfiles | 3 | _ | _ | Not Started | Quinn
-|5/22/2021| UpdateCatProfile | 2 | _ | _ | Not Started | Quinn
-|5/22/2021| DeleteCatProfile | 2 | _ | _ | Not Started | Quinn
+|5/21/2021| Navigation Bar | 2 | _ | _ | Completed | Quinn
+
 |5/23/2021| Azure: Research and Setup | 4 | 2:00 PM | 6:30 PM | Completed | Chike
 |5/23/2021| Debugging | 4 | _ | _ | Not Started | Quinn
 |5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | 3:00 PM | Completed | Chike
@@ -170,6 +165,14 @@ ______________________________________________________________________
 |5/24/2021| Include azure-blop react component  | 3 | _ | _ | Not Started | Chike
 |5/24/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
 |5/24/2021| Test and Debugging  | 1 | _ | _ | Not Started | Chike
+|5/24/2021| ViewSightings | 4 | _ | _ | In Progress | Quinn (morning)
+|5/24/2021| Sighting | 2 | _ | _ | Not Started | Quinn (morning)
+|5/24/2021| AddSighting | 1 | _ | _ | Not Started | Quinn
+|5/24/2021| DeleteSighting | 2 | _ | _ | Not Started | Quinn
+|5/24/2021| CatProfiles | 3 | _ | _ | In Progress | Quinn (morning)
+|5/24/2021| ViewCatProfiles | 3 | _ | _ | In Progress | Quinn (by 4)
+|5/24/2021| UpdateCatProfile | 2 | _ | _ | Not Started | Quinn
+|5/24/2021| DeleteCatProfile | 2 | _ | _ | Not Started | Quinn
 || Stretch Goals | _ | _ | _ | Not Started |_
 
 # Stretch Goals
