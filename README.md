@@ -161,7 +161,7 @@ ______________________________________________________________________
 |5/23/2021| Debugging | 4 | _ | _ | Not Started | Quinn
 |5/23/2021| Setup: Install Microsoft Azure desktop, containers, and blop | 4 | 1:00 PM | 3:00 PM | Completed | Chike
 |5/23/2021| Populate data and generate individual url| 1 | 7:00 PM | 8:00 PM | Completed |Chike
-|5/23/2021| Test Cloud Data with HTTP (VSCODE) | 0.5 | _ | _ | Not Started | Chike
+|5/23/2021| Test Cloud Data with HTTP (VSCODE) | 0.5 | 10:00 PM | 3:00 AM | Completed | Chike
 
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
