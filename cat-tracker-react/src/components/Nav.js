@@ -1,22 +1,24 @@
 import './../App.css';
-
+import logo from './../cattrackerlogo.png';
 import {BrowserRouter as Link} from 'react-router-dom';
 
-function Nav() {
-  return (
-    <div className="App">
-      <h1>Cat Tracker (logo image here?)</h1>
-      <ul className="nav-links">
-        <li>Home</li>
-        <li>Cat Profiles</li>
-        <li>Sightings</li>
-        <li>FAQs</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <Link className="btn btn-primary" to="/login">Log In</Link>
-        <button className="btn btn-primary">Log Out</button>
-      </ul>
-    </div>
+function Nav( logout ) {
+
+
+    return (
+        <div className="App">
+        <ul className="nav-links">
+            <img src={logo} alt="Logo"/>
+            <Link className="link" to="/" href="#" >Home</Link>
+            <Link to="/cats" href="#">Cat Profiles</Link>
+            <Link to="/sightings" href="#">Sightings</Link>
+            <Link to="/faq" href="#">FAQs</Link>
+            <Link to="/about" href="#">About Us</Link>
+            <Link to="/contact" href="#">Contact Us</Link>
+            <Link className="btn btn-primary" to="/login">Log In</Link>
+            <button className="btn btn-primary" onClick={logout}>Log Out</button>
+        </ul>
+        </div>
   );
 }
 

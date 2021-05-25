@@ -1,11 +1,16 @@
-import './App.css';
-
+import React, { useEffect, useState } from 'react';
+ 
 function AddCat() {
-  return (
-    <div className="App">
-      <h1>Add Cat Profile (admin only)</h1>
-    </div>
-  );
+    const defaultCat = {
+        
+    }
+
+
+    return (
+        <div className="App">
+        <h1>Add Cat Profile (admin only)</h1>
+        </div>
+    );
 }
 
 export default AddCat;

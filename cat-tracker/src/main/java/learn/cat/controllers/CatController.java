@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RequestMapping("/api/cat")
 public class CatController {
 
@@ -28,7 +28,7 @@ public class CatController {
     }
 
     @GetMapping("/{catId}")
-    public Cat findById(int catId) {
+    public Cat findById(@PathVariable int catId) {
         return service.findById(catId);
     }
 
