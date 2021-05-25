@@ -1,7 +1,7 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
 
-function Sighting( sightingId, imgPath, visualDescription, sightingDescription, sightingDate, sightingTime, disabled, usersId, locationId, catId ) {
+function Sighting({ sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId }) {
    /*const defaultSighting = {
         sightingId: 0,
         imgPath: null,
@@ -9,9 +9,10 @@ function Sighting( sightingId, imgPath, visualDescription, sightingDescription, 
         sightingDescription: "N/A",
         sightingDate: null,
         sightingTime: null,
+        latitude: 0,
+        longitude: 0,
         disabled: false,
         usersId: 0,
-        locationId: 0,
         catId: 0
     }*/
 
@@ -57,8 +58,6 @@ function Sighting( sightingId, imgPath, visualDescription, sightingDescription, 
 
     //render update and delete if admin
   return (
-    <>
-        <h1>Sighting</h1>
         <div className="card">
             <div className="row">
                 <div className="col">
@@ -75,14 +74,13 @@ function Sighting( sightingId, imgPath, visualDescription, sightingDescription, 
             </div>
             <div className="row">
                 <div className="col">
-                    Date: {sightingDate}
+                    Date: {sightingDate}, {sightingTime}
                 </div>
                 <div className="col">
-                    Time: {sightingTime}
+                    Location: {latitude}, {longitude}
                 </div>
             </div>
         </div>
-    </>
   );
 }
 

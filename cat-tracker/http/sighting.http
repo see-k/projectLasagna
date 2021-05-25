@@ -16,8 +16,9 @@ Content-Type: application/json
     "sightingDescription": "this is a sighting",
     "sightingDate": "2021-05-20",
     "sightingTime": "18:50:12",
+    "latitude": "44.947434",
+    "longitude": "-93.666666",
     "usersId": 1,
-    "locationId": 1,
     "catId": 1,
     "disabled": false
 }
@@ -33,8 +34,9 @@ Content-Type: application/json
     "sightingDescription": "this is a sighting update",
     "sightingDate": "2021-05-20",
     "sightingTime": "18:50:12",
+    "latitude": "44.947434",
+    "longitude": "-93.666666",
     "usersId": 3,
-    "locationId": 3,
     "catId": 1,
     "disabled": false
 }

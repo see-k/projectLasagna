@@ -90,10 +90,11 @@ class SightingJdbcTemplateRepositoryTest {
         sighting.setSightingDescription("sighting_description");
         sighting.setSightingDate(new Date(2021, 5, 20));
         sighting.setSightingTime(new Time(12, 12, 12));
+        sighting.setLatitude(new BigDecimal("44.943687"));
+        sighting.setLongitude(new BigDecimal("-93.296228"));
         sighting.setDisabled(false);
         sighting.setCatId(1);
         sighting.setUsersId(1);
-        sighting.setLocationId(1);
         return sighting;
     }
 }

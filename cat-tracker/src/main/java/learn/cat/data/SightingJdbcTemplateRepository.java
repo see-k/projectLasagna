@@ -27,14 +27,14 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
 
     @Override
     public List<Sighting> findAll() {
-        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
+        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, latitude, longitude, disabled, users_id, cat_id "
                 + "from sighting limit 1000;";
         return jdbcTemplate.query(sql, new SightingMapper());
     }
 
     @Override
     public Sighting findById(int sightingId) {
-        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
+        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, latitude, longitude, disabled, users_id, cat_id "
                 + "from sighting "
                 + "where sighting_id = ?;";
 
@@ -45,7 +45,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
 
     @Override
     public List<Sighting> findByUsersId(int userId) {
-        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
+        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, latitude, longitude, disabled, users_id, cat_id "
                 + "from sighting "
                 + "where users_id = ?;";
 
@@ -54,7 +54,7 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
 
     @Override
     public List<Sighting> findByCatId(int catId) {
-        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id "
+        final String sql = "select sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, latitude, longitude, disabled, users_id, cat_id "
                 + "from sighting "
                 + "where cat_id = ?;";
 
@@ -63,8 +63,8 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
 
     @Override
     public Sighting add(Sighting sighting) {
-        final String sql = "insert into sighting (img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id) "
-                + "values (?,?,?,?,?,?,?,?,?);";
+        final String sql = "insert into sighting (img_path, visual_description, sighting_description, sighting_date, sighting_time, latitude, longitude, disabled, users_id, cat_id) "
+                + "values (?,?,?,?,?,?,?,?,?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
@@ -74,10 +74,11 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
             ps.setString(3, sighting.getSightingDescription());
             ps.setDate(4, sighting.getSightingDate());
             ps.setTime(5, sighting.getSightingTime());
-            ps.setBoolean(6, sighting.isDisabled());
-            ps.setInt(7, sighting.getUsersId());
-            ps.setInt(8, sighting.getLocationId());
-            ps.setInt(9, sighting.getCatId());
+            ps.setBigDecimal(6, sighting.getLatitude());
+            ps.setBigDecimal(7, sighting.getLongitude());
+            ps.setBoolean(8, sighting.isDisabled());
+            ps.setInt(9, sighting.getUsersId());
+            ps.setInt(10, sighting.getCatId());
             return ps;
         }, keyHolder);
 
@@ -97,9 +98,10 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
                 + "sighting_description = ?, "
                 + "sighting_date = ?, "
                 + "sighting_time = ?, "
+                + "latitude = ?, "
+                + "longitude = ?, "
                 + "disabled = ?, "
                 + "users_id = ?, "
-                + "location_id = ?,"
                 + "cat_id = ? "
                 + "where sighting_id = ?;";
 
@@ -109,9 +111,10 @@ public class SightingJdbcTemplateRepository implements SightingRepository {
                 sighting.getSightingDescription(),
                 sighting.getSightingDate(),
                 sighting.getSightingTime(),
+                sighting.getLatitude(),
+                sighting.getLongitude(),
                 sighting.isDisabled(),
                 sighting.getUsersId(),
-                sighting.getLocationId(),
                 sighting.getCatId(),
                 sighting.getSightingId()) > 0;
     }

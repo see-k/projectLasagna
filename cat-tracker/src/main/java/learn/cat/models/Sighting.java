@@ -1,5 +1,6 @@
 package learn.cat.models;
 
+import java.math.BigDecimal;
 import java.sql.Time;
 import java.sql.Date;
 import javax.validation.constraints.*;
@@ -27,8 +28,11 @@ public class Sighting {
     //@Positive(message = "sighting must be associated with user")
     private int usersId;
 
-    //@Positive(message = "sighting must have location")
-    private int locationId;
+    //@NotNull(message = "Longitude coordinate cannot be null!")
+    private BigDecimal longitude;
+
+    //@NotNull(message = "Latitude coordinate cannot be null!")
+    private BigDecimal latitude;
 
     private int catId;
 
@@ -99,12 +103,20 @@ public class Sighting {
         this.usersId = usersId;
     }
 
-    public int getLocationId() {
-        return locationId;
+    public BigDecimal getLongitude() {
+        return longitude;
     }
 
-    public void setLocationId(int locationId) {
-        this.locationId = locationId;
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
     }
 
     public int getCatId() {
@@ -114,4 +126,5 @@ public class Sighting {
     public void setCatId(int catId) {
         this.catId = catId;
     }
+
 }
