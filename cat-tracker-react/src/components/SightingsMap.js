@@ -21,12 +21,11 @@ const options = {
     zoomControl: true
 }
 
-
-
 function SightingsMap() {
     const [sightings, setSightings] = useState([]);
     const [messages, setMessages] = useState("");
-
+    const [newSighting, setNewSighting] = useState();
+ 
     useEffect(() => {
         fetch("http://localhost:8080/api/sighting")
         .then((response) => {
@@ -92,12 +91,26 @@ function SightingsMap() {
     return (
         <div className="App">
             <GoogleMap mapContainerStyle={mapContainerStyle} 
-            zoom={12} 
+            zoom={10} 
             center={center}
             options={options}
             onClick={addMarker}
             onLoad={onMapLoad}
             >
+                {sightings.map(sighting => 
+                    <Marker 
+                        key={sighting.sightingId} 
+                        position={{lat: sighting.latitude, lng: sighting.longitude} }
+                        icon={{
+                            url: '/cat_icons/cat_map_marker.png'
+                        }}
+                        onClick={() => {
+                            //store location and pass to new sightings page
+                            setSelected(sighting);
+                        }}   
+                    />
+                )}
+                
                 {markers.map(marker => 
                     <Marker 
                         key={marker.time.toISOString} 
