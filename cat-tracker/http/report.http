@@ -13,8 +13,8 @@ Content-Type: application/json
 {
     "reportDescription": "Test report description",
     "catId": 3,
-    "usersId": null,
-    "sighting": null
+    "usersId": 0,
+    "sightingId": 0
 }
 
 ### Update

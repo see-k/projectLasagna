@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RequestMapping("/api/sighting")
 public class SightingController {
 
@@ -32,6 +32,8 @@ public class SightingController {
     public Sighting findById(@PathVariable int sightingId) {
         return service.findById(sightingId);
     }
+
+   // Conflict: public Sighting findById(@PathVariable int sightingId) { return service.findById(sightingId); }
 
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody @Valid Sighting sighting, BindingResult bindingResult) {

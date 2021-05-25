@@ -19,9 +19,10 @@ public class SightingMapper implements RowMapper<Sighting> {
         sighting.setSightingDescription(resultSet.getString("sighting_description"));
         sighting.setSightingDate(resultSet.getDate("sighting_date"));
         sighting.setSightingTime(resultSet.getTime("sighting_time"));
+        sighting.setLatitude(resultSet.getBigDecimal("latitude"));
+        sighting.setLongitude(resultSet.getBigDecimal("longitude"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));
         sighting.setUsersId(resultSet.getInt("users_id"));
-        sighting.setLocationId(resultSet.getInt("location_id"));
         sighting.setCatId(resultSet.getInt("cat_id"));
         return sighting;
     }
