@@ -74,3 +74,18 @@ h1{
   align-items: center;
   padding: 10px 35px;
 }
+
+li.list-group-item{
+  font-size: medium;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.btn {
+  background: rgb(53, 53, 53);
+}
+
+.card {
+  width: 80vw;
+  margin: 0 auto;
+}
