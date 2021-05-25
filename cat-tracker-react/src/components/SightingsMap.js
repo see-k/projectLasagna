@@ -118,7 +118,8 @@ function SightingsMap() {
                             }}
                         >
                     {/*link to see more in view sightings*/}
-                    <SightingWindow lat={selected.lat} lng={selected.lng} time={selected.time} deleteMarker={deleteMarker(selected.time)}/>
+                    {/*deleteMarker={deleteMarker(selected.time)}*/}
+                    <SightingWindow lat={selected.lat} lng={selected.lng} time={selected.time} />
                 </InfoWindow>) : null}
             </GoogleMap>
         </div>
