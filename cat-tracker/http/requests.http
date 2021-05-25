@@ -72,7 +72,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{baseurl}}/api HTTP/1.1
+GET {{baseurl}}/api/cat HTTP/1.1
 
 ###
 DELETE {{baseurl}}/api/1 HTTP/1.1

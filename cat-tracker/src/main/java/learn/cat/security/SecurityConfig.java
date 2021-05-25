@@ -31,10 +31,43 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/authenticate").permitAll()
-                .antMatchers(HttpMethod.GET, "/api", "/api/*").permitAll()
-                .antMatchers(HttpMethod.POST, "/api").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.PUT, "/api").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/api/*").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
+////                .antMatchers(HttpMethod.POST, "/api").hasAnyRole("USER", "ADMIN")
+////                .antMatchers(HttpMethod.PUT, "/api").hasAnyRole("USER", "ADMIN")
+////                .antMatchers(HttpMethod.DELETE, "/api/*").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/api", "/api/*", "/api/alias", "/api/cat", "/api/location", "/api/report", "/api/sighting", "/api/users").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
+//                //  Alias
+//                .antMatchers(HttpMethod.POST, "/api/alias").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.PUT, "/api/alias/*").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/api/alias*").hasAnyRole("USER", "ADMIN")
+//
+//                // Cat
+//                .antMatchers(HttpMethod.POST, "/api/cat").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.PUT, "/api/cat/*").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/api/cat*").hasAnyRole("USER", "ADMIN")
+//
+//                //  Location
+//                .antMatchers(HttpMethod.POST, "/api/cat").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.PUT, "/api/cat/*").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/api/cat*").hasAnyRole("USER", "ADMIN")
+//
+//                //  Report
+//                .antMatchers(HttpMethod.POST, "/api/report").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.PUT, "/api/report/*").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/api/report*").hasAnyRole("USER", "ADMIN")
+//
+//                //  Sighting
+//                .antMatchers(HttpMethod.POST, "/api/sighting").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.PUT, "/api/sighting/*").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/api/sighting*").hasAnyRole("USER", "ADMIN")
+//
+//                //  Users
+//                .antMatchers(HttpMethod.POST, "/api/users").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.PUT, "/api/users/*").hasAnyRole("USER", "ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/api/users*").hasAnyRole("USER", "ADMIN")
+
                 .antMatchers("/**").denyAll()
                 .and()
                 .addFilter(new JwtRequestFilter(authenticationManager(), converter))
