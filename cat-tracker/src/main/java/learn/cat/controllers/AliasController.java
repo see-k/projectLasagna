@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = {"*"})
 @RequestMapping("/api/alias")
@@ -20,7 +22,7 @@ public class AliasController {
     }
 
     @GetMapping("/{aliasId}")
-    public ResponseEntity<Alias> findById(@PathVariable int aliasId) {
+    public ResponseEntity<Alias> findById(@PathVariable @Valid int aliasId) {
         Alias alias = service.findById(aliasId);
         if (alias == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

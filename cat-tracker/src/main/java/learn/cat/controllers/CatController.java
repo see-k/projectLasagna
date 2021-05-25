@@ -28,7 +28,7 @@ public class CatController {
     }
 
     @GetMapping("/{catId}")
-    public Cat findById(int catId) {
+    public Cat findById(@PathVariable int catId) {
         return service.findById(catId);
     }
 

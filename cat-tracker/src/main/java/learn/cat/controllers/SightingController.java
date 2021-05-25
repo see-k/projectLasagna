@@ -19,13 +19,19 @@ public class SightingController {
 
     private final SightingService service;
 
-    public SightingController(SightingService service) { this.service = service; }
+    public SightingController(SightingService service) {
+        this.service = service;
+    }
 
     @GetMapping
-    public List<Sighting> findAll() { return service.findAll(); }
+    public List<Sighting> findAll() {
+        return service.findAll();
+    }
 
     @GetMapping("/{sightingId}")
-    public Sighting findById(int sightingId) { return service.findById(sightingId); }
+    public Sighting findById(@PathVariable int sightingId) {
+        return service.findById(sightingId);
+    }
 
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody @Valid Sighting sighting, BindingResult bindingResult) {
