@@ -2,6 +2,7 @@ package learn.cat.models;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 public class Alias {
@@ -12,7 +13,7 @@ public class Alias {
     @Size(max = 50, message = "Alias name cannot be greater than 50 characters.")
     private String aliasName;
 
-    @NotNull(message = "User Id is required.")
+    @Positive(message = "Alias must have be associated with a cat.")
     private int catId;
 
     public int getAliasId() {

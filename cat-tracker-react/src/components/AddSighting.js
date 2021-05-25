@@ -1,9 +1,10 @@
-import './App.css';
+//import './../App.css';
+import { InfoWindow } from '@react-google-maps/api';
 
-function AddSighting() {
+function AddSighting({latitude, longitude, time}) {
   return (
-    <div className="App">
-      <h1>Add Sighting (form)</h1>
+    <div>
+        Add a new Sighting?
     </div>
   );
 }
