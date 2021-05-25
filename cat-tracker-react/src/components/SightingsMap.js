@@ -40,16 +40,25 @@ function SightingsMap() {
     }, []) 
 
     //marker needs to store sighting locations
-    const [markers, setMarkers] = useState([]);
+    const [marker, setMarker] = useState(null);
     const [selected, setSelected] = useState(null);
 
-    const addMarker = useCallback((event) => {
-        setMarkers(current => [...current, {
+    const addSighting = useCallback((event) => {
+
+        setSightings(current => [...current, {
             lat: event.latLng.lat(),
             lng: event.latLng.lng(),
             time: new Date(),
         }]);
     }, []);
+
+    const newMarker = (event) => {
+        setMarker({
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng(),
+            time: new Date(),
+        });
+    };
 
     const mapRef = useRef();
 
@@ -70,31 +79,14 @@ function SightingsMap() {
         return "Loading...";
     }
 
-    const deleteMarker = (time) => {
-        let newMarkers = [];
-
-        for (let i = 0; i < markers.length; i++) {
-            if (markers[i].time !== time) {
-                newMarkers.push(markers[i]);
-            }
-        }
-
-        if (newMarkers.length !== markers.length) {
-            setMarkers(newMarkers);
-            setMessages("");
-        } else {
-            setMessages("OOPS");
-        }
-    }
-    
-
     return (
         <div className="App">
             <GoogleMap mapContainerStyle={mapContainerStyle} 
             zoom={10} 
             center={center}
             options={options}
-            onClick={addMarker}
+            // onClick={addSighting}
+            onClick={newMarker}
             onLoad={onMapLoad}
             >
                 {sightings.map(sighting => 
@@ -111,19 +103,18 @@ function SightingsMap() {
                     />
                 )}
                 
-                {markers.map(marker => 
-                    <Marker 
-                        key={marker.time.toISOString} 
-                        position={{lat: marker.lat, lng: marker.lng} }
-                        icon={{
-                            url: '/cat_icons/cat_map_marker.png'
-                        }}
-                        onClick={() => {
-                            //store location and pass to new sightings page
-                            setSelected(marker);
-                        }}    
-                    />
-                )}
+                {marker ? (<Marker 
+                    key={marker.time.toISOString} 
+                    position={{lat: marker.lat, lng: marker.lng} }
+                    icon={{
+                        url: '/cat_icons/cat_map_marker.png'
+                    }}
+                    onClick={() => {
+                        //store location and pass to new sightings page
+                        setSelected(marker);
+                    }}    
+                />) : null }
+                 
                 {selected ? (<InfoWindow
                     position={{ lat: selected.lat, lng: selected.lng }}
                     onCloseClick={() =>

@@ -16,11 +16,11 @@ function AddSighting({latitude, longitude, time}) {
         catId: 0
     }
     
-    //   const [firstName, setFirstName] = useState("");
-    //   const [middleName, setMiddleName] = useState("");
-    //   const [lastName, setLastName] = useState("");
-    //   const [dob, setDob] = useState();
-    //   const [height, setHeight] = useState();
+    //   const [picture, setPicture] = useState("");
+    //   const [visualDescription, setVisualDescription] = useState("");
+    //   const [sightingDescription, setSightingDescription] = useState("");
+    //   const [sightingDate, setSightingDate] = useState();
+    //   const [latitude, setLatitude] = useState();
     
       const [sightings, setSightings] = useState([]);
       const [messages, setMessages] = useState("");
@@ -62,19 +62,19 @@ function AddSighting({latitude, longitude, time}) {
           .catch(console.log);
       };
     
-      const addAgent = (agent) => {
+      const addSighting = (sighting) => {
         let canSet = true;
     
-        for (let i = 0; i < agents.length; i++) {
-          if (agent.agentId === agents[i].agentId) {
+        for (let i = 0; i < sightings.length; i++) {
+          if (sighting.sightingId === sightings[i].sightingId) {
             canSet = false;
           }
         }
     
         if (canSet) {
-          addFetch(agent);
+          addFetch(sighting);
         } else {
-          setMessages("Agent Already Exists");
+          setMessages("Sighting Already Exists");
         }
       };
     
@@ -82,7 +82,7 @@ function AddSighting({latitude, longitude, time}) {
         event.preventDefault();
         event.stopPropagation();
     
-        let agent = {};
+        let sighting = {};
     
         agent["firstName"] = firstName;
         agent["middleName"] = middleName;
