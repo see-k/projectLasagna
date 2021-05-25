@@ -4,7 +4,7 @@
 GET {{url}} HTTP/1.1
 
 ### find By Id
-GET {{url}}/1 HTTP/1.1
+GET {{url}}/4 HTTP/1.1
 
 ### Add
 POST {{url}} HTTP/1/1
@@ -15,7 +15,8 @@ Content-Type: application/json
     "desc": "Lives in a pineapple under the sea",
     "picture": "/test/img/path",
     "isDisabled": false,
-    "usersId": 3
+    "usersId": 3,
+    "aliases": []
 }
 
 ### Update
@@ -28,7 +29,8 @@ Content-Type: application/json
     "desc": "Lives in a pineapple under the sea",
     "picture": "/test/img/path",
     "isDisabled": false,
-    "usersId": 2
+    "usersId": 2,
+    "aliases": []
 }
 
 ### Delete
