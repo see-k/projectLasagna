@@ -1,24 +1,40 @@
 package learn.cat.models;
 
+import java.math.BigDecimal;
 import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.sql.Date;
-import java.util.List;
+import javax.validation.constraints.*;
 
 public class Sighting {
 
     private int sightingId;
+
+    //@Size(max = 100, message = "Image path cannot exceed 100 characters.")
     private String picture;
-    private Date sightingDate;
-    private Time sightingTime;
+
+    //@Size(max = 300, message = "Cat visual description cannot exceed 300 characters.")
     private String catDescription;
+
+    //@Size(max = 300, message = "Sighting description cannot exceed 300 characters.")
     private String sightingDescription;
-    private Location location;
-    private Users users;
-    private Cat cat;
+
+    //@PastOrPresent(message = "Date cannot be in the future.")
+    private Date sightingDate;
+
+    //@PastOrPresent(message = "Date cannot be in the future.")
+    private Time sightingTime;
     private boolean isDisabled;
+
+    //@Positive(message = "sighting must be associated with user")
+    private int usersId;
+
+    //@NotNull(message = "Longitude coordinate cannot be null!")
+    private BigDecimal longitude;
+
+    //@NotNull(message = "Latitude coordinate cannot be null!")
+    private BigDecimal latitude;
+
+    private int catId;
 
     public Sighting() {
     }
@@ -71,36 +87,44 @@ public class Sighting {
         this.sightingDescription = sightingDescription;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
-
-    public Cat getCat() {
-        return cat;
-    }
-
-    public void setCat(Cat cat) {
-        this.cat = cat;
-    }
-
     public boolean isDisabled() {
         return isDisabled;
     }
 
     public void setDisabled(boolean disabled) {
         isDisabled = disabled;
+    }
+
+    public int getUsersId() {
+        return usersId;
+    }
+
+    public void setUsersId(int usersId) {
+        this.usersId = usersId;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public int getCatId() {
+        return catId;
+    }
+
+    public void setCatId(int catId) {
+        this.catId = catId;
     }
 
 }

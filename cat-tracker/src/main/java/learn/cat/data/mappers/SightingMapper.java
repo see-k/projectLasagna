@@ -14,22 +14,16 @@ public class SightingMapper implements RowMapper<Sighting> {
     public Sighting mapRow(ResultSet resultSet, int i) throws SQLException {
         Sighting sighting = new Sighting();
         sighting.setSightingId(resultSet.getInt("sighting_id"));
-        sighting.setSightingDate(resultSet.getDate("sighting_date"));
-        sighting.setSightingTime(resultSet.getTime("sighting_time"));
+        sighting.setPicture(resultSet.getString("img_path"));
         sighting.setCatDescription(resultSet.getString("visual_description"));
         sighting.setSightingDescription(resultSet.getString("sighting_description"));
+        sighting.setSightingDate(resultSet.getDate("sighting_date"));
+        sighting.setSightingTime(resultSet.getTime("sighting_time"));
+        sighting.setLatitude(resultSet.getBigDecimal("latitude"));
+        sighting.setLongitude(resultSet.getBigDecimal("longitude"));
         sighting.setDisabled(resultSet.getBoolean("disabled"));
-        sighting.setPicture(resultSet.getString("img_path"));
-
-        LocationMapper locationMapper = new LocationMapper();
-        sighting.setLocation(locationMapper.mapRow(resultSet, i));
-
-        CatMapper catMapper = new CatMapper();
-        sighting.setCat(catMapper.mapRow(resultSet, i));
-
-        UsersMapper usersMapper = new UsersMapper();
-        sighting.setUsers(usersMapper.mapRow(resultSet, i));
-
+        sighting.setUsersId(resultSet.getInt("users_id"));
+        sighting.setCatId(resultSet.getInt("cat_id"));
         return sighting;
     }
 }
