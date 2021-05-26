@@ -1,6 +1,6 @@
 import './../App.css';
 import Sighting from './Sighting';
-import SightingWindow from './SightingWindow';
+import AddSighting from './AddSighting';
 import { React, useEffect, useState, useCallback, useRef } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 
@@ -42,14 +42,17 @@ function SightingsMap() {
     //marker needs to store sighting locations
     const [marker, setMarker] = useState(null);
     const [selected, setSelected] = useState(null);
+    const [sightingForm, setSightingForm] = useState(null);
+
+    const [addNew, setAddNew] = useState(false);
 
     const addSighting = useCallback((event) => {
-
+ 
         setSightings(current => [...current, {
             lat: event.latLng.lat(),
             lng: event.latLng.lng(),
             time: new Date(),
-        }]);
+        }]); 
     }, []);
 
     const newMarker = (event) => {
@@ -59,6 +62,11 @@ function SightingsMap() {
             time: new Date(),
         });
     };
+
+    const removeMarker = (event) => {
+        setMarker(null);
+        setSelected(null);
+    }
 
     const mapRef = useRef();
 
@@ -81,6 +89,11 @@ function SightingsMap() {
 
     return (
         <div className="App">
+
+            { addNew ? ( 
+                <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time}
+            />) : null }
+
             <GoogleMap mapContainerStyle={mapContainerStyle} 
             zoom={10} 
             center={center}
@@ -123,7 +136,12 @@ function SightingsMap() {
                         >
                     {/*link to see more in view sightings*/}
                     {/*deleteMarker={deleteMarker(selected.time)}*/}
-                    <SightingWindow lat={selected.lat} lng={selected.lng} time={selected.time} />
+                    <div>
+                        <h2>Add a new Sighting?</h2>
+                        <button className="btn btn-secondary" onClick={setAddNew(true)}>yes</button>
+                        <button className="btn btn-secondary" onClick={removeMarker}>no</button>
+                        {/*<p>Spotted {formatRelative(time, new Date())}</p>*/}
+                    </div>
                 </InfoWindow>) : null}
             </GoogleMap>
         </div>

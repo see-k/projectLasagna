@@ -1,26 +1,47 @@
 //import './../App.css';
-import {useState, useHistory, useParams} from 'react';
+import {useState, useEffect, useHistory, useParams} from 'react';
 
 function AddSighting({latitude, longitude, time}) {
-    const defaultSighting = {
-        sightingId: 0,
-        imgPath: null,
-        visualDescription: "N/A",
-        sightingDescription: "N/A",
-        sightingDate: new Date("12-12-2000"),
-        sightingTime: new Date().toLocaleTimeString('it-IT'),
-        latitude: 0,
-        longitude: 0,
-        disabled: false,
-        usersId: 0,
-        catId: 0
-    }
+    // const defaultSighting = {
+    //     sightingId: 0,
+    //     imgPath: null,
+    //     visualDescription: "N/A",
+    //     sightingDescription: "N/A",
+    //     sightingDate: time,
+    //     sightingTime: new Date().toLocaleTimeString('it-IT'),
+    //     latitude: latitude,
+    //     longitude: longitude,
+    //     disabled: false,
+    //     usersId: 0,
+    //     catId: 0
+    // }
+
+    const[cats, setCats] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/api/cat")
+        .then((response) => {
+            if (response.status !== 200) {
+            console.log(response);
+            return Promise.reject("cats get error");
+            }
+            return response.json();
+        })
+        .then((json) => setCats(json))
+        .catch(console.log);
+    }, []);
     
-    //   const [picture, setPicture] = useState("");
-    //   const [visualDescription, setVisualDescription] = useState("");
-    //   const [sightingDescription, setSightingDescription] = useState("");
-    //   const [sightingDate, setSightingDate] = useState();
-    //   const [latitude, setLatitude] = useState();
+      const [picture, setPicture] = useState("");
+      const [visualDescription, setVisualDescription] = useState("");
+      const [sightingDescription, setSightingDescription] = useState("");
+      const [sightingDate, setSightingDate] = useState(time);
+      const [sightingLatitude, setSightingLatitude] = useState(latitude);
+      const [sightingLongitude, setSightingLongitude] = useState(longitude);
+      const [disabled, setDisabled] = useState(false);
+      const [usersId, setUsersId] = useState(0);
+      const [catId, setCatId] = useState(0);
+
+      //const [sighting, setSighting] = useState(defaultSighting);
     
       const [sightings, setSightings] = useState([]);
       const [messages, setMessages] = useState("");
@@ -30,7 +51,7 @@ function AddSighting({latitude, longitude, time}) {
           .then((response) => {
             if (response.status !== 200) {
               console.log(response);
-              return Promise.reject("get didn't work...");
+              return Promise.reject("sighting get error");
             }
             return response.json();
           })
@@ -84,25 +105,29 @@ function AddSighting({latitude, longitude, time}) {
     
         let sighting = {};
     
-        agent["firstName"] = firstName;
-        agent["middleName"] = middleName;
-        agent["lastName"] = lastName;
-        agent["dob"] = dob;
-        agent["heightInInches"] = height;
-        agent["agencies"] = [];
+        sighting["picture"] = picture; //CHIKE
+        sighting["visualDescription"] = visualDescription;
+        sighting["sightingDescription"] = sightingDescription;
+        sighting["sightingDate"] = time;
+        sighting["sightingTime"] = new Date().toLocaleTimeString('it-IT');
+        sighting["latitude"] = latitude;
+        sighting["longitude"] = longitude;
+        sighting["disabled"] = disabled;
+        sighting["usersId"] = usersId; //DERRICK
+        sighting["catId"] = catId;
     
-        addAgent(agent);
+        addSighting(sighting);
       };
     
-      const handleFNChange = (event) => {
-        setFirstName(event.target.value);
+      const handleVDChange = (event) => {
+        setVisualDescription(event.target.value);
       };
     
-      const handleMNChange = (event) => {
-        setMiddleName(event.target.value);
+      const handleSDChange = (event) => {
+        setSightingDescription(event.target.value);
       };
     
-      const handleLNChange = (event) => {
+      const handleCatChange = (event) => {
         setLastName(event.target.value);
       };
     
@@ -118,46 +143,29 @@ function AddSighting({latitude, longitude, time}) {
         <h2 className="card-title ml-3">Add Agent</h2>
         <div className="card-body">
             <form onSubmit={handleAdd}>
+            {/* CHIKE upload picture div here */}
             <div className="form-group">
-                <label htmlFor="firstNameTextBox">First Name:</label>
-                <input
-                type="text"
-                id="firstNameTextBox"
-                onChange={handleFNChange}
+                <label htmlFor="visDescTxtBox">Identifying features:</label>
+                <textarea
+                id="visDescTxtBox"
+                onChange={handleVDChange}
                 className="form-control"
-                placeholder="I'm required"
-                required
+                placeholder="Name tag, fur color, size, etc."
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="middleNameTextBox">Middle Name:</label>
-                <input
-                type="text"
-                id="middleNameTextBox"
-                onChange={handleMNChange}
+                <label htmlFor="sightingDescTxtBox">Description:</label>
+                <textarea
+                id="sightingDescTxtBox"
+                onChange={handleSDChange}
                 className="form-control"
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="firstLastTextBox">Last Name:</label>
-                <input
-                type="text"
-                id="lastNameTextBox"
-                onChange={handleLNChange}
-                className="form-control"
-                placeholder="I'm required"
-                required
                 />
             </div>
             <div className="form-group">
                 <label htmlFor="DOB">Date of Birth:</label>
-                <input
-                type="date"
-                id="DOBbox"
-                onChange={handleDOBChange}
-                className="form-control"
-                required
-                />
+                <select id="chooseCat" onChange={handleCatChange} className="form-control">
+                    {cats.map(cat => <option value="grapefruit">{cat.name}</option> )}
+                </select>
             </div>
             <div className="form-group">
                 <label htmlFor="height">Height (inches):</label>
