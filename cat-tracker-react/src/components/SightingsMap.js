@@ -3,6 +3,7 @@ import Sighting from './Sighting';
 import AddSighting from './AddSighting';
 import { React, useEffect, useState, useCallback, useRef } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { Modal } from 'react-bootstrap';
 
 const mapContainerStyle = {
     width: '100vw',
@@ -17,6 +18,10 @@ const center = {
 const options = {
     disableDefaultUI: true,
     zoomControl: true
+}
+
+const icon = {
+    url: '/cat_icons/cat_map_marker.png'
 }
 
 function SightingsMap() {
@@ -57,6 +62,8 @@ function SightingsMap() {
             .then((json) => {
             setSightings([...sightings, json]);
             setMessages("");
+            setMarker(null);
+            setAddNew(false);
             })
             .catch(console.log);
         }
@@ -87,8 +94,24 @@ function SightingsMap() {
         } else {
             setMessages("Sighting Already Exists");
         }
-        };
+    };
 
+    const removeSighting = (sightingId) => {
+        let newSightings = [];
+    
+        for (let i = 0; i < sightings.length; i++) {
+            if (sightings[i].sightingId !== sightingId) {
+            newSightings.push(sightings[i]);
+            }
+        }
+    
+        if (newSightings.length !== sightings.length) {
+            setSightings(newSightings);
+            setMessages("");
+        } else {
+            setMessages("Could not find that sighting to remove");
+        }
+    };
 
     const newMarker = (event) => {
         setMarker({
@@ -99,8 +122,8 @@ function SightingsMap() {
     };
 
     const removeMarker = (event) => {
-        setMarker(null);
         setSelected(null);
+        setMarker(null);
         setAddNew(false);
     }
 
@@ -142,9 +165,7 @@ function SightingsMap() {
                     <Marker 
                         key={sighting.sightingId} 
                         position={{lat: sighting.latitude, lng: sighting.longitude} }
-                        icon={{
-                            url: '/cat_icons/cat_map_marker.png'
-                        }}
+                        icon={icon}
                         onClick={() => {
                             //store location and pass to new sightings page
                             setSelected(sighting);
@@ -157,18 +178,12 @@ function SightingsMap() {
                     position={{lat: marker.lat, lng: marker.lng} }
                     icon={{
                         url: '/cat_icons/cat_map_marker.png'
-                    }}
-                    onClick={() => {
-                        //store location and pass to new sightings page
-                        setSelected(marker);
-                    }}    
+                    }}   
                 />) : null }
                  
-                {selected ? (<InfoWindow
-                    position={{ lat: selected.lat, lng: selected.lng }}
-                    onCloseClick={() =>
-                            { setSelected(null);
-                            }}
+                {marker ? (<InfoWindow
+                    position={{ lat: marker.lat, lng: marker.lng }}
+                    onCloseClick={removeMarker}
                         >
                     {/*link to see more in view sightings*/}
                     {/*deleteMarker={deleteMarker(selected.time)}*/}
@@ -179,6 +194,29 @@ function SightingsMap() {
                         {/*<p>Spotted {formatRelative(time, new Date())}</p>*/}
                     </div>
                 </InfoWindow>) : null}
+
+                {/* if selected show sighting find by id */}
+                {selected ? (
+                    <InfoWindow
+                        position={{ lat: marker.lat, lng: marker.lng }}
+                        onCloseClick={setSelected(null)}
+                        >
+                        <Sighting 
+                            key={selected.sightingId} 
+                            sightingId={selected.sightingId} 
+                            picture={selected.picture}   
+                            visualDescription={selected.catDescription}
+                            sightingDescription={selected.sightingDescription}
+                            sightingDate={selected.sightingDate}
+                            sightingTime={selected.sightingTime}
+                            latitude={selected.latitude}
+                            longitude={selected.longitude}
+                            disabled={selected.disabled}
+                            usersId={selected.usersId}
+                            catId={selected.catId}
+                            removeSighting = {removeSighting}
+                        />
+                    </InfoWindow>) : null} 
             </GoogleMap>
         </div>
     );

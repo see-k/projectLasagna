@@ -1,5 +1,6 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
+import {BrowserRouter as Link} from 'react-router-dom';
 
 function Sighting({ sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
    /*const defaultSighting = {
@@ -94,6 +95,7 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
                     Location: {latitude}, {longitude}
                 </div>
             </div>
+            <Link className="btn btn-warning ml-2" to={`/sightings/edit/${sightingId}`}>Update</Link>
             <button className="btn btn-secondary" onClick={handleShow}>Delete</button>
             {/* <Modal show= */}
             
