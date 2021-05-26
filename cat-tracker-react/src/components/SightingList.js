@@ -20,6 +20,22 @@ function SightingList() {
         .catch(console.log);
     }, []);
 
+    const removeSighting = (sightingId) => {
+        let newSightings = [];
+    
+        for (let i = 0; i < sightings.length; i++) {
+          if (sightings[i].sightingId !== sightingId) {
+            newSightings.push(sightings[i]);
+          }
+        }
+    
+        if (newSightings.length !== sightings.length) {
+          setSightings(newSightings);
+          setMessages("");
+        } else {
+          setMessages("Could not find that agent to remove");
+        }
+      };
 
     // const addFetch = (sighting) => {
     //     const init = {
@@ -97,7 +113,9 @@ function SightingList() {
                             longitude={s.longitude}
                             disabled={s.disabled}
                             usersId={s.usersId}
-                            catId={s.catId}/>)}
+                            catId={s.catId}
+                            removeSighting = {removeSighting}
+                            />)}
                     </ul>
                 </div>
             </div>

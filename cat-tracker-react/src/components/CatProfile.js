@@ -46,10 +46,16 @@ function CatProfile() {
                         <label>Enter the users id</label>
                         <input type="text" className="form-control" onChange={handleSetCatId}/>
                         <button type="submit" className="btn btn-outline-primary">find</button>
+
                     </div>
                 </form>
             </div>
+            <br></br>
+            <br></br>
                 <div className="row">
+                <div className="col">
+                       Insert Picture here
+                    </div>
                     <div className="col">
                         Name: {cat.name}
                         <br></br>
@@ -60,25 +66,7 @@ function CatProfile() {
                         Image path: {cat.picture}  
                         
                     </div>
-                    <div className="col">
-                        {/*image here*/}
-                    </div>
-                    <div className="col">
-                        <li className="list-group-item">
-                            {/*Sighting {sightingId}*/}
-                        </li>
-                        <li className="list-group-item">
-                            {/*Description: {sightingDescription}*/}
-                        </li>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        {/*Date: {sightingDate}, {sightingTime}*/}
-                    </div>
-                    <div className="col">
-                        {/*Location: {latitude}, {longitude}*/}
-                    </div>
+                
                 </div>
             </div>
     );
