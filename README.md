@@ -164,8 +164,8 @@ ______________________________________________________________________
 |5/25/2021| AddSighting | 1 | _ | _ | In Progress | Quinn
 |5/25/2021| UpdateSighting | 1 | _ | _ | In Progress | Quinn
 |5/25/2021| DeleteSighting | 2 | _ | _ | Not Started | Quinn
-|5/24/2021| CatProfiles | 3 | _ | _ | In Progress | Chike
-|5/24/2021| Add Azure configuration to react app (packages and extension)  | 3 | _ | _ | Not Started | Chike
+|5/24/2021| CatProfiles | 3 | 6:00 PM | 9:00 PM | Completed | Chike
+|5/24/2021| Add Azure configuration to react app (packages and extension)  | 3 | 9:00 PM | _ | In progress | Chike
 |5/24/2021| Include azure-blop react component  | 3 | _ | _ | Not Started | Chike
 |5/24/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
 |5/24/2021| Test and Debugging  | 1 | _ | _ | Not Started | Chike
