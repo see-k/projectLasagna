@@ -15,6 +15,7 @@ import Register from './components/Register';
 import AuthContext from './components/AuthContext';
 import SightingsMap from './components/SightingsMap';
 import SightingList from './components/SightingList';
+import CatProfile from './components/CatProfile';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -106,6 +107,9 @@ function App() {
             </Route>
             <Route exact path="/sightings">
               <SightingList />
+            </Route>
+            <Route exact path="/cats">
+              <CatProfile />
             </Route>
             <Route exact path="/map">
               <SightingsMap />
