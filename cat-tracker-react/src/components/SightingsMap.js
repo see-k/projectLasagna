@@ -37,20 +37,20 @@ function SightingsMap() {
         .catch(console.log);
     }, []) 
 
-    const addFetch = (sighting) => {
+    const addFetch = async (sighting) => {
         const init = {
             method: "POST",
             headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
+            "Accept": "application/json",
             },
             body: JSON.stringify(sighting),
         };
     
-        fetch("http://localhost:8080/api/sighting", init)
+        await fetch("http://localhost:8080/api/sighting", init)
             .then((response) => {
             if (response.status !== 201) {
-                return Promise.reject("Error.");
+                return Promise.reject("Add sighting error.");
             }
             return response.json();
             })
@@ -59,7 +59,7 @@ function SightingsMap() {
             setMessages("");
             })
             .catch(console.log);
-        };
+        }
         
 
     //marker needs to store sighting locations
@@ -89,9 +89,6 @@ function SightingsMap() {
         }
         };
 
-    const cancel = () => {
-        setSelected(null);
-    }
 
     const newMarker = (event) => {
         setMarker({
@@ -104,6 +101,7 @@ function SightingsMap() {
     const removeMarker = (event) => {
         setMarker(null);
         setSelected(null);
+        setAddNew(false);
     }
 
     const mapRef = useRef();
@@ -129,7 +127,7 @@ function SightingsMap() {
         <div className="App">
 
             { addNew && ( 
-                <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time} addSighting={addSighting} 
+                <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time} addSighting={addSighting} cancel={removeMarker}
             />)}
 
             <GoogleMap mapContainerStyle={mapContainerStyle} 

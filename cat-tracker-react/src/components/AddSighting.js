@@ -1,21 +1,7 @@
 //import './../App.css';
 import {useState, useEffect, useHistory, useParams} from 'react';
 
-function AddSighting({latitude, longitude, time, addSighting}) {
-    // const defaultSighting = {
-    //     sightingId: 0,
-    //     imgPath: null,
-    //     visualDescription: "N/A",
-    //     sightingDescription: "N/A",
-    //     sightingDate: time,
-    //     sightingTime: new Date().toLocaleTimeString('it-IT'),
-    //     latitude: latitude,
-    //     longitude: longitude,
-    //     disabled: false,
-    //     usersId: 0,
-    //     catId: 0
-    // }
-
+function AddSighting({latitude, longitude, time, addSighting, cancel}) {
     const[cats, setCats] = useState([]);
 
     useEffect(() => {
@@ -34,71 +20,13 @@ function AddSighting({latitude, longitude, time, addSighting}) {
       const [picture, setPicture] = useState("");
       const [visualDescription, setVisualDescription] = useState("");
       const [sightingDescription, setSightingDescription] = useState("");
-      const [sightingDate, setSightingDate] = useState(time);
-      const [sightingLatitude, setSightingLatitude] = useState(latitude);
-      const [sightingLongitude, setSightingLongitude] = useState(longitude);
+      //const [sightingDate, setSightingDate] = useState(time);
+      //const [sightingLatitude, setSightingLatitude] = useState(latitude);
+      //const [sightingLongitude, setSightingLongitude] = useState(longitude);
       const [disabled, setDisabled] = useState(false);
       const [usersId, setUsersId] = useState(0);
       const [catId, setCatId] = useState(0);
 
-      //const [sighting, setSighting] = useState(defaultSighting);
-    
-    //   const [sightings, setSightings] = useState([]);
-    //   const [messages, setMessages] = useState("");
-    
-    //   useEffect(() => {
-    //     fetch("http://localhost:8080/api/sighting")
-    //       .then((response) => {
-    //         if (response.status !== 200) {
-    //           console.log(response);
-    //           return Promise.reject("sighting get error");
-    //         }
-    //         return response.json();
-    //       })
-    //       .then((json) => setSightings(json))
-    //       .catch(console.log);
-    //   }, []);
-    
-    //   const addFetch = (sighting) => {
-    //     const init = {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Accept: "application/json",
-    //       },
-    //       body: JSON.stringify(sighting),
-    //     };
-    
-    //     fetch("http://localhost:8080/api/sighting", init)
-    //       .then((response) => {
-    //         if (response.status !== 201) {
-    //           return Promise.reject("Error.");
-    //         }
-    //         return response.json();
-    //       })
-    //       .then((json) => {
-    //         setSightings([...sightings, json]);
-    //         setMessages("");
-    //       })
-    //       .catch(console.log);
-    //   };
-    
-    //   const addSighting = (sighting) => {
-    //     let canSet = true;
-    
-    //     for (let i = 0; i < sightings.length; i++) {
-    //       if (sighting.sightingId === sightings[i].sightingId) {
-    //         canSet = false;
-    //       }
-    //     }
-    
-    //     if (canSet) {
-    //       addFetch(sighting);
-    //     } else {
-    //       setMessages("Sighting Already Exists");
-    //     }
-    //   };
-    
       const handleAdd = (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -108,13 +36,13 @@ function AddSighting({latitude, longitude, time, addSighting}) {
         sighting["picture"] = picture; //CHIKE
         sighting["visualDescription"] = visualDescription;
         sighting["sightingDescription"] = sightingDescription;
-        sighting["sightingDate"] = sightingDate;
-        sighting["sightingTime"] = new Date().toLocaleTimeString('it-IT');
-        sighting["latitude"] = sightingLatitude;
-        sighting["longitude"] = sightingLongitude;
+        sighting["sightingDate"] = time.toISOString().substring(0,10);
+        sighting["sightingTime"] = time.toLocaleTimeString('it-IT');
+        sighting["latitude"] = latitude;
+        sighting["longitude"] = longitude;
         sighting["disabled"] = disabled;
         sighting["usersId"] = usersId; //DERRICK
-        sighting["catId"] = catId;
+        sighting["catId"] = 2;
     
         addSighting(sighting);
       };
@@ -133,7 +61,7 @@ function AddSighting({latitude, longitude, time, addSighting}) {
     
     return (
         <div className="card">
-        <h2 className="card-title ml-3">Add Agent</h2>
+        <h2 className="card-title ml-3">Add Sighting</h2>
         <div className="card-body">
             <form onSubmit={handleAdd}>
             {/* CHIKE picture upload element here */}
@@ -158,14 +86,14 @@ function AddSighting({latitude, longitude, time, addSighting}) {
             <div className="form-group"> 
                 <label htmlFor="chooseCat">Cat:</label>
                 <select id="chooseCat" onChange={handleCatChange} className="form-control">
-                    {cats.map(cat => <option value={cat.catId}>{cat.catId}: {cat.name}</option> )}
+                    {cats.map(cat => <option key={cat.catId} value={cat.catId}>{cat.catId}: {cat.name}</option> )}
                 </select>
             </div>
             <button type="submit" className="btn btn-primary mt-2">
                 Add
             </button>
 
-            <button className="btn btn-primary mt-2">Cancel</button>
+            <button className="btn btn-primary mt-2" onClick={cancel}>Cancel</button>
             </form>
         </div>
         </div>

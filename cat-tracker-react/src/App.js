@@ -105,11 +105,14 @@ function App() {
               <SightingList />
             </Route>
             <Route exact path="/sighting-map">
-            {(user && user.isValid()) ? (
+            {/* {(user && user.isValid()) ? ( */}
                 <SightingsMap />
-              ) : (
+              {/* ) : (
                 <Redirect to="/login" />
-              )}
+              )} */}
+            </Route>
+            <Route exact path="/sighting-list">
+              <SightingList />
             </Route>
             <Route exact path="/login">
               <Login />
