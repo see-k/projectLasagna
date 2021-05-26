@@ -16,6 +16,7 @@ import Register from './components/Register';
 import AuthContext from './components/AuthContext';
 import SightingsMap from './components/SightingsMap';
 import SightingList from './components/SightingList';
+import CatProfile from './components/CatProfile';
 import UpdateSighting from './components/UpdateSighting';
 import Sighting from './components/Sighting';
 
@@ -134,6 +135,9 @@ function App() {
             <Route exact path="/sightings">
               <SightingList />
             </Route>
+            <Route exact path="/cats">
+              <CatProfile />
+            </Route>
             <Route exact path="/sighting-map">
             {/* {(user && user.isValid()) ? ( */}
                 <SightingsMap />
@@ -143,6 +147,7 @@ function App() {
             </Route>
             <Route exact path="/sighting-list/cat/:id">
               <SightingList />
+
             </Route>
             <Route exact path="/sightings/edit/:id">
               <UpdateSighting />
