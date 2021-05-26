@@ -17,16 +17,14 @@ import SightingList from './components/SightingList';
 
 function App() {
   const [user, setUser] = useState(null);
+  let loginMsg = '';
 
   const login = (token) => {
-    const { id, sub: username, roles: rolesString } = jwt_decode(token);
+    const { id, sub: username, authorities: rolesString } = jwt_decode(token);
     const roles = rolesString.split(',');
 
     const user = {
-      id,
-      username,
-      roles,
-      token,
+      id, username, roles, token,
       hasRole(role) {
         return this.roles.includes(role);
       },
@@ -34,29 +32,29 @@ function App() {
         return true;
       }
     }
-
     setUser(user);
   }
 
   const authenticate = async (username, password) => {
     const response = await fetch('http://localhost:8080/authenticate', {
       method: 'POST',
-      headers : {
-        "content-type": "application/json"
+      headers: {
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        username,
-        password
+        username, password
       })
     });
 
     if (response.status === 200) {
       const { jwt_token } = await response.json();
       login(jwt_token);
-    } else if (response.status === 403) {
+    }
+    else if (response.status === 403) {
       throw new Error('Bad username or password');
-    } else {
-      throw new Error('There was a problem logging in...')
+    }
+    else {
+      throw new Error('There was a problem logging in');
     }
   }
 

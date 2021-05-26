@@ -14,6 +14,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -30,9 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors();
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
-                .antMatchers("/create_account").permitAll()
-                .antMatchers("/refresh_token").permitAll()
+                .antMatchers("/authenticate", "/authenticate/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/create_account").permitAll()
+                .antMatchers(HttpMethod.POST, "/refresh_token").permitAll()
                 .antMatchers(HttpMethod.GET, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
 ////                .antMatchers(HttpMethod.POST, "/api").hasAnyRole("USER", "ADMIN")
 ////                .antMatchers(HttpMethod.PUT, "/api").hasAnyRole("USER", "ADMIN")
@@ -99,6 +101,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        auth.inMemoryAuthentication()
 //                .withUser(userBuilder)
 //                .withUser(adminBuilder);
+//    }
+
+//    @Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return new WebMvcConfigurer() {
+//
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                registry.addMapping("/**")
+//                        .allowedOrigins("*")
+//                        .allowedMethods("*");
+//            }
+//        };
 //    }
 
     @Bean
