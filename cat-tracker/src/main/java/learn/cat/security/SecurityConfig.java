@@ -30,14 +30,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors();
 
         http.authorizeRequests()
-                .antMatchers("/authenticate").permitAll()
-                .antMatchers(HttpMethod.GET, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
+                .antMatchers("/create_account").permitAll()
+//                .antMatchers("/refresh_token").permitAll()
+//                .antMatchers(HttpMethod.GET, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
 ////                .antMatchers(HttpMethod.POST, "/api").hasAnyRole("USER", "ADMIN")
 ////                .antMatchers(HttpMethod.PUT, "/api").hasAnyRole("USER", "ADMIN")
 ////                .antMatchers(HttpMethod.DELETE, "/api/*").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.POST, "/api", "/api/*", "/api/alias", "/api/cat", "/api/location", "/api/report", "/api/sighting", "/api/users").permitAll()
-                .antMatchers(HttpMethod.PUT, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
+//                .antMatchers(HttpMethod.POST, "/api", "/api/*", "/api/alias", "/api/cat", "/api/location", "/api/report", "/api/sighting", "/api/users").permitAll()
+//                .antMatchers(HttpMethod.PUT, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
+//                .antMatchers(HttpMethod.DELETE, "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
 //                //  Alias
 //                .antMatchers(HttpMethod.POST, "/api/alias").hasAnyRole("USER", "ADMIN")
 //                .antMatchers(HttpMethod.PUT, "/api/alias/*").hasAnyRole("USER", "ADMIN")
@@ -81,23 +83,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManager();
     }
 
-    @Autowired
-    private PasswordEncoder encoder;
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        User.UserBuilder userBuilder = User.withUsername("user")
-                .password("user").passwordEncoder(password -> encoder.encode(password))
-                .roles("USER");
-
-        User.UserBuilder adminBuilder = User.withUsername("admin")
-                .password("admin").passwordEncoder(password -> encoder.encode(password))
-                .roles("ADMIN");
-
-        auth.inMemoryAuthentication()
-                .withUser(userBuilder)
-                .withUser(adminBuilder);
-    }
+//    @Autowired
+//    private PasswordEncoder encoder;
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        User.UserBuilder userBuilder = User.withUsername("user")
+//                .password("user").passwordEncoder(password -> encoder.encode(password))
+//                .roles("USER");
+//
+//        User.UserBuilder adminBuilder = User.withUsername("admin")
+//                .password("admin").passwordEncoder(password -> encoder.encode(password))
+//                .roles("ADMIN");
+//
+//        auth.inMemoryAuthentication()
+//                .withUser(userBuilder)
+//                .withUser(adminBuilder);
+//    }
 
     @Bean
     public PasswordEncoder getEncoder() {
