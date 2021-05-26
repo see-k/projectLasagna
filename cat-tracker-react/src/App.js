@@ -3,7 +3,6 @@ import logo from './cattrackerlogo.png';
 import { useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 
-import Nav from './components/Nav';
 import Home from './components/Home';
 import About from './static/About';
 import Contact from './static/Contact';
@@ -86,7 +85,7 @@ function App() {
                 <Link className="link" to="/cats" href="#">Cat Profiles</Link>
               </li>
               <li>
-                <Link className="link" to="/sightings" href="#">Sightings</Link>
+                <Link className="link" to="/sighting-map" href="#">Sightings</Link>
               </li>
               
               <Link className="link" to="/faq" href="#">FAQs</Link>
@@ -107,7 +106,7 @@ function App() {
             <Route exact path="/sightings">
               <SightingList />
             </Route>
-            <Route exact path="/map">
+            <Route exact path="/sighting-map">
             {(user && user.isValid()) ? (
                 <SightingsMap />
               ) : (
