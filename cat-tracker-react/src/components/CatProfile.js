@@ -46,6 +46,7 @@ function CatProfile() {
                         <label>Enter the users id</label>
                         <input type="text" className="form-control" onChange={handleSetCatId}/>
                         <button type="submit" className="btn btn-outline-primary">find</button>
+
                     </div>
                 </form>
             </div>
