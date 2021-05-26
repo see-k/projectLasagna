@@ -55,16 +55,14 @@ create table sighting (
     sighting_description varchar(300),
     sighting_date date not null,
     sighting_time time not null,
+    latitude decimal(8,6) not null,
+    longitude decimal(9,6) not null,
     disabled bit not null default 0,
     users_id int NOT NULL,
-    location_id int NOT NULL,
     cat_id int,
     constraint fk_sighting_users_id
 		foreign key (users_id)
         references users(users_id),
-	constraint fk_sighting_location_id
-		foreign key (location_id)
-        references location(location_id),
 	constraint fk_sighting_cat_id
 		foreign key (cat_id)
         references cat(cat_id)
@@ -107,12 +105,44 @@ create table report (
 		(1, 'Garfield', 2),
         (2, 'The Snail', 3);
         
-	insert into sighting(sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, disabled, users_id, location_id, cat_id) values 
-		(1, './database/images/gary_sighting_01-01-2001.jpg','','','2001-01-01','18:50:12', 0, 3, 2, 3);
+	insert into sighting(sighting_id, img_path, visual_description, sighting_description, sighting_date, sighting_time, latitude, longitude, disabled, users_id, cat_id) values 
+		(1, './database/images/gary_sighting_01-01-2001.jpg','black and white cat, small, name tag says gary','saw this guy outside CVS, very friendly and requested many pets','2001-01-01','18:50:12', 44.947434, -93.292580, 0, 3, 3);
         
 	insert into report(report_id, report_description, cat_id, users_id, sighting_id) values
 		(1, 'it is not a cat. its a snail', 3, 1, 1);
     
 -- create tables and relationships
 
+drop table if exists app_user_role;
+drop table if exists app_role;
+drop table if exists app_user;
+
+create table app_user (
+    app_user_id int primary key auto_increment,
+    username varchar(50) not null unique,
+    password_hash varchar(2048) not null,
+    disabled boolean not null default(0)
+);
+
+create table app_role (
+    app_role_id int primary key auto_increment,
+    `name` varchar(50) not null unique
+);
+
+create table app_user_role (
+    app_user_id int not null,
+    app_role_id int not null,
+    constraint pk_app_user_role
+        primary key (app_user_id, app_role_id),
+    constraint fk_app_user_role_user_id
+        foreign key (app_user_id)
+         references app_user(app_user_id),
+	constraint fk_app_user_role_role_id
+         foreign key (app_role_id)
+         references app_role(app_role_id)
+);
+
+insert into app_role (`name`) values
+    ('USER'),
+    ('ADMIN');
 

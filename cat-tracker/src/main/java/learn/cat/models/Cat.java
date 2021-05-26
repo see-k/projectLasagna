@@ -8,8 +8,7 @@ public class Cat {
 
     private int catId;
 
-    @NotNull
-    @NotBlank(message = "Cat name is required.")
+    @NotNull(message = "Cat name is required.")
     @Size(max = 50, message = "Cat name cannot be greater than 50 characters.")
     private String name;
 
@@ -22,12 +21,13 @@ public class Cat {
     @NotNull(message = "User Id is required.")
     private int usersId;
     private boolean isDisabled;
-    private List<Alias> aliases;
+
+    private List<Alias> aliases = new ArrayList<>();
 
     public Cat() {
     }
 
-    public Cat(int catId, String name, String desc, String picture, int usersId, boolean isDisabled, List<Alias> aliases) {
+    public Cat(int catId, String name, String desc, String picture, int usersId, boolean isDisabled) {
         this.catId = catId;
         this.name = name;
         this.desc = desc;
@@ -85,7 +85,7 @@ public class Cat {
         isDisabled = disabled;
     }
 
-    public List<Alias> getAliases() {
+   public List<Alias> getAliases() {
         return new ArrayList<>(aliases);
     }
 
