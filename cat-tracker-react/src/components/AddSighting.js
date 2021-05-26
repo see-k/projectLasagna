@@ -1,7 +1,7 @@
 //import './../App.css';
 import {useState, useEffect, useHistory, useParams} from 'react';
 
-function AddSighting({latitude, longitude, time}) {
+function AddSighting({latitude, longitude, time, addSighting}) {
     // const defaultSighting = {
     //     sightingId: 0,
     //     imgPath: null,
@@ -43,61 +43,61 @@ function AddSighting({latitude, longitude, time}) {
 
       //const [sighting, setSighting] = useState(defaultSighting);
     
-      const [sightings, setSightings] = useState([]);
-      const [messages, setMessages] = useState("");
+    //   const [sightings, setSightings] = useState([]);
+    //   const [messages, setMessages] = useState("");
     
-      useEffect(() => {
-        fetch("http://localhost:8080/api/sighting")
-          .then((response) => {
-            if (response.status !== 200) {
-              console.log(response);
-              return Promise.reject("sighting get error");
-            }
-            return response.json();
-          })
-          .then((json) => setSightings(json))
-          .catch(console.log);
-      }, []);
+    //   useEffect(() => {
+    //     fetch("http://localhost:8080/api/sighting")
+    //       .then((response) => {
+    //         if (response.status !== 200) {
+    //           console.log(response);
+    //           return Promise.reject("sighting get error");
+    //         }
+    //         return response.json();
+    //       })
+    //       .then((json) => setSightings(json))
+    //       .catch(console.log);
+    //   }, []);
     
-      const addFetch = (sighting) => {
-        const init = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(sighting),
-        };
+    //   const addFetch = (sighting) => {
+    //     const init = {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Accept: "application/json",
+    //       },
+    //       body: JSON.stringify(sighting),
+    //     };
     
-        fetch("http://localhost:8080/api/sighting", init)
-          .then((response) => {
-            if (response.status !== 201) {
-              return Promise.reject("Error.");
-            }
-            return response.json();
-          })
-          .then((json) => {
-            setSightings([...sightings, json]);
-            setMessages("");
-          })
-          .catch(console.log);
-      };
+    //     fetch("http://localhost:8080/api/sighting", init)
+    //       .then((response) => {
+    //         if (response.status !== 201) {
+    //           return Promise.reject("Error.");
+    //         }
+    //         return response.json();
+    //       })
+    //       .then((json) => {
+    //         setSightings([...sightings, json]);
+    //         setMessages("");
+    //       })
+    //       .catch(console.log);
+    //   };
     
-      const addSighting = (sighting) => {
-        let canSet = true;
+    //   const addSighting = (sighting) => {
+    //     let canSet = true;
     
-        for (let i = 0; i < sightings.length; i++) {
-          if (sighting.sightingId === sightings[i].sightingId) {
-            canSet = false;
-          }
-        }
+    //     for (let i = 0; i < sightings.length; i++) {
+    //       if (sighting.sightingId === sightings[i].sightingId) {
+    //         canSet = false;
+    //       }
+    //     }
     
-        if (canSet) {
-          addFetch(sighting);
-        } else {
-          setMessages("Sighting Already Exists");
-        }
-      };
+    //     if (canSet) {
+    //       addFetch(sighting);
+    //     } else {
+    //       setMessages("Sighting Already Exists");
+    //     }
+    //   };
     
       const handleAdd = (event) => {
         event.preventDefault();
@@ -108,10 +108,10 @@ function AddSighting({latitude, longitude, time}) {
         sighting["picture"] = picture; //CHIKE
         sighting["visualDescription"] = visualDescription;
         sighting["sightingDescription"] = sightingDescription;
-        sighting["sightingDate"] = time;
+        sighting["sightingDate"] = sightingDate;
         sighting["sightingTime"] = new Date().toLocaleTimeString('it-IT');
-        sighting["latitude"] = latitude;
-        sighting["longitude"] = longitude;
+        sighting["latitude"] = sightingLatitude;
+        sighting["longitude"] = sightingLongitude;
         sighting["disabled"] = disabled;
         sighting["usersId"] = usersId; //DERRICK
         sighting["catId"] = catId;
@@ -128,22 +128,15 @@ function AddSighting({latitude, longitude, time}) {
       };
     
       const handleCatChange = (event) => {
-        setLastName(event.target.value);
+        setCatId(event.target.value);
       };
     
-      const handleDOBChange = (event) => {
-        setDob(event.target.value);
-      };
-    
-      const handleHeightChange = (event) => {
-        setHeight(event.target.value);
-      };
     return (
         <div className="card">
         <h2 className="card-title ml-3">Add Agent</h2>
         <div className="card-body">
             <form onSubmit={handleAdd}>
-            {/* CHIKE upload picture div here */}
+            {/* CHIKE picture upload element here */}
             <div className="form-group">
                 <label htmlFor="visDescTxtBox">Identifying features:</label>
                 <textarea
@@ -161,22 +154,12 @@ function AddSighting({latitude, longitude, time}) {
                 className="form-control"
                 />
             </div>
-            <div className="form-group">
-                <label htmlFor="DOB">Date of Birth:</label>
+            {/* render only if admin permission */}
+            <div className="form-group"> 
+                <label htmlFor="chooseCat">Cat:</label>
                 <select id="chooseCat" onChange={handleCatChange} className="form-control">
-                    {cats.map(cat => <option value="grapefruit">{cat.name}</option> )}
+                    {cats.map(cat => <option value={cat.catId}>{cat.name} ({cat.aliases.map(a => a)})</option> )}
                 </select>
-            </div>
-            <div className="form-group">
-                <label htmlFor="height">Height (inches):</label>
-                <input
-                type="number"
-                id="HeightBox"
-                onChange={handleHeightChange}
-                className="form-control"
-                placeholder="I'm required"
-                required
-                />
             </div>
             <button type="submit" className="btn btn-primary mt-2">
                 Add

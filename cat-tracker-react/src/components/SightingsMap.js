@@ -4,8 +4,6 @@ import AddSighting from './AddSighting';
 import { React, useEffect, useState, useCallback, useRef } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 
-const libraries = ["places"];
-
 const mapContainerStyle = {
     width: '100vw',
     height: '100vh'
@@ -46,8 +44,11 @@ function SightingsMap() {
 
     const [addNew, setAddNew] = useState(false);
 
+    const handleAdd = () => {
+        setAddNew(true);
+    } 
+
     const addSighting = useCallback((event) => {
- 
         setSightings(current => [...current, {
             lat: event.latLng.lat(),
             lng: event.latLng.lng(),
@@ -90,9 +91,9 @@ function SightingsMap() {
     return (
         <div className="App">
 
-            { addNew ? ( 
-                <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time}
-            />) : null }
+            { addNew && ( 
+                <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time} addSighting={addSighting}
+            />)}
 
             <GoogleMap mapContainerStyle={mapContainerStyle} 
             zoom={10} 
@@ -138,7 +139,7 @@ function SightingsMap() {
                     {/*deleteMarker={deleteMarker(selected.time)}*/}
                     <div>
                         <h2>Add a new Sighting?</h2>
-                        <button className="btn btn-secondary" onClick={setAddNew(true)}>yes</button>
+                        <button className="btn btn-secondary" onClick={handleAdd}>yes</button>
                         <button className="btn btn-secondary" onClick={removeMarker}>no</button>
                         {/*<p>Spotted {formatRelative(time, new Date())}</p>*/}
                     </div>
