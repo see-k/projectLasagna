@@ -158,12 +158,14 @@ function AddSighting({latitude, longitude, time, addSighting}) {
             <div className="form-group"> 
                 <label htmlFor="chooseCat">Cat:</label>
                 <select id="chooseCat" onChange={handleCatChange} className="form-control">
-                    {cats.map(cat => <option value={cat.catId}>{cat.name} ({cat.aliases.map(a => a)})</option> )}
+                    {cats.map(cat => <option value={cat.catId}>{cat.catId}: {cat.name}</option> )}
                 </select>
             </div>
             <button type="submit" className="btn btn-primary mt-2">
                 Add
             </button>
+
+            <button className="btn btn-primary mt-2">Cancel</button>
             </form>
         </div>
         </div>
