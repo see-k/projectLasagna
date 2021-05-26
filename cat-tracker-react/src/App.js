@@ -14,6 +14,8 @@ import Register from './components/Register';
 import AuthContext from './components/AuthContext';
 import SightingsMap from './components/SightingsMap';
 import SightingList from './components/SightingList';
+import UpdateSighting from './components/UpdateSighting';
+import Sighting from './components/Sighting';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -89,8 +91,18 @@ function App() {
               <Link className="link" to="/faq" href="#">FAQs</Link>
               <Link className="link" to="/about" href="#">About Us</Link>
               <Link className="link" to="/contact" href="#">Contact Us</Link>
+              {(user && user.isValid()) ? ( 
+                <p>Hello, {user.userName}!</p>
+               ) : (
+                null
+              )}
               <Link className="btn btn-primary" to="/login">Log In</Link>
-              <button className="btn btn-primary" onClick={logout}>Log Out</button>
+              {(user && user.isValid()) ? ( 
+                <button className="btn btn-primary" onClick={logout}>Log Out</button>
+               ) : (
+                null
+              )}
+
           </ul>
 
           <Switch>
@@ -111,8 +123,14 @@ function App() {
                 <Redirect to="/login" />
               )} */}
             </Route>
-            <Route exact path="/sighting-list">
+            <Route exact path="/sighting-list/cat/:id">
               <SightingList />
+            </Route>
+            <Route exact path="/sightings/edit/:id">
+              <UpdateSighting />
+            </Route>
+            <Route exact path="/sightings/:id">
+              <Sighting />
             </Route>
             <Route exact path="/login">
               <Login />
