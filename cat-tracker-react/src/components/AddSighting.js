@@ -27,7 +27,6 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       const [usersId, setUsersId] = useState(0);
       const [catId, setCatId] = useState(0);
 
-    
       const handleAdd = (event) => {
         event.preventDefault();
         event.stopPropagation();
