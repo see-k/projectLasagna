@@ -4,11 +4,13 @@ import { useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 
 import Home from './components/Home';
+import FAQ from './static/FAQ';
 import About from './static/About';
 import Contact from './static/Contact';
 import{ BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
 import Login from './components/Login';
+import LogoutPage from './static/LogoutPage';
 import NotFound from './static/NotFound';
 import Register from './components/Register';
 import AuthContext from './components/AuthContext';
@@ -70,6 +72,13 @@ function App() {
     logout
   }
 
+  if (user === null) {
+    loginMsg = "Not logged in";
+  }
+  else {
+    loginMsg = `Logged in as: ${user.username}`
+  }
+
   return (
     <div className="App">
       <AuthContext.Provider value={auth}>
@@ -91,6 +100,7 @@ function App() {
               <Link className="link" to="/faq" href="#">FAQs</Link>
               <Link className="link" to="/about" href="#">About Us</Link>
               <Link className="link" to="/contact" href="#">Contact Us</Link>
+
               {(user && user.isValid()) ? ( 
                 <p>Hello, {user.userName}!</p>
                ) : (
@@ -102,7 +112,6 @@ function App() {
                ) : (
                 null
               )}
-
           </ul>
 
           <Switch>
@@ -112,6 +121,15 @@ function App() {
               ) : (
                 <Redirect to="/login" />
               )}
+            </Route>
+            <Route exact path="/faq">
+                <FAQ />
+            </Route>
+            <Route exact path="/about">
+                <About />
+            </Route>
+            <Route exact path="/contact">
+                <Contact />
             </Route>
             <Route exact path="/sightings">
               <SightingList />
@@ -135,6 +153,9 @@ function App() {
             <Route exact path="/login">
               <Login />
             </Route>
+            <Route path="/logout">
+            <LogoutPage />
+          </Route>
             <Route exact path="/register">
               <Register />
             </Route>
