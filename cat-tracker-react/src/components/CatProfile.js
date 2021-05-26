@@ -20,11 +20,11 @@ function CatProfile() {
     }
 
     //conditional rendering get cat if catId not 0
-    const getCat = (event) => {
+    const getCat = async (event) => {
         event.preventDefault();
         event.stopPropagation();
 
-        fetch(`http://localhost:8080/api/cat/${catNum}`)
+        await fetch(`http://localhost:8080/api/cat/${catNum}`)
         .then((response) => {
             if (response.status !== 200) {
                 console.log(response);
