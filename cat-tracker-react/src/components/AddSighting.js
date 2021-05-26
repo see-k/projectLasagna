@@ -93,7 +93,7 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       //const [sightingLatitude, setSightingLatitude] = useState(latitude);
       //const [sightingLongitude, setSightingLongitude] = useState(longitude);
       const [disabled, setDisabled] = useState(false);
-      const [usersId, setUsersId] = useState(0);
+      const [usersId, setUsersId] = useState(1);
       const [catId, setCatId] = useState(0);
 
       const handleAdd = (event) => {

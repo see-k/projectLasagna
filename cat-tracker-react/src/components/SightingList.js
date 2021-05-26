@@ -33,7 +33,7 @@ function SightingList() {
           setSightings(newSightings);
           setMessages("");
         } else {
-          setMessages("Could not find that agent to remove");
+          setMessages("Could not find that sighting to remove");
         }
       };
 
