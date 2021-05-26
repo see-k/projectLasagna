@@ -39,7 +39,7 @@ function App() {
   }
 
   const authenticate = async (username, password) => {
-    const response = await fetch('http://localhost:5000/authenticate', {
+    const response = await fetch('http://localhost:8080/authenticate', {
       method: 'POST',
       headers : {
         "content-type": "application/json"
@@ -107,7 +107,11 @@ function App() {
               <SightingList />
             </Route>
             <Route exact path="/sighting-map">
-              <SightingsMap />
+            {(user && user.isValid()) ? (
+                <SightingsMap />
+              ) : (
+                <Redirect to="/login" />
+              )}
             </Route>
             <Route exact path="/login">
               <Login />

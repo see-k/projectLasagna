@@ -143,7 +143,7 @@ ______________________________________________________________________
 |5/20/2021| S & R Service | 4 | 5:00pm | 8:00pm | Completed | Quinn
 |5/20/2021| A & C Service | 4 | 9:00pm | 11:45pm | Completed | Derek
 |5/21/2021| ErrorResponse & GlobalExceptionHandler| 1 | 5:00pm | 5:15pm | Completed | Quinn
-|5/21/2021| U & L Controller | 4 | 9:07 | _ | In progress | Chike
+|5/21/2021| U & L Controller | 4 | 9:07 PM | 10:00 PM | Completed | Chike
 |5/21/2021| S & R Controller | 4 | 7:30pm | 9:00pm | Completed | Quinn
 |5/21/2021| A & C Controller | 4 | 11:00am | 1:00 | In Progress | Derek
 |5/21/2021| React Setup | 1.5 | 5:00pm | 5:15pm | Completed | Quinn
@@ -159,22 +159,25 @@ ______________________________________________________________________
 ### Third Sprint: 05-24-2021 to 05-26-2021
 |DATE |TASK ID|ESTIMATED TIME (HRS) | START TIME (HRS:MINS)|END TIME (HRS:MINS)| STATUS | ASSIGNED TO
 |:---:| :---: | :---:               | :---:                |:---:              |:---: | :---: 
-|5/24/2021| Add Azure configuration to react app (packages and extension)  | 3 | _ | _ | Not Started | Chike
+|5/24/2021| ViewSightings (Google Maps) | 4 | 9:30 | _ | In Progress | Quinn
+|5/24/2021| Sighting | 2 | _ | _ | Completed | Quinn
+|5/25/2021| AddSighting | 1 | _ | _ | In Progress | Quinn
+|5/25/2021| UpdateSighting | 1 | _ | _ | In Progress | Quinn
+|5/25/2021| DeleteSighting | 2 | _ | _ | Not Started | Quinn
+|5/24/2021| CatProfiles | 3 | 6:00 PM | 9:00 PM | Completed | Chike
+|5/24/2021| Add Azure configuration to react app (packages and extension)  | 3 | 9:00 PM | _ | In progress | Chike
 |5/24/2021| Include azure-blop react component  | 3 | _ | _ | Not Started | Chike
 |5/24/2021| Update Sighting image paths with Controllers  | 1 | _ | _ | Not Started | Chike
 |5/24/2021| Test and Debugging  | 1 | _ | _ | Not Started | Chike
-|5/24/2021| ViewSightings | 4 | 9:30 | _ | In Progress | Quinn (morning)
-|5/24/2021| Sighting | 2 | _ | _ | Not Started | Quinn (morning)
-|5/24/2021| AddSighting | 1 | _ | _ | Not Started | Quinn
-|5/24/2021| DeleteSighting | 2 | _ | _ | Not Started | Quinn
-|5/24/2021| CatProfiles | 3 | _ | _ | In Progress | Quinn (morning)
 |5/24/2021| ViewCatProfiles | 3 | _ | _ | In Progress | Quinn (by 4)
-|5/24/2021| UpdateCatProfile | 2 | _ | _ | Not Started | Quinn
-|5/24/2021| DeleteCatProfile | 2 | _ | _ | Not Started | Quinn
-|5/24/2021| Static Pages (About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
-|5/25/2021| Styling | 3 | _ | _ | Not Started | Quinn
+|5/24/2021| UpdateCatProfile | 2 | _ | _ | Not Started | Chike & Quinn
+|5/24/2021| DeleteCatProfile | 2 | _ | _ | Not Started | Chike & Quinn
+|5/24/2021| User Access (Login, logout, User Roles)  | 2 | _ | _ | Not Started | Derek
 |5/25/2021| Debugging | 4 | _ | _ | Not Started | Quinn
-|| Stretch Goals | _ | _ | _ | Not Started |_
+|5/26/2021| Styling | 3 | _ | _ | Not Started | Quinn
+|5/26/2021| Static Pages (Home, About us, contact, FAQ) | 2 | _ | _ | Not Started | Quinn
+
+|_ | Stretch Goals | _ | _ | _ | Not Started |_
 
 # Stretch Goals
 -	Directions to cat from current location
