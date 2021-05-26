@@ -113,6 +113,9 @@ function App() {
                 <Redirect to="/login" />
               )} */}
             </Route>
+            <Route exact path="/sighting-list">
+              <SightingList />
+            </Route>
             <Route exact path="/login">
               <Login />
             </Route>

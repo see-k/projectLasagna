@@ -37,17 +37,17 @@ function SightingsMap() {
         .catch(console.log);
     }, []) 
 
-    const addFetch = (sighting) => {
+    const addFetch = async (sighting) => {
         const init = {
             method: "POST",
             headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
+            "Accept": "application/json",
             },
             body: JSON.stringify(sighting),
         };
     
-        fetch("http://localhost:8080/api/sighting", init)
+        await fetch("http://localhost:8080/api/sighting", init)
             .then((response) => {
             if (response.status !== 201) {
                 return Promise.reject("Add sighting error.");
@@ -59,7 +59,7 @@ function SightingsMap() {
             setMessages("");
             })
             .catch(console.log);
-        };
+        }
         
 
     //marker needs to store sighting locations
