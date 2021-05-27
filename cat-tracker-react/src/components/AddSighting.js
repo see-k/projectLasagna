@@ -2,7 +2,6 @@
 import {useState, useEffect, useHistory, useParams} from 'react';
 import Path from 'path';
 import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
-import { Modal } from "react-bootstrap";
 
 const storageConfigured = isStorageConfigured();
 
@@ -72,9 +71,6 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       </div>
     );
   
-
-
-
     const[cats, setCats] = useState([]);
 
     useEffect(() => {
@@ -95,8 +91,6 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       const [sightingDescription, setSightingDescription] = useState("");
       const [sightingDate, setSightingDate] = useState(time.toISOString().substring(0,10));
       const [sightingTime, setSightingTime] = useState(time.toLocaleTimeString('it-IT'));
-      // const [sightingLatitude, setSightingLatitude] = useState(latitude);
-      //const [sightingLongitude, setSightingLongitude] = useState(longitude);
       const [disabled, setDisabled] = useState(false);
       const [usersId, setUsersId] = useState(1);
       const [catId, setCatId] = useState(0);
@@ -200,7 +194,15 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
             {/* render only if admin permission */}
             <div className="form-group"> 
                 <label htmlFor="chooseCat">Cat:</label>
-                <select id="chooseCat" onChange={handleCatChange} className="form-control">
+                <input
+                    type="number"
+                    id="chooseCat"
+                    onChange={handleCatChange}
+                    className="form-control"
+                    value={catId}
+                    required>
+                </input>
+                <select id="chooseCat" className="form-control">
                     {cats.map(cat => <option key={cat.catId} value={cat.catId}>{cat.catId}: {cat.name}</option> )}
                 </select>
             </div>

@@ -159,14 +159,15 @@ function SightingsMap() {
                         show={show}
                         onHide={handleClose}
                         backdrop="static"
-                        keyboard={false}>
+                        keyboard={false}
+                        animation={false}>
                     <Modal.Header closeButton>
                         Add a Sighting
                     </Modal.Header>
                     <Modal.Body> 
                 <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time} addSighting={addSighting} cancel={removeMarker}
-            />
-            </Modal.Body>
+                    />
+                    </Modal.Body>
                     </Modal>)}
 
             {selected ? ( 
@@ -175,6 +176,7 @@ function SightingsMap() {
                         onHide={handleClose}
                         backdrop="static"
                         keyboard={false}
+                        animation={false}
                         aria-labelledby="contained-modal-title-vcenter"
                         centered>
                         

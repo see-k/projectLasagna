@@ -1,24 +1,15 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
-import {BrowserRouter as Link} from 'react-router-dom';
+import {BrowserRouter as Link, useHistory } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 
 function Sighting({ sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
-   /*const defaultSighting = {
-        sightingId: 0,
-        imgPath: null,
-        visualDescription: "N/A",
-        sightingDescription: "N/A",
-        sightingDate: null,
-        sightingTime: null,
-        latitude: 0,
-        longitude: 0,
-        disabled: false,
-        usersId: 0,
-        catId: 0
-    }*/
+
+    const history = useHistory();
 
     const deleteById = () => {
+        setShow(false);
+
         fetch(`http://localhost:8080/api/sighting/${sightingId}`, {method: "DELETE" })
             .then (response => {
                 if (response.status === 204 || response.status === 404) {
@@ -38,25 +29,9 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
         usersId: 0
     }
 
-    //const[sighting, setSighting] = useState(defaultSighting);
-
     const[cat, setCat] = useState(defaultCat);
 
-    
-
-    /*const getSighting = (sightingId) => {
-        fetch(`http://localhost:8080/api/cat/${sightingId}`)
-        .then((response) => {
-            if (response.status !== 200) {
-                console.log(response);
-                return Promise.reject("get didn't work...");
-                }
-                return response.json();
-        }).then((json) => {
-            setSighting([sighting, json]);});
-
-    }*/
-
+   
     //conditional rendering get cat if catId not 0
     const getCat = (catId) => {
         fetch(`http://localhost:8080/api/cat/${catId}`)
@@ -68,6 +43,7 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
                 return response.json();   
         })
         .then((json) => setCat(json))
+        .then(history.push('/sighting-map'))
         .catch(console.log());
     }
 
@@ -85,6 +61,7 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
             backdrop="static"
             keyboard={false}
             size="sm"
+            animation={false}
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
@@ -119,9 +96,6 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
             <div className="row">
                 <div className="col">
                     Date: {sightingDate}, {sightingTime}
-                </div>
-                <div className="col">
-                    Location: {latitude}, {longitude}
                 </div>
             </div>
             <div className="row">

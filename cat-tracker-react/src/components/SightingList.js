@@ -38,63 +38,6 @@ function SightingList() {
         }
       };
 
-    // const addFetch = (sighting) => {
-    //     const init = {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Accept: "application/json",
-    //       },
-    //       body: JSON.stringify(sighting),
-    //     };
-    
-    //     fetch("http://localhost:8080/api/sighting", init)
-    //       .then((response) => {
-    //         if (response.status !== 201) {
-    //           return Promise.reject("Error.");
-    //         }
-    //         return response.json();
-    //       })
-    //       .then((json) => {
-    //         setSightings([...sightings, json]);
-    //         setMessages("");
-    //       })
-    //       .catch(console.log);
-    //   };
-
-    //   const addSighting = (sighting) => {
-    //     let canSet = true;
-    
-    //     for (let i = 0; i < sightings.length; i++) {
-    //       if (sighting.sightingId === sightings[i].sightingId) {
-    //         canSet = false;
-    //       }
-    //     }
-    
-    //     if (canSet) {
-    //       addFetch(sighting);
-    //     } else {
-    //       setMessages("Sighting Already Exists");
-    //     }
-    //   };
-
-    //   const removeSighting = (sightingId) => {
-    //     let newSightings = [];
-    
-    //     for (let i = 0; i < sightings.length; i++) {
-    //       if (sightings[i].sightingId !== sightingId) {
-    //         newSightings.push(sightings[i]);
-    //       }
-    //     }
-    
-    //     if (newSightings.length !== sightings.length) {
-    //       setSightings(newSightings);
-    //       setMessages("");
-    //     } else {
-    //       setMessages("Could not find that sighting to remove");
-    //     }
-    //   };
-
       //render update and delete if admin
     return ( 
         <div className="row">
