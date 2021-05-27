@@ -51,7 +51,7 @@ function Register() {
   }
 
   return (
-    <div className="container mt-5 ">
+    <div className="container-flex mt-5 ">
     <div className="row justify-content-md-center">
       <div className="col">
         <div className="card text-center">
