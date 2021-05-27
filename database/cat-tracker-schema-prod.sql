@@ -97,9 +97,9 @@ create table report (
         (3, 44.944966, -93.290499);
         
 	insert into cat(cat_id, cat_name, img_path, cat_description, disabled, users_id) values
-		(1, 'Noodle', './database/images/noodle.jpg', '', 0, 2),
-        (2, '', './database/images/garfield.jpg', '', 0, 1),
-        (3, 'Gary', './database/images/gary.jpg', '', 0, 3);
+		(1, 'Noodle', 'noodle.jpg', '', 0, 2),
+        (2, '', 'garfield.jpg', '', 0, 1),
+        (3, 'Gary', 'gary.jpg', '', 0, 3);
         
 	insert into alias(alias_id, alias_name, cat_id) values
 		(1, 'Garfield', 2),
