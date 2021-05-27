@@ -2,6 +2,7 @@ import './../App.css';
 import {useState, useEffect} from 'react';
 import {BrowserRouter as Link} from 'react-router-dom';
 
+
 function Sighting({ sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
    /*const defaultSighting = {
         sightingId: 0,
@@ -73,7 +74,8 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
     const handleShow = () => setShow(true);
     //render update and delete if admin
   return (
-        <div className="card">
+      <>
+        <div className="card" style={{width: '20rem'}}>
             <div className="row">
                 <div className="col">
                     {/*image here*/}
@@ -82,6 +84,10 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
                     <li className="list-group-item">
                         Sighting {sightingId}
                     </li>
+                    { (catId > 1) ?
+                    (<li className="list-group-item">
+                        Cat: {cat.catName}
+                    </li>): null}
                     <li className="list-group-item">
                         Description: {sightingDescription}
                     </li>
@@ -100,6 +106,7 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
             {/* <Modal show= */}
             
         </div>
+        </>
   );
 }
 

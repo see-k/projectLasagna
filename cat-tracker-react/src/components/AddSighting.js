@@ -2,6 +2,7 @@
 import {useState, useEffect, useHistory, useParams} from 'react';
 import Path from 'path';
 import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
+import { Modal } from "react-bootstrap";
 
 const storageConfigured = isStorageConfigured();
 
@@ -138,13 +139,12 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       };
     
     return (
-        <div className="card">
-        <h2 className="card-title ml-3">Add Sighting</h2>
+        <div className="card" style={{width: "25rem"}}>
         <div className="card-body">
             <form onSubmit={handleAdd}>
               
             <div>
-              <h1>Upload a picture</h1>
+              <p>Upload a picture:</p>
               {storageConfigured && !uploading && DisplayForm()}
               {storageConfigured && uploading && <div>Uploading</div>}
               <hr />

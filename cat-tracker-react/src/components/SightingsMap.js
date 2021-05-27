@@ -66,6 +66,12 @@ function SightingsMap() {
             .catch(console.log);
 
     }
+
+    //modal handling
+    const [show, setShow] = useState(true);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
         
 
     //marker needs to store sighting locations
@@ -149,8 +155,47 @@ function SightingsMap() {
         <div className="App">
 
             { addNew && ( 
+                <Modal 
+                        show={show}
+                        onHide={handleClose}
+                        backdrop="static"
+                        keyboard={false}>
+                    <Modal.Header closeButton>
+                        Add a Sighting
+                    </Modal.Header>
+                    <Modal.Body> 
                 <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time} addSighting={addSighting} cancel={removeMarker}
-            />)}
+            />
+            </Modal.Body>
+                    </Modal>)}
+
+            {selected ? ( 
+                <Modal 
+                        show={show}
+                        onHide={handleClose}
+                        backdrop="static"
+                        keyboard={false}>
+                    <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title-vcenter">Cat Sighting</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body> 
+                    <Sighting 
+                            key={selected.sightingId} 
+                            sightingId={selected.sightingId} 
+                            picture={selected.picture}   
+                            visualDescription={selected.catDescription}
+                            sightingDescription={selected.sightingDescription}
+                            sightingDate={selected.sightingDate}
+                            sightingTime={selected.sightingTime}
+                            latitude={selected.latitude}
+                            longitude={selected.longitude}
+                            disabled={selected.disabled}
+                            usersId={selected.usersId}
+                            catId={selected.catId}
+                            removeSighting = {removeSighting}
+                        />
+                        </Modal.Body>
+                    </Modal>) : null}
 
             <GoogleMap mapContainerStyle={mapContainerStyle} 
             zoom={10} 
@@ -192,33 +237,7 @@ function SightingsMap() {
                         <button className="btn btn-secondary" onClick={removeMarker}>no</button>
                         {/*<p>Spotted {formatRelative(time, new Date())}</p>*/}
                     </div>
-                </InfoWindow>) : null}
-
-                {/* if selected show sighting find by id */}
-                
-                {selected ? (
-                     <InfoWindow
-                        position={{ lat: selected.latitude, lng: selected.longitude }}
-                        onCloseClick={setSelected(null)}
-                        >
-                        <div><p>a window!</p></div> 
-                        
-                        {/* <Sighting 
-                            key={selected.sightingId} 
-                            sightingId={selected.sightingId} 
-                            picture={selected.picture}   
-                            visualDescription={selected.catDescription}
-                            sightingDescription={selected.sightingDescription}
-                            sightingDate={selected.sightingDate}
-                            sightingTime={selected.sightingTime}
-                            latitude={selected.latitude}
-                            longitude={selected.longitude}
-                            disabled={selected.disabled}
-                            usersId={selected.usersId}
-                            catId={selected.catId}
-                            removeSighting = {removeSighting}
-                        /> */}
-                    </InfoWindow>) : null} 
+                </InfoWindow>) : null}  
             </GoogleMap>
         </div>
     );
