@@ -122,7 +122,6 @@ function SightingsMap() {
     };
 
     const removeMarker = (event) => {
-        setSelected(null);
         setMarker(null);
         setAddNew(false);
     }
@@ -201,7 +200,7 @@ function SightingsMap() {
                         position={{ lat: selected.latitude, lng: selected.longitude }}
                         onCloseClick={setSelected(null)}
                         >
-                        <div><p>{selected.sightingId}</p></div> 
+                        <div><p>a window!</p></div> 
                         
                         {/* <Sighting 
                             key={selected.sightingId} 
