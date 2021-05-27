@@ -1,3 +1,4 @@
+import './../App.css';
 import { useEffect, useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 
@@ -97,10 +98,10 @@ function UpdateSighting({cancel}) {
         setCatId(event.target.value);
       };
 
-    return (
+      return (
         <div className="card">
         <h2 className="card-title ml-3">Update Sighting</h2>
-    
+
           <div className="card-body">
               <form onSubmit={handleUpdate}>
               {/* CHIKE picture upload element here */}
@@ -108,16 +109,6 @@ function UpdateSighting({cancel}) {
                 <label htmlFor="visDescTxtBox">Identifying features:</label>
                 <textarea
                 id="visDescTxtBox"
-                onChange={handleVDChange}
-                className="form-control"
-                placeholder="Name tag, fur color, size, etc."
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="sightingDescTxtBox">Description:</label>
-                <textarea
-                id="sightingDescTxtBox"
-                onChange={handleSDChange}
                 className="form-control"
                 />
             </div>
