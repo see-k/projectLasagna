@@ -1,5 +1,5 @@
 import './App.css';
-import logo from './cattrackerlogo.png';
+import logo from './cat-tracker-logo-small.png';
 import { useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 
