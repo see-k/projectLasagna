@@ -1,5 +1,6 @@
 import './App.css';
 import logo from './cat-tracker-logo-small.png';
+import 'bootswatch/dist/slate/bootstrap.min.css'; // Added this :boo
 import { useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 
@@ -116,7 +117,7 @@ function App() {
               
               
               {(user && user.isValid()) ? ( 
-                <button className="btn btn-primary" onClick={logout}>Log Out</button>
+                <Link className="btn btn-primary" to="/logout" onClick={logout}>Log Out</Link>
 
                ) : null }
 
