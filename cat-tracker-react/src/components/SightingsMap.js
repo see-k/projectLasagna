@@ -114,6 +114,7 @@ function SightingsMap() {
     
         if (newSightings.length !== sightings.length) {
             setSightings(newSightings);
+            setSelected(null);
             setMessages("");
         } else {
             setMessages("Could not find that sighting to remove");
@@ -156,6 +157,7 @@ function SightingsMap() {
 
             { addNew && ( 
                 <Modal 
+                        size="lg"
                         show={show}
                         onHide={handleClose}
                         backdrop="static"
@@ -197,7 +199,7 @@ function SightingsMap() {
                             disabled={selected.disabled}
                             usersId={selected.usersId}
                             catId={selected.catId}
-                            removeSighting = {removeSighting}
+                            remove={removeSighting}
                         />
                         </Modal.Body>
                     </Modal>) : null}

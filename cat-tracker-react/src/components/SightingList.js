@@ -58,7 +58,7 @@ function SightingList() {
                             disabled={s.disabled}
                             usersId={s.usersId}
                             catId={s.catId}
-                            removeSighting = {removeSighting}
+                            removeSighting={removeSighting}
                             />)}
                     </ul>
                 </div>
