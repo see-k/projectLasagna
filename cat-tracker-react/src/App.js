@@ -107,7 +107,7 @@ function App() {
               <Link className="link" to="/contact" href="#">Contact Us</Link>
 
               {(user && user.isValid()) ? ( 
-                <h4>Hello, {user.username}!</h4>
+                <h4> {loginMsg}</h4>
                ) : null }
 
               { !user ? ( 

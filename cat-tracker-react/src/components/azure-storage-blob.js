@@ -5,7 +5,7 @@
 import { BlobServiceClient, ContainerClient} from '@azure/storage-blob';
 
 // THIS IS SAMPLE CODE ONLY - DON'T STORE TOKEN IN PRODUCTION CODE
-const sasToken = process.env.storagesastoken || "sv=2020-02-10&ss=b&srt=sco&sp=rwdlactfx&se=2021-05-30T04:28:11Z&st=2021-05-26T19:28:11Z&spr=https&sig=5H%2BwEpliVqFaM7rrT7zgBipHQXEGAo7l3EIiqPCKozI%3D"; // Fill string with your SAS token
+const sasToken = process.env.storagesastoken || "sv=2020-02-10&ss=b&srt=sco&sp=rwdlactfx&se=2021-05-29T22:30:09Z&st=2021-05-27T14:30:09Z&spr=https&sig=KNA%2FnZbyX3iG5X4HTy0cl%2FwnA3X6OsUGvhIOjUE2Vws%3D"; // Fill string with your SAS token
 const containerName = `tutorial-container`;
 const storageAccountName = process.env.storageresourcename || "cattracker"; // Fill string with your Storage resource name
 // </snippet_package>
