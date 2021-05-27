@@ -117,7 +117,7 @@ function App() {
               
               
               {(user && user.isValid()) ? ( 
-                <button className="btn btn-primary" onClick={logout}>Log Out</button>
+                <Link className="btn btn-primary" to="/logout" onClick={logout}>Log Out</Link>
 
                ) : null }
 
