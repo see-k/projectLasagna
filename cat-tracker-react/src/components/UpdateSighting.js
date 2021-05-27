@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 
-function UpdateSighting() {
-    const defaultSighting = {
-        sightingId: 0,
-        imgPath: null,
-        visualDescription: "N/A",
-        sightingDescription: "N/A",
-        sightingDate: time,
-        sightingTime: new Date().toLocaleTimeString('it-IT'),
-        latitude: latitude,
-        longitude: longitude,
-        disabled: false,
-        usersId: 0,
-        catId: 0
-    }
+function UpdateSighting({cancel}) {
+    // const defaultSighting = {
+    //     sightingId: 0,
+    //     imgPath: null,
+    //     visualDescription: "N/A",
+    //     sightingDescription: "N/A",
+    //     sightingDate: new Date.,
+    //     sightingTime: new Date().toLocaleTimeString('it-IT'),
+    //     latitude: latitude,
+    //     longitude: longitude,
+    //     disabled: false,
+    //     usersId: 0,
+    //     catId: 0
+    // }
 
-    const [sighting, setSighting] = useState(defaultSighting);
+    const [sighting, setSighting] = useState();
 
     const { id } = useParams();
     const history = useHistory();
@@ -31,9 +31,10 @@ function UpdateSighting() {
       const [picture, setPicture] = useState("");
       const [visualDescription, setVisualDescription] = useState("");
       const [sightingDescription, setSightingDescription] = useState("");
-      const [sightingDate, setSightingDate] = useState(time);
-      const [sightingLatitude, setSightingLatitude] = useState(latitude);
-      const [sightingLongitude, setSightingLongitude] = useState(longitude);
+      const [sightingDate, setSightingDate] = useState();
+      const [sightingTime, setSightingTime] = useState();
+      const [sightingLatitude, setSightingLatitude] = useState();
+      const [sightingLongitude, setSightingLongitude] = useState();
       const [disabled, setDisabled] = useState(false);
       const [usersId, setUsersId] = useState(0);
       const [catId, setCatId] = useState(0);
@@ -44,16 +45,16 @@ function UpdateSighting() {
 
             const newSighting = {
                 sightingId: sighting.sightingId,
-                picture = picture, //CHIKE
-                visualDescription = visualDescription,
-                sightingDescription = sightingDescription,
-                sightingDate = sightingDate,
-                sightingTime = sightingTime,
-                latitude = latitude,
-                longitude = longitude,
-                disabled = disabled,
-                usersId = usersId, //DERRICK
-                catId = 2, 
+                picture: picture, //CHIKE
+                visualDescription: visualDescription,
+                sightingDescription: sightingDescription,
+                sightingDate: sightingDate,
+                sightingTime: sightingTime,
+                latitude: sightingLatitude,
+                longitude: sightingLongitude,
+                disabled: disabled,
+                usersId: usersId, //DERRICK
+                catId: 2, 
             };
 
             const init = {
@@ -90,9 +91,9 @@ function UpdateSighting() {
 
     return (
         <div className="card">
-        <h2 className="card-title ml-3">Add Sighting</h2>
+        <h2 className="card-title ml-3">Update Sighting</h2>
         <div className="card-body">
-            <form onSubmit={handleAdd}>
+            <form onSubmit={handleUpdate}>
             {/* CHIKE picture upload element here */}
             <div className="form-group">
                 <label htmlFor="visDescTxtBox">Identifying features:</label>
@@ -112,14 +113,14 @@ function UpdateSighting() {
                 />
             </div>
             {/* render only if admin permission */}
-            <div className="form-group"> 
+            {/* <div className="form-group"> 
                 <label htmlFor="chooseCat">Cat:</label>
                 <select id="chooseCat" onChange={handleCatChange} className="form-control">
                     {cats.map(cat => <option value={cat.catId}>{cat.catId}: {cat.name}</option> )}
                 </select>
-            </div>
+            </div> */}
             <button type="submit" className="btn btn-primary mt-2">
-                Add
+                Update
             </button>
 
             <button className="btn btn-primary mt-2" onClick={cancel}>Cancel</button>

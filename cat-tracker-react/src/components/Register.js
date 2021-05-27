@@ -53,7 +53,7 @@ function Register() {
   return (
     <div className="container mt-5 ">
     <div className="row justify-content-md-center">
-      <div className="col col-4">
+      <div className="col">
         <div className="card text-center">
           <h2 className="card-header">Create an Account</h2>
             <Errors errors={errors} />
