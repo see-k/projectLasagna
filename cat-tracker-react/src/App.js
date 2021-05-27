@@ -3,31 +3,33 @@ import logo from './cattrackerlogo.png';
 import { useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 
-import Nav from './components/Nav';
 import Home from './components/Home';
+import FAQ from './static/FAQ';
 import About from './static/About';
 import Contact from './static/Contact';
 import{ BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
 import Login from './components/Login';
+import LogoutPage from './static/LogoutPage';
 import NotFound from './static/NotFound';
 import Register from './components/Register';
 import AuthContext from './components/AuthContext';
 import SightingsMap from './components/SightingsMap';
 import SightingList from './components/SightingList';
+import CatProfile from './components/CatProfile';
+import UpdateSighting from './components/UpdateSighting';
+import Sighting from './components/Sighting';
 
 function App() {
   const [user, setUser] = useState(null);
+  let loginMsg = '';
 
   const login = (token) => {
-    const { id, sub: username, roles: rolesString } = jwt_decode(token);
+    const { id, sub: username, authorities: rolesString } = jwt_decode(token);
     const roles = rolesString.split(',');
 
     const user = {
-      id,
-      username,
-      roles,
-      token,
+      id, username, roles, token,
       hasRole(role) {
         return this.roles.includes(role);
       },
@@ -35,29 +37,29 @@ function App() {
         return true;
       }
     }
-
     setUser(user);
   }
 
   const authenticate = async (username, password) => {
-    const response = await fetch('http://localhost:5000/authenticate', {
+    const response = await fetch('http://localhost:8080/authenticate', {
       method: 'POST',
-      headers : {
-        "content-type": "application/json"
+      headers: {
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        username,
-        password
+        username, password
       })
     });
 
     if (response.status === 200) {
       const { jwt_token } = await response.json();
       login(jwt_token);
-    } else if (response.status === 403) {
+    }
+    else if (response.status === 403) {
       throw new Error('Bad username or password');
-    } else {
-      throw new Error('There was a problem logging in...')
+    }
+    else {
+      throw new Error('There was a problem logging in');
     }
   }
 
@@ -69,6 +71,13 @@ function App() {
     user,
     authenticate,
     logout
+  }
+
+  if (user === null) {
+    loginMsg = "Not logged in";
+  }
+  else {
+    loginMsg = `Logged in as: ${user.username}`
   }
 
   return (
@@ -86,14 +95,24 @@ function App() {
                 <Link className="link" to="/cats" href="#">Cat Profiles</Link>
               </li>
               <li>
-                <Link className="link" to="/sightings" href="#">Sightings</Link>
+                <Link className="link" to="/sighting-map" href="#">Sightings</Link>
               </li>
               
               <Link className="link" to="/faq" href="#">FAQs</Link>
               <Link className="link" to="/about" href="#">About Us</Link>
               <Link className="link" to="/contact" href="#">Contact Us</Link>
+
+              {(user && user.isValid()) ? ( 
+                <p>Hello, {user.userName}!</p>
+               ) : (
+                null
+              )}
               <Link className="btn btn-primary" to="/login">Log In</Link>
-              <button className="btn btn-primary" onClick={logout}>Log Out</button>
+              {(user && user.isValid()) ? ( 
+                <button className="btn btn-primary" onClick={logout}>Log Out</button>
+               ) : (
+                null
+              )}
           </ul>
 
           <Switch>
@@ -104,15 +123,44 @@ function App() {
                 <Redirect to="/login" />
               )}
             </Route>
+            <Route exact path="/faq">
+                <FAQ />
+            </Route>
+            <Route exact path="/about">
+                <About />
+            </Route>
+            <Route exact path="/contact">
+                <Contact />
+            </Route>
             <Route exact path="/sightings">
               <SightingList />
             </Route>
-            <Route exact path="/map">
-              <SightingsMap />
+            <Route exact path="/cats">
+              <CatProfile />
+            </Route>
+            <Route exact path="/sighting-map">
+            {/* {(user && user.isValid()) ? ( */}
+                <SightingsMap />
+              {/* ) : (
+                <Redirect to="/login" />
+              )} */}
+            </Route>
+            <Route exact path="/sighting-list/cat/:id">
+              <SightingList />
+
+            </Route>
+            <Route exact path="/sightings/edit/:id">
+              <UpdateSighting />
+            </Route>
+            <Route exact path="/sightings/:id">
+              <Sighting />
             </Route>
             <Route exact path="/login">
               <Login />
             </Route>
+            <Route path="/logout">
+            <LogoutPage />
+          </Route>
             <Route exact path="/register">
               <Register />
             </Route>

@@ -1,7 +1,8 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
+import {BrowserRouter as Link} from 'react-router-dom';
 
-function Sighting({ sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId }) {
+function Sighting({ sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
    /*const defaultSighting = {
         sightingId: 0,
         imgPath: null,
@@ -15,6 +16,17 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
         usersId: 0,
         catId: 0
     }*/
+
+    const deleteById = () => {
+        fetch(`http://localhost:8080/api/sighting/${sightingId}`, {method: "DELETE" })
+            .then (response => {
+                if (response.status === 204 || response.status === 404) {
+                removeSighting(sightingId);
+            } else {
+                return Promise.reject(`delete found with status ${response.status}`)
+            }
+        });
+    }
 
     const defaultCat = {
         catId: 0,
@@ -55,7 +67,10 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
         .then((json) => setCat(json))
         .catch(console.log());
     }
+    const [show, setShow] = useState(false);
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     //render update and delete if admin
   return (
         <div className="card">
@@ -80,6 +95,10 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
                     Location: {latitude}, {longitude}
                 </div>
             </div>
+            <Link className="btn btn-warning ml-2" to={`/sightings/edit/${sightingId}`}>Update</Link>
+            <button className="btn btn-secondary" onClick={handleShow}>Delete</button>
+            {/* <Modal show= */}
+            
         </div>
   );
 }

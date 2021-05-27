@@ -81,11 +81,19 @@ li.list-group-item{
   text-align: justify;
 }
 
-.btn {
+.btn-primary {
   background: rgb(53, 53, 53);
 }
 
 .card {
+  display: flex;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.card-header {
+  background: orange;
+  font-weight: bold;
   width: 80vw;
   margin: 0 auto;
 }
