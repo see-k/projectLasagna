@@ -62,11 +62,10 @@ function SightingsMap() {
             .then((json) => {
             setSightings([...sightings, json]);
             setMessages("");
-            setAddNew(false)
-            setMarker(null);
             })
             .catch(console.log);
-        }
+
+    }
         
 
     //marker needs to store sighting locations
@@ -91,6 +90,8 @@ function SightingsMap() {
     
         if (canSet) {
             addFetch(sighting);
+            setAddNew(false);
+            setMarker(null);
         } else {
             setMessages("Sighting Already Exists");
         }
@@ -122,8 +123,8 @@ function SightingsMap() {
     };
 
     const removeMarker = (event) => {
-        setMarker(null);
         setAddNew(false);
+        setMarker(null);
     }
 
     const mapRef = useRef();
@@ -133,8 +134,7 @@ function SightingsMap() {
     }, []);
     
     const {isLoaded, loadError} = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_API_KEY,
-        libraries: ["places"]
+        googleMapsApiKey: process.env.REACT_APP_API_KEY
     })
 
     if(loadError) {
@@ -195,8 +195,9 @@ function SightingsMap() {
                 </InfoWindow>) : null}
 
                 {/* if selected show sighting find by id */}
+                
                 {selected ? (
-                    <InfoWindow
+                     <InfoWindow
                         position={{ lat: selected.latitude, lng: selected.longitude }}
                         onCloseClick={setSelected(null)}
                         >

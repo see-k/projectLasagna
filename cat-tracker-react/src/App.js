@@ -1,5 +1,5 @@
 import './App.css';
-import logo from './cattrackerlogo.png';
+import logo from './cat-tracker-logo-small.png';
 import { useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 
@@ -107,7 +107,7 @@ function App() {
               <Link className="link" to="/contact" href="#">Contact Us</Link>
 
               {(user && user.isValid()) ? ( 
-                <p>Hello, {user.userName}!</p>
+                <h4>Hello, {user.username}!</h4>
                ) : null }
 
               { !user ? ( 
