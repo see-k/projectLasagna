@@ -1,5 +1,6 @@
 import Sighting from './Sighting';
 import {useEffect, useState } from "react";
+import {Modal} from 'react-bootstrap';
 
 function SightingList() {
 
@@ -95,7 +96,7 @@ function SightingList() {
     //   };
 
       //render update and delete if admin
-    return (
+    return ( 
         <div className="row">
             <div className="col">
                 <div className="card">
@@ -119,8 +120,7 @@ function SightingList() {
                     </ul>
                 </div>
             </div>
-        </div>   
-        
+        </div> 
     );
 }
 
