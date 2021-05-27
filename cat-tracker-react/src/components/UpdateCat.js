@@ -13,7 +13,13 @@ function UpdateCat() {
     usersId: 0
   }
 
-  const [cat, setCat] = useState();
+  const [cat, setCat] = useState(defaultCat);
+
+  const [catName, setCatName] = useState("");
+  const [picture, setPicture] = useState("");
+  const [catDesc, setCatDesc] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  const [usersId, setUsersId] = useState(0);
 
   const { id } = useParams();
   const history = useHistory();
@@ -21,20 +27,20 @@ function UpdateCat() {
   useEffect(() => {
     fetch(`http://localhost:8080/api/cat/${id}`)
     .then(response => response.json())
-    .then(data => setAgent(data))
+    .then(data => setCat(data))
     .catch(error => console.log(error));
   }, [id]);
 
   const handleUpdate = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     const newCat = {
       catId: cat.catId,
       catName: catName,
-      imgPath: imgPath,
-      catDescription: catDescription,
-      disabled: false,
-      usersId: users.usersId,
+      picture: picture,
+      catDesc: catDesc,
+      disabled: disabled,
+      usersId: usersId,
     }
 
   const init = {
@@ -53,7 +59,7 @@ function UpdateCat() {
         return Promise.reject("could not update");
       }
     })
-    .then(history.push('/'))
+    .then(history.push('/sighting-map'))
     .catch(console.log)
   }
 
