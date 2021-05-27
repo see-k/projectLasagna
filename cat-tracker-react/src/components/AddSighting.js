@@ -89,8 +89,9 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       const [picture, setPicture] = useState("");
       const [visualDescription, setVisualDescription] = useState("");
       const [sightingDescription, setSightingDescription] = useState("");
-      //const [sightingDate, setSightingDate] = useState(time);
-      //const [sightingLatitude, setSightingLatitude] = useState(latitude);
+      const [sightingDate, setSightingDate] = useState(time.toISOString().substring(0,10));
+      const [sightingTime, setSightingTime] = useState(time.toLocaleTimeString('it-IT'));
+      // const [sightingLatitude, setSightingLatitude] = useState(latitude);
       //const [sightingLongitude, setSightingLongitude] = useState(longitude);
       const [disabled, setDisabled] = useState(false);
       const [usersId, setUsersId] = useState(1);
@@ -105,8 +106,8 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
         sighting["picture"] = picture; //CHIKE
         sighting["visualDescription"] = visualDescription;
         sighting["sightingDescription"] = sightingDescription;
-        sighting["sightingDate"] = time.toISOString().substring(0,10);
-        sighting["sightingTime"] = time.toLocaleTimeString('it-IT');
+        sighting["sightingDate"] = sightingDate;
+        sighting["sightingTime"] = sightingTime;
         sighting["latitude"] = latitude;
         sighting["longitude"] = longitude;
         sighting["disabled"] = disabled;
@@ -123,6 +124,14 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       const handleSDChange = (event) => {
         setSightingDescription(event.target.value);
       };
+
+      const handleDateChange = (event) => {
+          setSightingDate(event.target.value);
+      }
+
+      const handleTimeChange = (event) => {
+        setSightingTime(event.target.value);
+    }
     
       const handleCatChange = (event) => {
         setCatId(event.target.value);
@@ -161,6 +170,29 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
                 onChange={handleSDChange}
                 className="form-control"
                 />
+            </div>
+            <div className="form-group">
+                <label htmlFor="dateBox">Date:</label>
+                <input
+                    type="date"
+                    id="dateBox"
+                    onChange={handleDateChange}
+                    className="form-control"
+                    value={sightingDate}
+                    min="2020-01-01" max={time.toISOString().substring(0,10)}
+                    required>
+                </input>
+            </div>
+            <div className="form-group">
+                <label htmlFor="timeBox">Date:</label>
+                <input
+                    type="time"
+                    id="timeBox"
+                    onChange={handleTimeChange}
+                    className="form-control"
+                    value={sightingTime}
+                    required>
+                </input>
             </div>
             {/* render only if admin permission */}
             <div className="form-group"> 

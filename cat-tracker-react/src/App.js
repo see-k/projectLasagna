@@ -110,7 +110,10 @@ function App() {
                 <p>Hello, {user.userName}!</p>
                ) : null }
 
-              <Link className="btn btn-primary" to="/login">Log In</Link>
+              { !user ? ( 
+                <Link className="btn btn-primary" to="/login">Log In</Link>
+              ) : null}
+              
               
               {(user && user.isValid()) ? ( 
                 <button className="btn btn-primary" onClick={logout}>Log Out</button>
