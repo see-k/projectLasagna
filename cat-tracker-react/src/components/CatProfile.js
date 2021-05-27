@@ -1,6 +1,8 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
 import { createFactory } from 'react';
+import Path from 'path';
+import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
 
 function CatProfile() {
 
@@ -36,7 +38,20 @@ function CatProfile() {
         .catch(console.log());
     }
 
-    
+    const deleteCat = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        await fetch(`http://localhost:8080/api/cat/${catNum}`, {method: "DELETE" })
+        .then((response) => {
+            if (response.status !== 200) {
+                console.log(response);
+                return Promise.reject("get didn't work...");
+                }
+                return response.json();   
+        })
+        .catch(console.log());
+    }
 
     return (
         <div className="card">
@@ -44,31 +59,34 @@ function CatProfile() {
                 <form onSubmit={getCat}>
                     <div className="form-group">
                         <label>Enter the users id</label>
-                        <input type="text" className="form-control" onChange={handleSetCatId}/>
-                        <button type="submit" className="btn btn-outline-primary">find</button>
+                        <input type="text" className="form-control" onChange={handleSetCatId} />
+                        <br></br>
+                        <button type="submit" className="btn btn-outline-primary">find this cat</button>
 
                     </div>
                 </form>
             </div>
             <br></br>
             <br></br>
-                <div className="row">
+            <div className="row">
                 <div className="col">
-                       Insert Picture here
+                <img src={`https://cattracker.blob.core.windows.net/tutorial-container/${cat.picture}`} alt={`https://cattracker.blob.core.windows.net/tutorial-container/${cat.picture}`} height="200" />
                     </div>
-                    <div className="col">
-                        Name: {cat.name}
-                        <br></br>
-                        Id: {cat.catId}  
-                        <br></br>
-                        Description: {cat.desc} 
-                        <br></br>
-                        Image path: {cat.picture}  
-                        
-                    </div>
-                
+                <div className="col">
+                    Name: {cat.name}
+                    <br></br>
+                        Id: {cat.catId}
+                    <br></br>
+                        Description: {cat.desc}
+                    <br></br>
+                        Image path: {cat.picture}
+                    <br></br>
+                    <br></br>
+                    <button type="text" className="btn btn-outline-danger" onClick={deleteCat}>Delete</button>
                 </div>
+
             </div>
+        </div>
     );
 }
 
