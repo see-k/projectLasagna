@@ -2,10 +2,9 @@ import {useState, useEffect} from 'react';
 import {BrowserRouter as Link, useHistory, useParams } from 'react-router-dom';
 
 
-function Sighting({picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
+function Sighting({sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
 
     const history = useHistory();
-    let { sightingId } = useParams();
 
     const deleteById = () => {
         fetch(`http://localhost:8080/api/sighting/${sightingId}`, {method: "DELETE" })
@@ -16,6 +15,8 @@ function Sighting({picture, catDescription, sightingDescription, sightingDate, s
                 return Promise.reject(`delete found with status ${response.status}`)
             }
         })
+        .then(history.push('/sighting-map'))
+        .catch(console.log());
     }
 
     const defaultCat = {
@@ -90,7 +91,6 @@ function Sighting({picture, catDescription, sightingDescription, sightingDate, s
                     <button className="btn btn-secondary">Cancel</button>
                     <button className="btn btn-warning ml-2" onClick={deleteById}>Confirm</button>
                 </div>
-                
             ) }
         </div>
       
