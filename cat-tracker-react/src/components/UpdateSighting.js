@@ -2,21 +2,21 @@ import { useEffect, useState } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 
 function UpdateSighting({cancel}) {
-    // const defaultSighting = {
-    //     sightingId: 0,
-    //     imgPath: null,
-    //     visualDescription: "N/A",
-    //     sightingDescription: "N/A",
-    //     sightingDate: new Date.,
-    //     sightingTime: new Date().toLocaleTimeString('it-IT'),
-    //     latitude: latitude,
-    //     longitude: longitude,
-    //     disabled: false,
-    //     usersId: 0,
-    //     catId: 0
-    // }
+    const defaultSighting = {
+        sightingId: 0,
+        imgPath: null,
+        visualDescription: "N/A",
+        sightingDescription: "N/A",
+        sightingDate: new Date().toISOString().substring(0,10),
+        sightingTime: new Date().toLocaleTimeString('it-IT'),
+        latitude: 0.0,
+        longitude: 0.0,
+        disabled: false,
+        usersId: 0,
+        catId: 0
+    }
 
-    const [sighting, setSighting] = useState();
+    const [sighting, setSighting] = useState(defaultSighting);
 
     const { id } = useParams();
     const history = useHistory();
@@ -33,8 +33,8 @@ function UpdateSighting({cancel}) {
       const [sightingDescription, setSightingDescription] = useState("");
       const [sightingDate, setSightingDate] = useState();
       const [sightingTime, setSightingTime] = useState();
-      const [sightingLatitude, setSightingLatitude] = useState();
-      const [sightingLongitude, setSightingLongitude] = useState();
+      const [sightingLatitude, setSightingLatitude] = useState(sighting.latitude);
+      const [sightingLongitude, setSightingLongitude] = useState(sighting.longitude);
       const [disabled, setDisabled] = useState(false);
       const [usersId, setUsersId] = useState(0);
       const [catId, setCatId] = useState(0);
@@ -72,7 +72,7 @@ function UpdateSighting({cancel}) {
                 return Promise.reject("update failed");
             }
             })
-            .then(history.push('/'))
+            .then(history.push('/sighting-map'))
             .catch(console.log);
     
       };
@@ -84,6 +84,14 @@ function UpdateSighting({cancel}) {
       const handleSDChange = (event) => {
         setSightingDescription(event.target.value);
       };
+
+      const handleDateChange = (event) => {
+        setSightingDate(event.target.value);
+    }
+
+    const handleTimeChange = (event) => {
+      setSightingTime(event.target.value);
+  }
     
       const handleCatChange = (event) => {
         setCatId(event.target.value);
@@ -92,10 +100,11 @@ function UpdateSighting({cancel}) {
     return (
         <div className="card">
         <h2 className="card-title ml-3">Update Sighting</h2>
-        <div className="card-body">
-            <form onSubmit={handleUpdate}>
-            {/* CHIKE picture upload element here */}
-            <div className="form-group">
+    
+          <div className="card-body">
+              <form onSubmit={handleUpdate}>
+              {/* CHIKE picture upload element here */}
+              <div className="form-group">
                 <label htmlFor="visDescTxtBox">Identifying features:</label>
                 <textarea
                 id="visDescTxtBox"
@@ -112,21 +121,43 @@ function UpdateSighting({cancel}) {
                 className="form-control"
                 />
             </div>
-            
-            {/* render only if admin permission */}
-            {/* <div className="form-group"> 
-                <label htmlFor="chooseCat">Cat:</label>
-                <select id="chooseCat" onChange={handleCatChange} className="form-control">
-                    {cats.map(cat => <option value={cat.catId}>{cat.catId}: {cat.name}</option> )}
-                </select>
-            </div> */}
-            <button type="submit" className="btn btn-primary mt-2">
-                Update
-            </button>
+            <div className="form-group">
+                <label htmlFor="dateBox">Date:</label>
+                <input
+                    type="date"
+                    id="dateBox"
+                    onChange={handleDateChange}
+                    className="form-control"
+                    value={sightingDate}
+                    min="2020-01-01" max={sightingDate}
+                    required>
+                </input>
+            </div>
+            <div className="form-group">
+                <label htmlFor="timeBox">Date:</label>
+                <input
+                    type="time"
+                    id="timeBox"
+                    onChange={handleTimeChange}
+                    className="form-control"
+                    value={sightingTime}
+                    required>
+                </input>
+            </div>
+              {/* render only if admin permission */}
+              {/* <div className="form-group"> 
+                  <label htmlFor="chooseCat">Cat:</label>
+                  <select id="chooseCat" onChange={handleCatChange} className="form-control">
+                      {cats.map(cat => <option value={cat.catId}>{cat.catId}: {cat.name}</option> )}
+                  </select>
+              </div> */}
+              <button type="submit" className="btn btn-primary mt-2">
+                  Update
+              </button>
 
-            <button className="btn btn-primary mt-2" onClick={cancel}>Cancel</button>
-            </form>
-        </div>
+              <Link className="btn btn-primary mt-2" to="/sighting-map">Cancel</Link>
+              </form>
+          </div>
         </div>
     );
 }

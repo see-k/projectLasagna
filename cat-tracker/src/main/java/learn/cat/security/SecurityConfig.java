@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authenticate", "/authenticate/*").permitAll()
                 .antMatchers(HttpMethod.POST, "/create_account").permitAll()
                 .antMatchers(HttpMethod.POST, "/refresh_token").permitAll()
-                .antMatchers(HttpMethod.GET, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/users/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/api", "/api/*", "/api/cat/*", "/api/alias/*", "/api/location/*", "/api/report", "/api/sighting/*", "/api/sighting/cat/*", "/api/users/*").permitAll()
 ////                .antMatchers(HttpMethod.POST, "/api").hasAnyRole("USER", "ADMIN")
 ////                .antMatchers(HttpMethod.PUT, "/api").hasAnyRole("USER", "ADMIN")
 ////                .antMatchers(HttpMethod.DELETE, "/api/*").hasAnyRole("USER", "ADMIN")

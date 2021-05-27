@@ -33,6 +33,11 @@ public class SightingController {
         return service.findById(sightingId);
     }
 
+    @GetMapping("/cat/{catId}")
+    public List<Sighting> findByCatId(@PathVariable int catId) {
+        return service.findByCatId(catId);
+    }
+
    // Conflict: public Sighting findById(@PathVariable int sightingId) { return service.findById(sightingId); }
 
     @PostMapping
