@@ -40,7 +40,7 @@ function SightingsMap() {
         })
         .then((json) => setSightings(json))
         .catch(console.log);
-    }, []) 
+    }, [sightings]) 
 
     const addFetch = async (sighting) => {
         const init = {
@@ -62,8 +62,8 @@ function SightingsMap() {
             .then((json) => {
             setSightings([...sightings, json]);
             setMessages("");
+            setAddNew(false)
             setMarker(null);
-            setAddNew(false);
             })
             .catch(console.log);
         }
@@ -122,7 +122,6 @@ function SightingsMap() {
     };
 
     const removeMarker = (event) => {
-        setSelected(null);
         setMarker(null);
         setAddNew(false);
     }
@@ -198,10 +197,12 @@ function SightingsMap() {
                 {/* if selected show sighting find by id */}
                 {selected ? (
                     <InfoWindow
-                        position={{ lat: marker.lat, lng: marker.lng }}
+                        position={{ lat: selected.latitude, lng: selected.longitude }}
                         onCloseClick={setSelected(null)}
                         >
-                        <Sighting 
+                        <div><p>a window!</p></div> 
+                        
+                        {/* <Sighting 
                             key={selected.sightingId} 
                             sightingId={selected.sightingId} 
                             picture={selected.picture}   
@@ -215,7 +216,7 @@ function SightingsMap() {
                             usersId={selected.usersId}
                             catId={selected.catId}
                             removeSighting = {removeSighting}
-                        />
+                        /> */}
                     </InfoWindow>) : null} 
             </GoogleMap>
         </div>

@@ -112,6 +112,7 @@ function UpdateSighting({cancel}) {
                 className="form-control"
                 />
             </div>
+            
             {/* render only if admin permission */}
             {/* <div className="form-group"> 
                 <label htmlFor="chooseCat">Cat:</label>
