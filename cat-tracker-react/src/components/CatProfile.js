@@ -12,7 +12,8 @@ function CatProfile() {
         imgPath: null,
         catDescription: "N/A",
         disabled: false,
-        usersId: 0
+        usersId: 0,
+        aliases: []
     }
     const [catNum, setCatNum] = useState(0);
     const[cat, setCat] = useState(defaultCat);
@@ -55,13 +56,13 @@ function CatProfile() {
 
     return (
         <div className="card">
-            <div>
+            <div className="card-body">
                 <form onSubmit={getCat}>
                     <div className="form-group">
-                        <label>Enter the users id</label>
-                        <input type="text" className="form-control" onChange={handleSetCatId} />
+                        <label>Search Cat Id</label>
+                        <input type="number" min="2" max="100" className="form-control" onChange={handleSetCatId} />
                         <br></br>
-                        <button type="submit" className="btn btn-outline-primary">find this cat</button>
+                        <button type="submit" className="btn btn-outline-primary">Find Cat</button>
 
                     </div>
                 </form>
@@ -73,11 +74,17 @@ function CatProfile() {
                 <img src={`https://cattracker.blob.core.windows.net/tutorial-container/${cat.picture}`} alt={`https://cattracker.blob.core.windows.net/tutorial-container/${cat.picture}`} height="200" />
                     </div>
                 <div className="col">
-                    Name: {cat.name}
+                    <li className="list-group-item">Name: {cat.name}</li>
+                    <li className="list-group-item">Id: {cat.catId}</li>
+                    <li className="list-group-item">Description: {cat.desc}</li>
+                    <li className="list-group-item">Aliases: 
+                        {cat.aliases.map(a => <p>{a}</p>)}
+                    </li>
+                    <li className="list-group-item"></li>
+                    
+                        
                     <br></br>
-                        Id: {cat.catId}
-                    <br></br>
-                        Description: {cat.desc}
+                        
                     <br></br>
                         Image path: {cat.picture}
                     <br></br>

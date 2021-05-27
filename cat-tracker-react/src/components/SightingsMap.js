@@ -105,6 +105,7 @@ function SightingsMap() {
 
     const removeSighting = (sightingId) => {
         let newSightings = [];
+        setSelected(null);
     
         for (let i = 0; i < sightings.length; i++) {
             if (sightings[i].sightingId !== sightingId) {
@@ -114,6 +115,7 @@ function SightingsMap() {
     
         if (newSightings.length !== sightings.length) {
             setSightings(newSightings);
+            
             setMessages("");
         } else {
             setMessages("Could not find that sighting to remove");
@@ -156,6 +158,7 @@ function SightingsMap() {
 
             { addNew && ( 
                 <Modal 
+                        size="lg"
                         show={show}
                         onHide={handleClose}
                         backdrop="static"
@@ -197,7 +200,7 @@ function SightingsMap() {
                             disabled={selected.disabled}
                             usersId={selected.usersId}
                             catId={selected.catId}
-                            removeSighting = {removeSighting}
+                            removeSighting={removeSighting}
                         />
                         </Modal.Body>
                     </Modal>) : null}

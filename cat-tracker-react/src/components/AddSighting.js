@@ -163,6 +163,8 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
                 id="sightingDescTxtBox"
                 onChange={handleSDChange}
                 className="form-control"
+                placeholder="Describe the encounter"
+                required
                 />
             </div>
             <div className="form-group">
@@ -191,7 +193,17 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
             {/* render only if admin permission */}
             <div className="form-group"> 
                 <label htmlFor="chooseCat">Cat:</label>
-                <select id="chooseCat" onChange={handleCatChange} className="form-control">
+                <input
+                    type="number"
+                    id="chooseCat"
+                    onChange={handleCatChange}
+                    className="form-control"
+                    value={catId}
+                    required>
+                </input>
+                <select id="chooseCat" className="form-control">
+                  <option key="0">[See registered cats]</option>
+
                     {cats.map(cat => <option key={cat.catId} value={cat.catId}>{cat.catId}: {cat.name}</option> )}
                 </select>
             </div>

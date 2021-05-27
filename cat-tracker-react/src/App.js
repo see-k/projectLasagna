@@ -157,7 +157,7 @@ function App() {
               <SightingList />
 
             </Route>
-            <Route exact path="/sightings/edit/:id">
+            <Route exact path="/sightings/edit/:sightingId">
               <UpdateSighting />
             </Route>
             <Route exact path="/sightings/:id">
