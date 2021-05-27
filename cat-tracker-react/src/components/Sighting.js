@@ -1,7 +1,7 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
 import {BrowserRouter as Link} from 'react-router-dom';
-
+import { Modal } from 'react-bootstrap';
 
 function Sighting({ sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
    /*const defaultSighting = {
@@ -42,6 +42,8 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
 
     const[cat, setCat] = useState(defaultCat);
 
+    
+
     /*const getSighting = (sightingId) => {
         fetch(`http://localhost:8080/api/cat/${sightingId}`)
         .then((response) => {
@@ -68,14 +70,35 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
         .then((json) => setCat(json))
         .catch(console.log());
     }
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
     //render update and delete if admin
   return (
       <>
-        <div className="card" style={{width: '20rem'}}>
+        <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+            size="sm"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Body><h3>Confirm Delete?</h3></Modal.Body>
+            <Modal.Footer>
+            <button className="btn btn-secondary" onClick={handleClose}>
+                Cancel
+            </button>
+            <button className="btn btn-warning" onClick={deleteById}>
+                Delete
+          </button>
+            </Modal.Footer>
+        </Modal>
+        <div className="card" style={{width: '30rem'}}>
             <div className="row">
                 <div className="col">
                     {/*image here*/}
@@ -101,12 +124,16 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
                     Location: {latitude}, {longitude}
                 </div>
             </div>
-            <Link className="btn btn-warning ml-2" to={`/sightings/edit/${sightingId}`}>Update</Link>
-            <button className="btn btn-secondary" onClick={handleShow}>Delete</button>
-            {/* <Modal show= */}
-            
+            <div className="row">
+                <div className="col">
+                    <Link className="btn btn-warning ml-2" to={`/sightings/edit/${sightingId}`}>Update</Link>
+                </div>
+                <div className="col">
+                    <button className="btn btn-secondary" onClick={handleShow}>Delete</button> 
+                </div>
+            </div>
         </div>
-        </>
+       </> 
   );
 }
 

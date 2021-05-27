@@ -27,7 +27,7 @@ const icon = {
 function SightingsMap() {
     const [sightings, setSightings] = useState([]);
     const [messages, setMessages] = useState("");
-    const [newSighting, setNewSighting] = useState();
+    //const [newSighting, setNewSighting] = useState();
  
     useEffect(() => {
         fetch("http://localhost:8080/api/sighting")
@@ -174,7 +174,10 @@ function SightingsMap() {
                         show={show}
                         onHide={handleClose}
                         backdrop="static"
-                        keyboard={false}>
+                        keyboard={false}
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered>
+                        
                     <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">Cat Sighting</Modal.Title>
                     </Modal.Header>
