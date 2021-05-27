@@ -133,8 +133,7 @@ function SightingsMap() {
     }, []);
     
     const {isLoaded, loadError} = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_API_KEY,
-        libraries: ["places"]
+        googleMapsApiKey: process.env.REACT_APP_API_KEY
     })
 
     if(loadError) {

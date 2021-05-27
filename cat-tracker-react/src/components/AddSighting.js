@@ -28,7 +28,10 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
 
     // *** UPLOAD TO AZURE STORAGE ***
     const blobsInContainer = await uploadFileToBlob(fileSelected);
-
+    if(fileSelected != null){
+      setPicture(fileSelected.name)
+    }
+    
     // prepare UI for results
     setBlobList(blobsInContainer);
 
