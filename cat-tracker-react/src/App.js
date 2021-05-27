@@ -91,28 +91,35 @@ function App() {
                   <img src={logo} alt="Logo"/>
                 </Link>
               </li>
-              <li>
-                <Link className="link" to="/cats" href="#">Cat Profiles</Link>
-              </li>
-              <li>
-                <Link className="link" to="/sighting-map" href="#">Sightings</Link>
-              </li>
-              
+              {(user && user.isValid()) ? ( 
+                <li>
+                  <Link className="link" to="/cats" href="#">Cat Profiles</Link>
+                </li>
+              ) : null }
+              {(user && user.isValid()) ? ( 
+                <li>
+                  <Link className="link" to="/sighting-map" href="#">Sightings</Link>
+                </li>
+              ) : null }
+
               <Link className="link" to="/faq" href="#">FAQs</Link>
               <Link className="link" to="/about" href="#">About Us</Link>
               <Link className="link" to="/contact" href="#">Contact Us</Link>
 
               {(user && user.isValid()) ? ( 
-                <p>Hello, {user.userName}!</p>
-               ) : (
-                null
-              )}
-              <Link className="btn btn-primary" to="/login">Log In</Link>
+                <h4> {loginMsg}</h4>
+               ) : null }
+
+              { !user ? ( 
+                <Link className="btn btn-primary" to="/login">Log In</Link>
+              ) : null}
+              
+              
               {(user && user.isValid()) ? ( 
                 <button className="btn btn-primary" onClick={logout}>Log Out</button>
-               ) : (
-                null
-              )}
+
+               ) : null }
+
           </ul>
 
           <Switch>
