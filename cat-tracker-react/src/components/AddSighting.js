@@ -45,7 +45,7 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
     const DisplayForm = () => (
       <div>
         <input type="file" onChange={onFileChange} key={inputKey || ''} />
-        <button type="submit" onClick={onFileUpload}>
+        <button type="submit" className="btn btn-warning" onClick={onFileUpload}>
           Upload!
             </button>
       </div>
@@ -53,24 +53,18 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
   
     // display file name and image
     const DisplayImagesFromContainer = () => (
-      <div>
-        <h2>Container items</h2>
-        <ul>
-          {blobList.map((item) => {
-            return (
-              <li key={item}>
-                <div>
-                  {Path.basename(item)}
-                  <br />
-                  <img src={item} alt={item} height="200" />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+      
+      <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <h4 class="alert-heading">Upload Complete!</h4>
+        <p class="mb-0"> Fill out the form below to add image to sighting<a href="#" class="alert-link"></a>.</p>
       </div>
+      
     );
   
+
+
+
     const[cats, setCats] = useState([]);
 
     useEffect(() => {
@@ -91,6 +85,8 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       const [sightingDescription, setSightingDescription] = useState("");
       const [sightingDate, setSightingDate] = useState(time.toISOString().substring(0,10));
       const [sightingTime, setSightingTime] = useState(time.toLocaleTimeString('it-IT'));
+      // const [sightingLatitude, setSightingLatitude] = useState(latitude);
+      //const [sightingLongitude, setSightingLongitude] = useState(longitude);
       const [disabled, setDisabled] = useState(false);
       const [usersId, setUsersId] = useState(1);
       const [catId, setCatId] = useState(0);
@@ -136,12 +132,13 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       };
     
     return (
-        <div className="card" style={{width: "25rem"}}>
+        <div className="card">
+        <h2 className="card-title ml-3">Add Sighting</h2>
         <div className="card-body">
             <form onSubmit={handleAdd}>
               
             <div>
-              <p>Upload a picture:</p>
+              <h1>Upload a picture</h1>
               {storageConfigured && !uploading && DisplayForm()}
               {storageConfigured && uploading && <div>Uploading</div>}
               <hr />
@@ -194,15 +191,7 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
             {/* render only if admin permission */}
             <div className="form-group"> 
                 <label htmlFor="chooseCat">Cat:</label>
-                <input
-                    type="number"
-                    id="chooseCat"
-                    onChange={handleCatChange}
-                    className="form-control"
-                    value={catId}
-                    required>
-                </input>
-                <select id="chooseCat" className="form-control">
+                <select id="chooseCat" onChange={handleCatChange} className="form-control">
                     {cats.map(cat => <option key={cat.catId} value={cat.catId}>{cat.catId}: {cat.name}</option> )}
                 </select>
             </div>
