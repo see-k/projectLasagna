@@ -1,5 +1,6 @@
 import './App.css';
 import logo from './cat-tracker-logo-small.png';
+import 'bootswatch/dist/slate/bootstrap.min.css'; // Added this :boo
 import { useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 

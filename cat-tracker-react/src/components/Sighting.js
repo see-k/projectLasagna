@@ -78,7 +78,9 @@ function Sighting({ sightingId, picture, catDescription, sightingDescription, si
         <div className="card" style={{width: '30rem'}}>
             <div className="row">
                 <div className="col">
-                    {/*image here*/}
+                <div className="col">
+                <img src={`https://cattracker.blob.core.windows.net/tutorial-container/${picture}`} alt={`https://cattracker.blob.core.windows.net/tutorial-container/${picture}`} height="200" />
+                    </div>
                 </div>
                 <div className="col">
                     <li className="list-group-item">
