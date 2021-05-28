@@ -77,7 +77,6 @@ function SightingsMap() {
     //marker needs to store sighting locations
     const [marker, setMarker] = useState(null);
     const [selected, setSelected] = useState(null);
-    const [sightingForm, setSightingForm] = useState(null);
 
     const [addNew, setAddNew] = useState(false);
 

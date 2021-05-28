@@ -1,6 +1,5 @@
 import Sighting from './Sighting';
 import {useEffect, useState } from "react";
-import {Modal} from 'react-bootstrap';
 
 function SightingList() {
 

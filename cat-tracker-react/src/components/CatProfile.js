@@ -1,8 +1,5 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
-import { createFactory } from 'react';
-import Path from 'path';
-import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
 
 function CatProfile() {
 
@@ -23,11 +20,11 @@ function CatProfile() {
     }
 
     //conditional rendering get cat if catId not 0
-    const getCat = async (event) => {
+    const getCat = (event) => {
         event.preventDefault();
         event.stopPropagation();
 
-        await fetch(`http://localhost:8080/api/cat/${catNum}`)
+        fetch(`http://localhost:8080/api/cat/${catNum}`)
         .then((response) => {
             if (response.status !== 200) {
                 console.log(response);
@@ -60,7 +57,7 @@ function CatProfile() {
                 <form onSubmit={getCat}>
                     <div className="form-group">
                         <label>Search Cat Id</label>
-                        <input type="number" min="2" max="100" className="form-control" onChange={handleSetCatId} />
+                        <input type="number" min="1" max="100" className="form-control" onChange={handleSetCatId} />
                         <br></br>
                         <button type="submit" className="btn btn-outline-primary">Find Cat</button>
 
