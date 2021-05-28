@@ -1,8 +1,5 @@
 import './../App.css';
 import {useState, useEffect} from 'react';
-import { createFactory } from 'react';
-import Path from 'path';
-import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
 
 function CatProfile() {
 

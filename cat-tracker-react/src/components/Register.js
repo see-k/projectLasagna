@@ -1,5 +1,3 @@
-import './../App.css';
-
 import { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import AuthContext from './AuthContext';

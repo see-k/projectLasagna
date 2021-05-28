@@ -1,8 +1,8 @@
-import {useState, useEffect} from 'react';
-import {BrowserRouter as Link, useHistory, useParams } from 'react-router-dom';
+import {useState} from 'react';
+import {BrowserRouter as useHistory } from 'react-router-dom';
 
 
-function Sighting({sightingId, picture, catDescription, sightingDescription, sightingDate, sightingTime, latitude, longitude, disabled, usersId, catId, removeSighting }) {
+function Sighting({sightingId, picture, sightingDescription, sightingDate, sightingTime, catId, removeSighting }) {
 
     const history = useHistory();
 

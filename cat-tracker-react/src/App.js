@@ -1,7 +1,7 @@
 import './App.css';
 import logo from './cat-tracker-logo-small.png';
 import 'bootswatch/dist/slate/bootstrap.min.css'; // Added this :boo
-import { useState, useEffect} from 'react';
+import { useState } from 'react';
 import jwt_decode from 'jwt-decode';
 
 import Home from './components/Home';
@@ -115,10 +115,8 @@ function App() {
                 <Link className="btn btn-primary" to="/login">Log In</Link>
               ) : null}
               
-              
               {(user && user.isValid()) ? ( 
                 <Link className="btn btn-primary" to="/logout" onClick={logout}>Log Out</Link>
-
                ) : null }
 
           </ul>
@@ -147,11 +145,11 @@ function App() {
               <CatProfile />
             </Route>
             <Route exact path="/sighting-map">
-            {/* {(user && user.isValid()) ? ( */}
+            {(user && user.isValid()) ? (
                 <SightingsMap />
-              {/* ) : (
+              ) : (
                 <Redirect to="/login" />
-              )} */}
+              )}
             </Route>
             <Route exact path="/sighting-list/cat/:id">
               <SightingList />

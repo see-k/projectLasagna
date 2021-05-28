@@ -1,6 +1,5 @@
 //import './../App.css';
-import {useState, useEffect, useHistory, useParams} from 'react';
-import Path from 'path';
+import {useState, useEffect} from 'react';
 import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
 
 const storageConfigured = isStorageConfigured();
@@ -85,8 +84,6 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       const [sightingDescription, setSightingDescription] = useState("");
       const [sightingDate, setSightingDate] = useState(time.toISOString().substring(0,10));
       const [sightingTime, setSightingTime] = useState(time.toLocaleTimeString('it-IT'));
-      // const [sightingLatitude, setSightingLatitude] = useState(latitude);
-      //const [sightingLongitude, setSightingLongitude] = useState(longitude);
       const [disabled, setDisabled] = useState(false);
       const [usersId, setUsersId] = useState(1);
       const [catId, setCatId] = useState(0);
@@ -132,7 +129,7 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       };
     
     return (
-        <div className="card" style={{width: "25rem"}}>
+        <div className="card" style={{width: "40rem"}}>
         <h2 className="card-title ml-3">Add Sighting</h2>
         <div className="card-body">
             <form onSubmit={handleAdd}>
@@ -199,6 +196,7 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
                     onChange={handleCatChange}
                     className="form-control"
                     value={catId}
+                    placeholder="Enter a registered cat ID or enter 0"
                     required>
                 </input>
                 <select id="chooseCat" className="form-control">
