@@ -132,7 +132,7 @@ function AddSighting({latitude, longitude, time, addSighting, cancel}) {
       };
     
     return (
-        <div className="card">
+        <div className="card" style={{width: "25rem"}}>
         <h2 className="card-title ml-3">Add Sighting</h2>
         <div className="card-body">
             <form onSubmit={handleAdd}>
