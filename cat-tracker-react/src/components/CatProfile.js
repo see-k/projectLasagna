@@ -48,8 +48,14 @@ function CatProfile() {
                 }
                 return response.json();   
         })
+        .then(setShow(true))
         .catch(console.log());
     }
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <div className="card">
@@ -88,7 +94,9 @@ function CatProfile() {
                     <br></br>
                     <button type="text" className="btn btn-outline-danger" onClick={deleteCat}>Delete</button>
                 </div>
-
+                { show ? (
+                    <div className="card">Cat Deleted</div>
+                    ): null }
             </div>
         </div>
     );

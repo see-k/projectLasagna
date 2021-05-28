@@ -163,9 +163,7 @@ function SightingsMap() {
                         backdrop="static"
                         keyboard={false}
                         animation={false}>
-                    <Modal.Header closeButton>
-                        Add a Sighting
-                    </Modal.Header>
+                    <Modal.Header closeButton></Modal.Header>
                     <Modal.Body> 
                 <AddSighting latitude={marker.lat} longitude={marker.lng} time={marker.time} addSighting={addSighting} cancel={removeMarker}
                     />
@@ -208,7 +206,6 @@ function SightingsMap() {
             zoom={10} 
             center={center}
             options={options}
-            // onClick={addSighting}
             onClick={newMarker}
             onLoad={onMapLoad}
             >
@@ -236,8 +233,6 @@ function SightingsMap() {
                     position={{ lat: marker.lat, lng: marker.lng }}
                     onCloseClick={removeMarker}
                         >
-                    {/*link to see more in view sightings*/}
-                    {/*deleteMarker={deleteMarker(selected.time)}*/}
                     <div>
                         <h2>Add a new Sighting?</h2>
                         <button className="btn btn-secondary" onClick={handleAdd}>yes</button>

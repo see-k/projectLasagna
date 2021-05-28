@@ -1,10 +1,7 @@
-import {useState} from 'react';
-import {BrowserRouter as useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 
 function Sighting({sightingId, picture, sightingDescription, sightingDate, sightingTime, catId, removeSighting }) {
-
-    const history = useHistory();
 
     const deleteById = () => {
         fetch(`http://localhost:8080/api/sighting/${sightingId}`, {method: "DELETE" })
@@ -15,7 +12,6 @@ function Sighting({sightingId, picture, sightingDescription, sightingDate, sight
                 return Promise.reject(`delete found with status ${response.status}`)
             }
         })
-        .then(history.push('/sighting-map'))
         .catch(console.log());
     }
 
@@ -32,7 +28,7 @@ function Sighting({sightingId, picture, sightingDescription, sightingDate, sight
 
    
     //conditional rendering get cat if catId not 0
-    const getCat = (catId) => {
+    useEffect(() => {
         fetch(`http://localhost:8080/api/cat/${catId}`)
         .then((response) => {
             if (response.status !== 200) {
@@ -43,7 +39,7 @@ function Sighting({sightingId, picture, sightingDescription, sightingDate, sight
         })
         .then((json) => setCat(json))
         .catch(console.log());
-    }
+    }, [sightingId, catId]);
 
     const [show, setShow] = useState(false);
 
@@ -61,11 +57,11 @@ function Sighting({sightingId, picture, sightingDescription, sightingDate, sight
                 </div>
                 <div className="col">
                     <li className="list-group-item">
-                        Sighting {sightingId}
+                        Sighting Id: {sightingId}
                     </li>
                     { (catId > 1) ?
                     (<li className="list-group-item">
-                        Cat: {cat.catName}
+                        Cat: {cat.name}
                     </li>): null}
                     <li className="list-group-item">
                         Description: {sightingDescription}

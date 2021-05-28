@@ -9,7 +9,7 @@ function Contact() {
           <div className="col">
             <div className="card text-center">
               <h2 className="card-header">Questions? Contact Us!</h2>
-              <div className="card-body text-wrap">
+              <div className="card-body text-wrap" style={{fontSize: 18}}>
                   <ul>Please contact a member of our team with any questions, comments, or concerns.</ul>
                   <h5>Team Lasagna</h5>
                   <li>Chike Okonta - cokonta@dev-10.com</li>

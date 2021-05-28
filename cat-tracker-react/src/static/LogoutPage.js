@@ -9,12 +9,12 @@ function LogoutPage() {
           <div className="col">
             <div className="card text-center">
               <h2 className="card-header">Logout Successful</h2>
-                <div className="card-body">
+                <div className="card-body" style={{fontSize: 18}}>
                   <ul>
-                    <li>You have been successfully logged out ;( </li>
-                    <li>
+                    <ul>You have been successfully logged out ;( </ul>
+                    <ul>
                       Was this a mistake? Log back in <Link to="/login">here</Link>
-                    </li>
+                    </ul>
                   </ul>
                 </div>
             </div>
